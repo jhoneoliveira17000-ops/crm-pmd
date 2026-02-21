@@ -4,9 +4,13 @@ session_start();
 
 function require_login() {
     if (!isset($_SESSION['user_id'])) {
-        header('Content-Type: application/json');
-        http_response_code(401);
-        echo json_encode(['error' => 'Não autorizado']);
+        if (strpos($_SERVER['REQUEST_URI'] ?? '', '/api/') !== false) {
+            header('Content-Type: application/json; charset=utf-8');
+            http_response_code(401);
+            echo json_encode(['error' => 'Não autorizado']);
+            exit;
+        }
+        header('Location: index.php');
         exit;
     }
 }
@@ -14,9 +18,13 @@ function require_login() {
 function require_admin() {
     require_login();
     if ($_SESSION['user_role'] !== 'admin') {
-        header('Content-Type: application/json');
-        http_response_code(403);
-        echo json_encode(['error' => 'Acesso negado. Apenas administradores.']);
+        if (strpos($_SERVER['REQUEST_URI'] ?? '', '/api/') !== false) {
+            header('Content-Type: application/json; charset=utf-8');
+            http_response_code(403);
+            echo json_encode(['error' => 'Acesso negado. Apenas administradores.']);
+            exit;
+        }
+        header('Location: dashboard.php');
         exit;
     }
 }
