@@ -64,18 +64,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         if ($leadDataJson) {
                             $leadData = json_decode($leadDataJson, true);
                             
-                            // Map Fields (You might need to adjust field names based on your form)
-                            // Usually: full_name, phone_number, email
-                            $nome = $leadData['full_name'] ?? 'Lead Facebook';
-                            $email = $leadData['email'] ?? '';
-                            $rawPhone = $leadData['phone_number'] ?? '';
+                            $nome = 'Lead Facebook';
+                            $email = '';
+                            $rawPhone = '';
+                            
+                            // A API Graph da Meta retorna os campos dentro do array 'field_data'
+                            if (isset($leadData['field_data']) && is_array($leadData['field_data'])) {
+                                foreach ($leadData['field_data'] as $field) {
+                                    $fieldName = $field['name'] ?? '';
+                                    $fieldValue = $field['values'][0] ?? '';
+                                    
+                                    // Mapeamento flexível de formulários (Pode vir em português ou inglês)
+                                    if (strpos($fieldName, 'name') !== false || strpos($fieldName, 'nome') !== false) {
+                                        $nome = $fieldValue;
+                                    } elseif (strpos($fieldName, 'email') !== false) {
+                                        $email = $fieldValue;
+                                    } elseif (strpos($fieldName, 'phone') !== false || strpos($fieldName, 'telefone') !== false) {
+                                        $rawPhone = $fieldValue;
+                                    }
+                                }
+                            }
                             
                             // Sanitize Phone (Remove non-digits)
                             $telefone = preg_replace('/\D/', '', $rawPhone);
                             
-                            // Insert into Kanban (Stage 1)
-                            $stmtInsert = $pdo->prepare("INSERT INTO leads (nome, email, telefone, valor_estimado, status_id, origem) VALUES (?, ?, ?, 0, 1, 'Facebook')");
-                            $stmtInsert->execute([$nome, $email, $telefone]);
+                            // Insert into Kanban (Stage 1) - Saving leadGenId to avoid duplicates and allow offline conversion tracking
+                            $stmtInsert = $pdo->prepare("INSERT INTO leads (nome, email, telefone, valor_estimado, status_id, origem, lead_id) VALUES (?, ?, ?, 0, 1, 'Facebook', ?)");
+                            $stmtInsert->execute([$nome, $email, $telefone, $leadGenId]);
                         }
                     }
                 }
