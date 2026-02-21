@@ -116,39 +116,60 @@ try {
     $history_novos = [];
     $history_cancelados = [];
 
+    $history_start = date('Y-m-01', strtotime("-5 months"));
+    $history_end = date('Y-m-t');
+
+    // --- PRE-FETCH EM LOTE PARA ELIMINAR N+1 QUERIES ---
+    // Buscar todos os clientes relevantes para os últimos 6 meses
+    $stmt_clients = $pdo->prepare("SELECT data_inicio_contrato, data_fim_contrato, status_contrato, data_cancelamento, valor_mensal, data_entrada FROM clientes WHERE data_inicio_contrato <= ?");
+    $stmt_clients->execute([$history_end]);
+    $all_clients = $stmt_clients->fetchAll(PDO::FETCH_ASSOC);
+
+    // Buscar todas as despesas dos últimos 6 meses
+    $stmt_exp = $pdo->prepare("SELECT valor, data_despesa FROM despesas WHERE data_despesa BETWEEN ? AND ?");
+    $stmt_exp->execute([$history_start, $history_end]);
+    $all_expenses = $stmt_exp->fetchAll(PDO::FETCH_ASSOC);
+
     for ($i = 5; $i >= 0; $i--) {
         $month_start = date('Y-m-01', strtotime("-$i months"));
         $month_end = date('Y-m-t', strtotime("-$i months"));
-        $label = date('M', strtotime($month_start)); // Jan, Fev...
-        
-        $history_labels[] = $label;
+        $history_labels[] = date('M', strtotime($month_start));
 
-        // MRR histórico
-        $stmt = $pdo->prepare($sqlMRR);
-        $stmt->execute([$month_end, $month_start, $month_start]);
-        $m = $stmt->fetch()['mrr'] ?? 0;
-        $history_mrr[] = (float)$m;
+        $mrr_mes = 0;
+        $novos_mes = 0;
+        $canc_mes = 0;
 
-        // Custos históricos
-        $stmt = $pdo->prepare("SELECT SUM(valor) as total FROM despesas WHERE data_despesa BETWEEN ? AND ?");
-        $stmt->execute([$month_start, $month_end]);
-        $c = $stmt->fetch()['total'] ?? 0;
-        $history_custos[] = (float)$c;
+        foreach ($all_clients as $c) {
+            // Contagem de Novos no mês
+            if (!empty($c['data_entrada']) && $c['data_entrada'] >= $month_start && $c['data_entrada'] <= $month_end) {
+                $novos_mes++;
+            }
+            // Contagem de Cancelados no mês
+            if (!empty($c['data_cancelamento']) && $c['data_cancelamento'] >= $month_start && $c['data_cancelamento'] <= $month_end) {
+                $canc_mes++;
+            }
+            // MRR do mês
+            if (
+                !empty($c['data_inicio_contrato']) && $c['data_inicio_contrato'] <= $month_end &&
+                (empty($c['data_fim_contrato']) || $c['data_fim_contrato'] >= $month_start) &&
+                ($c['status_contrato'] === 'ativo' || ($c['status_contrato'] === 'cancelado' && !empty($c['data_cancelamento']) && $c['data_cancelamento'] >= $month_start))
+            ) {
+                $mrr_mes += (float)$c['valor_mensal'];
+            }
+        }
 
-        // Lucro histórico
-        $history_lucro[] = (float)($m - $c);
+        $custos_mes = 0;
+        foreach ($all_expenses as $e) {
+            if ($e['data_despesa'] >= $month_start && $e['data_despesa'] <= $month_end) {
+                $custos_mes += (float)$e['valor'];
+            }
+        }
 
-        // Novos clientes histórico
-        $stmt = $pdo->prepare("SELECT COUNT(*) as novos FROM clientes WHERE data_entrada BETWEEN ? AND ?");
-        $stmt->execute([$month_start, $month_end]);
-        $n = $stmt->fetch()['novos'] ?? 0;
-        $history_novos[] = (int)$n;
-
-        // Cancelados histórico
-        $stmt = $pdo->prepare("SELECT COUNT(*) as canc FROM clientes WHERE data_cancelamento BETWEEN ? AND ?");
-        $stmt->execute([$month_start, $month_end]);
-        $cnc = $stmt->fetch()['canc'] ?? 0;
-        $history_cancelados[] = (int)$cnc;
+        $history_mrr[] = $mrr_mes;
+        $history_custos[] = $custos_mes;
+        $history_lucro[] = $mrr_mes - $custos_mes;
+        $history_novos[] = $novos_mes;
+        $history_cancelados[] = $canc_mes;
     }
 
     // 9. Distribuição por Método de Pagamento (Ativos)

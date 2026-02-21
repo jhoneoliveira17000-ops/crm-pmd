@@ -258,19 +258,46 @@ if ($method === 'GET') {
         $flowRevenue = [];
         $flowExpenses = [];
         
+        $history_start = date('Y-m-01', strtotime("-5 months"));
+        $history_end = date('Y-m-t');
+
+        // Buscar clientes para calcular MRR Mensal de forma otimizada
+        $stmt_clientes = $pdo->prepare("SELECT data_inicio_contrato, data_fim_contrato, status_contrato, data_cancelamento, valor_mensal FROM clientes WHERE data_inicio_contrato <= ?");
+        $stmt_clientes->execute([$history_end]);
+        $history_clientes = $stmt_clientes->fetchAll(PDO::FETCH_ASSOC);
+
+        // Buscar despesas dos últimos 6 meses para fluxo de caixa
+        $stmt_despesas = $pdo->prepare("SELECT valor, data_despesa FROM despesas WHERE data_despesa BETWEEN ? AND ?");
+        $stmt_despesas->execute([$history_start, $history_end]);
+        $history_despesas = $stmt_despesas->fetchAll(PDO::FETCH_ASSOC);
+        
         for ($i = 5; $i >= 0; $i--) {
             $mStart = date('Y-m-01', strtotime("-$i months"));
             $mEnd = date('Y-m-t', strtotime("-$i months"));
             
             $flowLabels[] = date('M', strtotime($mStart));
             
-            // Rev
-            $flowRevenue[] = calculateMRR($pdo, $mStart, $mEnd);
+            // Rev (MRR In-Memory Calculation)
+            $m_rev = 0;
+            foreach ($history_clientes as $c) {
+                if (
+                    !empty($c['data_inicio_contrato']) && $c['data_inicio_contrato'] <= $mEnd &&
+                    (empty($c['data_fim_contrato']) || $c['data_fim_contrato'] >= $mStart) &&
+                    ($c['status_contrato'] === 'ativo' || ($c['status_contrato'] === 'cancelado' && !empty($c['data_cancelamento']) && $c['data_cancelamento'] >= $mStart))
+                ) {
+                    $m_rev += (float)$c['valor_mensal'];
+                }
+            }
+            $flowRevenue[] = $m_rev;
             
-            // Exp
-            $eStmt = $pdo->prepare("SELECT SUM(valor) as total FROM despesas WHERE data_despesa BETWEEN ? AND ?");
-            $eStmt->execute([$mStart, $mEnd]);
-            $flowExpenses[] = (float)($eStmt->fetch()['total'] ?? 0);
+            // Exp (In-Memory Sum)
+            $m_exp = 0;
+            foreach ($history_despesas as $e) {
+                if ($e['data_despesa'] >= $mStart && $e['data_despesa'] <= $mEnd) {
+                    $m_exp += (float)$e['valor'];
+                }
+            }
+            $flowExpenses[] = $m_exp;
         }
 
         json_response([
