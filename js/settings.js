@@ -25,12 +25,7 @@ function toggleTheme() {
     }
 }
 
-// Init theme check
-if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-    document.documentElement.classList.add('dark');
-} else {
-    document.documentElement.classList.remove('dark');
-}
+// Theme Check is now handled instantly in head by theme-loader.js
 
 // Theme Color FOUC Fix: Apply immediately if cached
 (function () {
