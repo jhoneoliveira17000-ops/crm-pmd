@@ -14,12 +14,12 @@ if (file_exists($envPath)) {
     $ssl_ca = $env['DB_SSL_CA'] ?? null;
 } else {
     // Check system environment variables (Railway / Cloud deployment)
-    $host = getenv('DB_HOST') ?: 'localhost';
-    $port = getenv('DB_PORT') ?: 3306;
-    $db   = getenv('DB_NAME') ?: 'pmdcrm';
-    $user = getenv('DB_USER') ?: 'root';
-    $pass = getenv('DB_PASS') ?: '';
-    $ssl_ca = getenv('DB_SSL_CA') ?: null;
+    $host = trim(getenv('DB_HOST') ?: 'localhost', ' "\'');
+    $port = trim(getenv('DB_PORT') ?: '3306', ' "\'');
+    $db   = trim(getenv('DB_NAME') ?: 'pmdcrm', ' "\'');
+    $user = trim(getenv('DB_USER') ?: 'root', ' "\'');
+    $pass = trim(getenv('DB_PASS') ?: '', ' "\'');
+    $ssl_ca = trim(getenv('DB_SSL_CA') ?: '', ' "\'');
     
     if ($host === 'localhost' && empty($pass)) {
         die(json_encode(['error' => 'Acesso negado: Variaveis de ambiente nao encontradas no Servidor.']));
