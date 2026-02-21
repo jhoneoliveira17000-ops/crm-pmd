@@ -37,6 +37,9 @@ try {
     $stmt->execute([$nome, $email, $senha_hash, $role]);
     json_response(['message' => 'Usuário registrado com sucesso'], 201);
 } catch (PDOException $e) {
-    json_response(['error' => 'Erro ao registrar usuário: ' . $e->getMessage()], 500);
+    if ($e->getCode() == 23000) {
+        json_response(['error' => 'Email já cadastrado'], 409);
+    }
+    json_response(['error' => 'Erro interno ao registrar.'], 500);
 }
 ?>
