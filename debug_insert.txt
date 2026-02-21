@@ -1,0 +1,32 @@
+Array
+(
+    [id] => 
+    [nome_empresa] => jhoneteste
+    [cnpj] => 887675674
+    [nome_responsavel] => jhone
+    [email] => teste@gmail.com
+    [whatsapp] => 87876756
+    [valor_mensal] => 1900
+    [dia_vencimento] => 18
+    [data_inicio] => 2026-02-18
+    [duracao_contrato] => 12
+    [status_contrato] => ativo
+    [link_pasta] => 
+)
+PDO Error: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect date value: '' for column 'data_inicio_contrato' at row 1
+PDO Error: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect date value: '' for column 'data_inicio_contrato' at row 1
+PDO Error: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect date value: '' for column 'data_inicio_contrato' at row 1
+PDO Error: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect date value: '' for column 'data_inicio_contrato' at row 1
+PDO Error: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect date value: '' for column 'data_inicio_contrato' at row 1
+PDO Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'nicho' in 'field list'
+PDO Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'nicho' in 'field list'
+PDO Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'nicho' in 'field list'
+PDO Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'nicho' in 'field list'
+PDO Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'nicho' in 'field list'
+PDO Error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'nicho' in 'field list'
+PDO Error: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect date value: '' for column 'data_inicio_contrato' at row 1
+PDO Error: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect date value: '' for column 'data_inicio_contrato' at row 1
+PDO Error: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect date value: '' for column 'data_inicio_contrato' at row 1
+PDO Error: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect date value: '' for column 'data_inicio_contrato' at row 1
+PDO Error: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect date value: '' for column 'data_inicio_contrato' at row 1
+PDO Error: SQLSTATE[22007]: Invalid datetime format: 1292 Incorrect date value: '' for column 'data_inicio_contrato' at row 1

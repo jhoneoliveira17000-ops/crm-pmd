@@ -1,0 +1,178 @@
+[Sat Feb 21 13:11:55 2026] PHP 8.5.2 Development Server (http://0.0.0.0:8000) started
+[Sat Feb 21 13:11:57 2026] 127.0.0.1:63135 Accepted
+[Sat Feb 21 13:11:57 2026] 127.0.0.1:63135 [200]: HEAD /login.php
+[Sat Feb 21 13:11:57 2026] 127.0.0.1:63135 Closing
+[Sat Feb 21 13:12:15 2026] 127.0.0.1:63139 Accepted
+[Sat Feb 21 13:12:15 2026] 127.0.0.1:63139 [401]: GET /clientes.php
+[Sat Feb 21 13:12:15 2026] 127.0.0.1:63139 Closing
+[Sat Feb 21 13:12:15 2026] 127.0.0.1:63141 Accepted
+[Sat Feb 21 13:12:15 2026] 127.0.0.1:63141 [200]: GET /favicon.ico
+[Sat Feb 21 13:12:15 2026] 127.0.0.1:63141 Closing
+[Sat Feb 21 13:12:19 2026] 127.0.0.1:63148 Accepted
+[Sat Feb 21 13:12:19 2026] 127.0.0.1:63148 [200]: GET /login.php
+[Sat Feb 21 13:12:19 2026] 127.0.0.1:63148 Closing
+[Sat Feb 21 13:12:19 2026] 127.0.0.1:63150 Accepted
+[Sat Feb 21 13:12:19 2026] 127.0.0.1:63150 [200]: GET /js/theme-loader.js
+[Sat Feb 21 13:12:19 2026] 127.0.0.1:63152 Accepted
+[Sat Feb 21 13:12:20 2026] 127.0.0.1:63152 [200]: GET /js/settings.js
+[Sat Feb 21 13:12:20 2026] 127.0.0.1:63150 Closing
+[Sat Feb 21 13:12:20 2026] 127.0.0.1:63152 Closing
+[Sat Feb 21 13:12:20 2026] 127.0.0.1:63154 Accepted
+[Sat Feb 21 13:12:20 2026] 127.0.0.1:63154 [401]: GET /api/settings.php
+[Sat Feb 21 13:12:20 2026] 127.0.0.1:63154 Closing
+[Sat Feb 21 13:12:20 2026] 127.0.0.1:63157 Accepted
+[Sat Feb 21 13:12:20 2026] 127.0.0.1:63157 [200]: GET /favicon.ico
+[Sat Feb 21 13:12:20 2026] 127.0.0.1:63157 Closing
+[Sat Feb 21 13:12:39 2026] 127.0.0.1:63164 Accepted
+[Sat Feb 21 13:12:40 2026] 127.0.0.1:63164 [200]: POST /api/login.php
+[Sat Feb 21 13:12:40 2026] 127.0.0.1:63164 Closing
+[Sat Feb 21 13:12:40 2026] 127.0.0.1:63167 Accepted
+[Sat Feb 21 13:12:40 2026] 127.0.0.1:63167 [200]: GET /dashboard.php
+[Sat Feb 21 13:12:40 2026] 127.0.0.1:63167 Closing
+[Sat Feb 21 13:12:40 2026] 127.0.0.1:63169 Accepted
+[Sat Feb 21 13:12:40 2026] 127.0.0.1:63173 Accepted
+[Sat Feb 21 13:12:40 2026] 127.0.0.1:63169 [200]: GET /js/theme-loader.js
+[Sat Feb 21 13:12:40 2026] 127.0.0.1:63173 [200]: GET /assets/uploads/logos/logo_1771538955.png
+[Sat Feb 21 13:12:40 2026] 127.0.0.1:63169 Closing
+[Sat Feb 21 13:12:40 2026] 127.0.0.1:63173 Closing
+[Sat Feb 21 13:12:40 2026] 127.0.0.1:63175 Accepted
+[Sat Feb 21 13:12:40 2026] 127.0.0.1:63175 [200]: GET /js/settings.js?v=1771690360
+[Sat Feb 21 13:12:40 2026] 127.0.0.1:63175 Closing
+[Sat Feb 21 13:12:40 2026] 127.0.0.1:63178 Accepted
+[Sat Feb 21 13:12:40 2026] 127.0.0.1:63179 Accepted
+[Sat Feb 21 13:12:40 2026] 127.0.0.1:63178 [200]: GET /api/notifications.php
+[Sat Feb 21 13:12:40 2026] 127.0.0.1:63178 Closing
+[Sat Feb 21 13:12:40 2026] 127.0.0.1:63179 [200]: GET /api/metricas_dashboard.php?inicio=2025-12-01&fim=2026-02-28
+[Sat Feb 21 13:12:40 2026] 127.0.0.1:63179 Closing
+[Sat Feb 21 13:12:40 2026] 127.0.0.1:63183 Accepted
+[Sat Feb 21 13:12:40 2026] 127.0.0.1:63185 Accepted
+[Sat Feb 21 13:12:40 2026] 127.0.0.1:63183 [200]: GET /api/settings.php
+[Sat Feb 21 13:12:40 2026] 127.0.0.1:63183 Closing
+[Sat Feb 21 13:12:40 2026] 127.0.0.1:63185 [200]: GET /favicon.ico
+[Sat Feb 21 13:12:40 2026] 127.0.0.1:63185 Closing
+[Sat Feb 21 13:12:46 2026] 127.0.0.1:63189 Accepted
+[Sat Feb 21 13:12:46 2026] 127.0.0.1:63191 Accepted
+[Sat Feb 21 13:12:46 2026] 127.0.0.1:63189 [200]: GET /clientes.php
+[Sat Feb 21 13:12:46 2026] 127.0.0.1:63189 Closing
+[Sat Feb 21 13:12:46 2026] 127.0.0.1:63191 [200]: GET /js/theme-loader.js
+[Sat Feb 21 13:12:46 2026] 127.0.0.1:63195 Accepted
+[Sat Feb 21 13:12:46 2026] 127.0.0.1:63191 Closing
+[Sat Feb 21 13:12:46 2026] 127.0.0.1:63195 [200]: GET /assets/uploads/logos/logo_1771538955.png
+[Sat Feb 21 13:12:46 2026] 127.0.0.1:63195 Closing
+[Sat Feb 21 13:12:46 2026] 127.0.0.1:63197 Accepted
+[Sat Feb 21 13:12:46 2026] 127.0.0.1:63197 [200]: GET /js/client_bi.js
+[Sat Feb 21 13:12:46 2026] 127.0.0.1:63197 Closing
+[Sat Feb 21 13:12:46 2026] 127.0.0.1:63199 Accepted
+[Sat Feb 21 13:12:46 2026] 127.0.0.1:63199 [200]: GET /js/settings.js?v=1771690366
+[Sat Feb 21 13:12:46 2026] 127.0.0.1:63199 Closing
+[Sat Feb 21 13:12:47 2026] 127.0.0.1:63201 Accepted
+[Sat Feb 21 13:12:47 2026] 127.0.0.1:63201 [200]: GET /api/clientes.php
+[Sat Feb 21 13:12:47 2026] 127.0.0.1:63201 Closing
+[Sat Feb 21 13:12:47 2026] 127.0.0.1:63204 Accepted
+[Sat Feb 21 13:12:47 2026] 127.0.0.1:63204 [200]: GET /api/settings.php
+[Sat Feb 21 13:12:47 2026] 127.0.0.1:63204 Closing
+[Sat Feb 21 13:12:47 2026] 127.0.0.1:63207 Accepted
+[Sat Feb 21 13:12:47 2026] 127.0.0.1:63207 [200]: GET /favicon.ico
+[Sat Feb 21 13:12:47 2026] 127.0.0.1:63207 Closing
+[Sat Feb 21 13:12:56 2026] 127.0.0.1:63209 Accepted
+[Sat Feb 21 13:12:56 2026] 127.0.0.1:63209 [200]: GET /api/cliente_detalhes.php?id=36
+[Sat Feb 21 13:12:56 2026] 127.0.0.1:63209 Closing
+[Sat Feb 21 13:19:22 2026] 127.0.0.1:63305 Accepted
+[Sat Feb 21 13:19:22 2026] 127.0.0.1:63306 Accepted
+[Sat Feb 21 13:19:23 2026] 127.0.0.1:63305 [200]: GET /dashboard.php
+[Sat Feb 21 13:19:23 2026] 127.0.0.1:63305 Closing
+[Sat Feb 21 13:19:23 2026] 127.0.0.1:63310 Accepted
+[Sat Feb 21 13:19:23 2026] 127.0.0.1:63306 [200]: GET /js/theme-loader.js
+[Sat Feb 21 13:19:23 2026] 127.0.0.1:63312 Accepted
+[Sat Feb 21 13:19:23 2026] 127.0.0.1:63310 [200]: GET /assets/uploads/logos/logo_1771538955.png
+[Sat Feb 21 13:19:23 2026] 127.0.0.1:63312 [200]: GET /assets/uploads/img_6997869075500.png
+[Sat Feb 21 13:19:23 2026] 127.0.0.1:63306 Closing
+[Sat Feb 21 13:19:23 2026] 127.0.0.1:63310 Closing
+[Sat Feb 21 13:19:23 2026] 127.0.0.1:63314 Accepted
+[Sat Feb 21 13:19:23 2026] 127.0.0.1:63314 [200]: GET /js/settings.js?v=1771690763
+[Sat Feb 21 13:19:23 2026] 127.0.0.1:63312 Closing
+[Sat Feb 21 13:19:23 2026] 127.0.0.1:63314 Closing
+[Sat Feb 21 13:19:23 2026] 127.0.0.1:63317 Accepted
+[Sat Feb 21 13:19:23 2026] 127.0.0.1:63318 Accepted
+[Sat Feb 21 13:19:23 2026] 127.0.0.1:63317 [200]: GET /api/notifications.php
+[Sat Feb 21 13:19:23 2026] 127.0.0.1:63317 Closing
+[Sat Feb 21 13:19:23 2026] 127.0.0.1:63318 [200]: GET /api/metricas_dashboard.php?inicio=2025-12-01&fim=2026-02-28
+[Sat Feb 21 13:19:23 2026] 127.0.0.1:63318 Closing
+[Sat Feb 21 13:19:23 2026] 127.0.0.1:63322 Accepted
+[Sat Feb 21 13:19:23 2026] 127.0.0.1:63322 [200]: GET /api/settings.php
+[Sat Feb 21 13:19:23 2026] 127.0.0.1:63322 Closing
+[Sat Feb 21 13:19:23 2026] 127.0.0.1:63325 Accepted
+[Sat Feb 21 13:19:23 2026] 127.0.0.1:63325 [200]: GET /assets/uploads/logos/logo_1771538955.png
+[Sat Feb 21 13:19:23 2026] 127.0.0.1:63325 Closing
+[Sat Feb 21 13:19:23 2026] 127.0.0.1:63328 Accepted
+[Sat Feb 21 13:19:23 2026] 127.0.0.1:63328 [200]: GET /favicon.ico
+[Sat Feb 21 13:19:23 2026] 127.0.0.1:63328 Closing
+[Sat Feb 21 13:19:27 2026] 127.0.0.1:63334 Accepted
+[Sat Feb 21 13:19:27 2026] 127.0.0.1:63334 [200]: GET /clientes.php
+[Sat Feb 21 13:19:27 2026] 127.0.0.1:63334 Closing
+[Sat Feb 21 13:19:27 2026] 127.0.0.1:63336 Accepted
+[Sat Feb 21 13:19:27 2026] 127.0.0.1:63336 [200]: GET /js/theme-loader.js
+[Sat Feb 21 13:19:27 2026] 127.0.0.1:63340 Accepted
+[Sat Feb 21 13:19:27 2026] 127.0.0.1:63341 Accepted
+[Sat Feb 21 13:19:27 2026] 127.0.0.1:63336 Closing
+[Sat Feb 21 13:19:27 2026] 127.0.0.1:63340 [200]: GET /assets/uploads/logos/logo_1771538955.png
+[Sat Feb 21 13:19:27 2026] 127.0.0.1:63341 [200]: GET /assets/uploads/img_6997869075500.png
+[Sat Feb 21 13:19:27 2026] 127.0.0.1:63340 Closing
+[Sat Feb 21 13:19:27 2026] 127.0.0.1:63341 Closing
+[Sat Feb 21 13:19:27 2026] 127.0.0.1:63344 Accepted
+[Sat Feb 21 13:19:27 2026] 127.0.0.1:63345 Accepted
+[Sat Feb 21 13:19:27 2026] 127.0.0.1:63344 [200]: GET /js/client_bi.js
+[Sat Feb 21 13:19:27 2026] 127.0.0.1:63345 [200]: GET /js/settings.js?v=1771690767
+[Sat Feb 21 13:19:27 2026] 127.0.0.1:63344 Closing
+[Sat Feb 21 13:19:27 2026] 127.0.0.1:63345 Closing
+[Sat Feb 21 13:19:27 2026] 127.0.0.1:63347 Accepted
+[Sat Feb 21 13:19:27 2026] 127.0.0.1:63347 [200]: GET /api/clientes.php
+[Sat Feb 21 13:19:27 2026] 127.0.0.1:63347 Closing
+[Sat Feb 21 13:19:27 2026] 127.0.0.1:63350 Accepted
+[Sat Feb 21 13:19:27 2026] 127.0.0.1:63350 [200]: GET /api/settings.php
+[Sat Feb 21 13:19:27 2026] 127.0.0.1:63350 Closing
+[Sat Feb 21 13:19:27 2026] 127.0.0.1:63353 Accepted
+[Sat Feb 21 13:19:27 2026] 127.0.0.1:63353 [200]: GET /favicon.ico
+[Sat Feb 21 13:19:27 2026] 127.0.0.1:63353 Closing
+[Sat Feb 21 13:19:28 2026] 127.0.0.1:63355 Accepted
+[Sat Feb 21 13:19:28 2026] 127.0.0.1:63355 [200]: GET /api/cliente_detalhes.php?id=36
+[Sat Feb 21 13:19:28 2026] 127.0.0.1:63355 Closing
+[Sat Feb 21 13:23:07 2026] 127.0.0.1:63387 Accepted
+[Sat Feb 21 13:23:07 2026] 127.0.0.1:63388 Accepted
+[Sat Feb 21 13:23:07 2026] 127.0.0.1:63387 [200]: GET /clientes.php
+[Sat Feb 21 13:23:07 2026] 127.0.0.1:63387 Closing
+[Sat Feb 21 13:23:07 2026] 127.0.0.1:63392 Accepted
+[Sat Feb 21 13:23:07 2026] 127.0.0.1:63388 [200]: GET /js/theme-loader.js
+[Sat Feb 21 13:23:07 2026] 127.0.0.1:63394 Accepted
+[Sat Feb 21 13:23:07 2026] 127.0.0.1:63392 [200]: GET /assets/uploads/logos/logo_1771538955.png
+[Sat Feb 21 13:23:07 2026] 127.0.0.1:63394 [200]: GET /assets/uploads/img_6997869075500.png
+[Sat Feb 21 13:23:07 2026] 127.0.0.1:63388 Closing
+[Sat Feb 21 13:23:07 2026] 127.0.0.1:63392 Closing
+[Sat Feb 21 13:23:07 2026] 127.0.0.1:63396 Accepted
+[Sat Feb 21 13:23:07 2026] 127.0.0.1:63396 [200]: GET /js/client_bi.js
+[Sat Feb 21 13:23:07 2026] 127.0.0.1:63394 Closing
+[Sat Feb 21 13:23:07 2026] 127.0.0.1:63396 Closing
+[Sat Feb 21 13:23:07 2026] 127.0.0.1:63398 Accepted
+[Sat Feb 21 13:23:07 2026] 127.0.0.1:63398 [200]: GET /js/settings.js?v=1771690987
+[Sat Feb 21 13:23:07 2026] 127.0.0.1:63398 Closing
+[Sat Feb 21 13:23:07 2026] 127.0.0.1:63401 Accepted
+[Sat Feb 21 13:23:07 2026] 127.0.0.1:63401 [200]: GET /api/clientes.php
+[Sat Feb 21 13:23:07 2026] 127.0.0.1:63401 Closing
+[Sat Feb 21 13:23:07 2026] 127.0.0.1:63404 Accepted
+[Sat Feb 21 13:23:07 2026] 127.0.0.1:63404 [200]: GET /api/settings.php
+[Sat Feb 21 13:23:07 2026] 127.0.0.1:63404 Closing
+[Sat Feb 21 13:23:07 2026] 127.0.0.1:63407 Accepted
+[Sat Feb 21 13:23:07 2026] 127.0.0.1:63407 [200]: GET /favicon.ico
+[Sat Feb 21 13:23:07 2026] 127.0.0.1:63407 Closing
+[Sat Feb 21 13:23:09 2026] 127.0.0.1:63412 Accepted
+[Sat Feb 21 13:23:09 2026] 127.0.0.1:63412 [200]: GET /api/cliente_detalhes.php?id=36
+[Sat Feb 21 13:23:09 2026] 127.0.0.1:63412 Closing
+[Sat Feb 21 13:23:21 2026] 127.0.0.1:63418 Accepted
+[Sat Feb 21 13:23:22 2026] 127.0.0.1:63418 [200]: POST /api/cliente_notas.php
+[Sat Feb 21 13:23:22 2026] 127.0.0.1:63418 Closing
+[Sat Feb 21 13:23:22 2026] 127.0.0.1:63421 Accepted
+[Sat Feb 21 13:23:22 2026] 127.0.0.1:63421 [200]: GET /api/cliente_detalhes.php?id=36
+[Sat Feb 21 13:23:22 2026] 127.0.0.1:63421 Closing
+[Sat Feb 21 13:24:39 2026] 127.0.0.1:63437 Accepted
+[Sat Feb 21 13:24:39 2026] 127.0.0.1:63437 [200]: GET /api/cliente_detalhes.php?id=36
+[Sat Feb 21 13:24:39 2026] 127.0.0.1:63437 Closing

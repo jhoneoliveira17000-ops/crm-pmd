@@ -1,0 +1,20 @@
+[2026-02-18 00:38:19] Input: {"action":"create_transaction","tipo":"receita","valor":"400","descricao":"teste","categoria":"vendas","status":"pago","data_despesa":"2026-02-17"}
+[2026-02-18 00:38:37] Input: {"action":"create_transaction","tipo":"despesa","valor":"400","descricao":"teste","categoria":"vendas","status":"pago","data_despesa":"2026-02-17"}
+[2026-02-18 00:38:45] Input: {"action":"create_transaction","tipo":"receita","valor":"400","descricao":"teste","categoria":"vendas","status":"pago","data_despesa":"2026-02-17"}
+[2026-02-18 00:44:22] Input: {"action":"create_transaction","tipo":"receita","valor":"400","descricao":"teste","categoria":"vendas","status":"pago","data_despesa":"2026-02-17"}
+[2026-02-18 00:45:42] Input: {"action":"create_transaction","tipo":"receita","valor":"400","descricao":"teste","categoria":"vendas","status":"pago","data_despesa":"2026-02-18"}
+[2026-02-18 00:47:55] Input: {"action":"create_transaction","tipo":"receita","valor":"4000","descricao":"teste teste","categoria":"vendas","status":"pago","data_despesa":"2026-02-18"}
+[2026-02-18 00:52:06] Input: {"action":"create_transaction","tipo":"receita","valor":"550","descricao":"testestes","categoria":"vendas","status":"pago","recorrente":"on","parcelas":"4","data_despesa":"2026-02-17"}
+[2026-02-18 00:55:30] Input: {"action":"create_transaction","tipo":"receita","valor":"550","descricao":"testeststetttteteett","categoria":"vendas","status":"pago","recorrente":"on","parcelas":"3","data_despesa":"2026-02-16"}
+[2026-02-18 00:57:09] Input: {"action":"create_transaction","tipo":"receita","valor":"550","descricao":"jhone teste","categoria":"vendas","status":"pago","recorrente":"on","parcelas":"4","data_despesa":"2026-02-17"}
+[2026-02-18 00:59:35] Input: {"action":"create_transaction","tipo":"receita","valor":"350","descricao":"novo teste","categoria":"vendas","status":"pago","recorrente":"on","parcelas":"5","data_despesa":"2026-02-18"}
+[2026-02-18 01:01:52] Input: {"action":"create_transaction","tipo":"receita","valor":"440","descricao":"novo teste 01","categoria":"vendas","status":"pago","parcelas":"12","data_despesa":"2026-02-16"}
+[2026-02-18 01:05:04] Input: {"action":"create_transaction","tipo":"receita","valor":"440","descricao":"teste 03","categoria":"vendas","status":"pago","parcelas":"12","data_despesa":"2026-02-17"}
+[2026-02-18 01:06:41] Input: {"action":"create_transaction","tipo":"receita","valor":"440","descricao":"novo teste 04","categoria":"vendas","status":"pago","parcelas":"12","data_despesa":"2026-02-17"}
+[2026-02-18 01:08:19] Input: {"action":"create_transaction","tipo":"receita","valor":"440","descricao":"jhone novo teste 05","categoria":"vendas","status":"pago","parcelas":"12","data_despesa":"2026-02-17"}
+[2026-02-18 01:15:29] Input: {"action":"create_transaction","tipo":"receita","valor":"5000","descricao":"teste nov teste","categoria":"vendas","status":"pago","parcelas":"12","data_despesa":"2026-02-17"}
+[2026-02-18 12:49:33] Input: {"action":"create_transaction","tipo":"despesa","valor":"450","descricao":"despesa teste","categoria":"operacional","status":"pago","parcelas":"12","data_despesa":"2026-02-18"}
+[2026-02-18 17:22:02] Input: {"action":"create_transaction","tipo":"receita","valor":"500","descricao":"teste 5 meses","categoria":"vendas","status":"pago","recorrente":"on","parcelas":"5","data_despesa":"2026-02-18"}
+[2026-02-19 22:02:12] Input: {"action":"create_transaction","tipo":"receita","valor":"5000","descricao":"Anuncios","categoria":"marketing","status":"pago","recorrente":"on","parcelas":"4","data_despesa":"2026-02-19"}
+[2026-02-19 22:16:00] Input: {"action":"create_transaction","tipo":"despesa","valor":"1000","descricao":"teste","categoria":"marketing","status":"pago","parcelas":"12","data_despesa":"2026-02-19"}
+[2026-02-20 21:58:05] Input: {"action":"create_transaction","tipo":"receita","valor":"5000","descricao":"lp","categoria":"operacional","status":"pago","recorrente":"on","parcelas":"5","data_despesa":"2026-02-20"}

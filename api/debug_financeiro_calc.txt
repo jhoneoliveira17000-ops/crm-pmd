@@ -1,0 +1,346 @@
+[2026-02-18 01:11:30] Starting Calculation on 31 items
+Final: Rev=16460, Exp=400
+[2026-02-18 01:11:32] Starting Calculation on 31 items
+Final: Rev=16460, Exp=400
+[2026-02-18 01:11:32] Starting Calculation on 31 items
+Final: Rev=16460, Exp=400
+[2026-02-18 01:11:34] Starting Calculation on 31 items
+Final: Rev=16460, Exp=400
+[2026-02-18 01:11:35] Starting Calculation on 31 items
+Final: Rev=16460, Exp=400
+[2026-02-18 01:11:36] Starting Calculation on 31 items
+Final: Rev=16460, Exp=400
+[2026-02-18 01:13:23] Starting Calculation on 31 items
+Final: Rev=16460, Exp=400
+[2026-02-18 01:13:29] Starting Calculation on 31 items
+Final: Rev=16460, Exp=400
+[2026-02-18 01:15:06] Starting Calculation on 31 items
+Final: Rev=16460, Exp=400
+[2026-02-18 01:15:09] Starting Calculation on 31 items
+Final: Rev=16460, Exp=400
+[2026-02-18 01:15:12] Starting Calculation on 31 items
+Final: Rev=16460, Exp=400
+[2026-02-18 01:15:14] Starting Calculation on 31 items
+Final: Rev=16460, Exp=400
+[2026-02-18 01:15:31] Starting Calculation on 32 items
+Final: Rev=21460, Exp=400
+[2026-02-18 01:15:36] Starting Calculation on 32 items
+Final: Rev=21460, Exp=400
+[2026-02-18 12:47:23] Starting Calculation on 32 items
+Final: Rev=21460, Exp=400
+[2026-02-18 12:47:59] Starting Calculation on 31 items
+Final: Rev=21110, Exp=400
+[2026-02-18 12:48:01] Starting Calculation on 30 items
+Final: Rev=20760, Exp=400
+[2026-02-18 12:48:03] Starting Calculation on 29 items
+Final: Rev=20210, Exp=400
+[2026-02-18 12:48:06] Starting Calculation on 28 items
+Final: Rev=19660, Exp=400
+[2026-02-18 12:48:08] Starting Calculation on 27 items
+Final: Rev=19310, Exp=400
+[2026-02-18 12:48:10] Starting Calculation on 26 items
+Final: Rev=18760, Exp=400
+[2026-02-18 12:48:12] Starting Calculation on 25 items
+Final: Rev=18210, Exp=400
+[2026-02-18 12:48:14] Starting Calculation on 24 items
+Final: Rev=17660, Exp=400
+[2026-02-18 12:48:16] Starting Calculation on 23 items
+Final: Rev=17660, Exp=400
+[2026-02-18 12:48:18] Starting Calculation on 22 items
+Final: Rev=17310, Exp=400
+[2026-02-18 12:48:20] Starting Calculation on 21 items
+Final: Rev=16760, Exp=400
+[2026-02-18 12:48:23] Starting Calculation on 20 items
+Final: Rev=16210, Exp=400
+[2026-02-18 12:48:25] Starting Calculation on 19 items
+Final: Rev=15660, Exp=400
+[2026-02-18 12:48:27] Starting Calculation on 18 items
+Final: Rev=15660, Exp=400
+[2026-02-18 12:48:29] Starting Calculation on 17 items
+Final: Rev=15310, Exp=400
+[2026-02-18 12:48:31] Starting Calculation on 16 items
+Final: Rev=11310, Exp=400
+[2026-02-18 12:48:33] Starting Calculation on 15 items
+Final: Rev=10910, Exp=400
+[2026-02-18 12:48:35] Starting Calculation on 14 items
+Final: Rev=10510, Exp=400
+[2026-02-18 12:48:37] Starting Calculation on 13 items
+Final: Rev=10110, Exp=400
+[2026-02-18 12:48:39] Starting Calculation on 12 items
+Final: Rev=9610, Exp=400
+[2026-02-18 12:48:41] Starting Calculation on 11 items
+Final: Rev=4610, Exp=400
+[2026-02-18 12:48:43] Starting Calculation on 10 items
+Final: Rev=4170, Exp=400
+[2026-02-18 12:48:46] Starting Calculation on 9 items
+Final: Rev=3620, Exp=400
+[2026-02-18 12:48:48] Starting Calculation on 8 items
+Final: Rev=3070, Exp=400
+[2026-02-18 12:48:50] Starting Calculation on 7 items
+Final: Rev=2630, Exp=400
+[2026-02-18 12:48:53] Starting Calculation on 6 items
+Final: Rev=2230, Exp=400
+[2026-02-18 12:48:56] Starting Calculation on 5 items
+Final: Rev=1830, Exp=400
+[2026-02-18 12:48:59] Starting Calculation on 4 items
+Final: Rev=1390, Exp=400
+[2026-02-18 12:49:01] Starting Calculation on 3 items
+Final: Rev=990, Exp=400
+[2026-02-18 12:49:05] Starting Calculation on 2 items
+Final: Rev=990, Exp=0
+[2026-02-18 12:49:08] Starting Calculation on 1 items
+Final: Rev=550, Exp=0
+[2026-02-18 12:49:34] Starting Calculation on 2 items
+Final: Rev=550, Exp=450
+[2026-02-18 12:57:24] Starting Calculation on 2 items
+Final: Rev=550, Exp=450
+[2026-02-18 15:24:17] Starting Calculation on 2 items
+Final: Rev=550, Exp=450
+[2026-02-18 16:06:18] Starting Calculation on 2 items
+Final: Rev=550, Exp=450
+[2026-02-18 16:06:21] Starting Calculation on 2 items
+Final: Rev=550, Exp=450
+[2026-02-18 16:06:28] Starting Calculation on 2 items
+Final: Rev=550, Exp=450
+[2026-02-18 16:06:34] Starting Calculation on 2 items
+Final: Rev=550, Exp=450
+[2026-02-18 16:06:39] Starting Calculation on 2 items
+Final: Rev=550, Exp=450
+[2026-02-18 16:06:41] Starting Calculation on 2 items
+Final: Rev=550, Exp=450
+[2026-02-18 16:07:26] Starting Calculation on 2 items
+Final: Rev=550, Exp=450
+[2026-02-18 16:14:30] Starting Calculation on 2 items
+Final: Rev=550, Exp=450
+[2026-02-18 16:14:59] Starting Calculation on 2 items
+Final: Rev=550, Exp=450
+[2026-02-18 16:17:19] Starting Calculation on 2 items
+Final: Rev=550, Exp=450
+[2026-02-18 16:17:46] Starting Calculation on 0 items
+Final: Rev=0, Exp=0
+[2026-02-18 16:22:42] Starting Calculation on 2 items
+Final: Rev=550, Exp=450
+[2026-02-18 16:23:06] Starting Calculation on 2 items
+Final: Rev=550, Exp=450
+[2026-02-18 16:24:42] Starting Calculation on 2 items
+Final: Rev=550, Exp=450
+[2026-02-18 16:24:42] Starting Calculation on 2 items
+Final: Rev=550, Exp=450
+[2026-02-18 16:25:33] Starting Calculation on 2 items
+Final: Rev=550, Exp=450
+[2026-02-18 16:27:07] Starting Calculation on 2 items
+Final: Rev=550, Exp=450
+[2026-02-18 16:36:27] Starting Calculation on 2 items
+Final: Rev=550, Exp=450
+[2026-02-18 16:36:41] Starting Calculation on 2 items
+Final: Rev=550, Exp=450
+[2026-02-18 16:36:45] Starting Calculation on 0 items
+Final: Rev=0, Exp=0
+[2026-02-18 16:37:59] Starting Calculation on 2 items
+Final: Rev=550, Exp=450
+[2026-02-18 16:45:43] Starting Calculation on 0 items
+Final: Rev=0, Exp=0
+[2026-02-18 16:48:58] Starting Calculation on 2 items
+Final: Rev=550, Exp=450
+[2026-02-18 16:49:11] Starting Calculation on 0 items
+Final: Rev=0, Exp=0
+[2026-02-18 16:49:33] Starting Calculation on 2 items
+Final: Rev=550, Exp=450
+[2026-02-18 16:49:40] Starting Calculation on 0 items
+Final: Rev=0, Exp=0
+[2026-02-18 16:49:51] Starting Calculation on 2 items
+Final: Rev=550, Exp=450
+[2026-02-18 16:49:59] Starting Calculation on 0 items
+Final: Rev=0, Exp=0
+[2026-02-18 17:21:13] Starting Calculation on 2 items
+Final: Rev=550, Exp=450
+[2026-02-18 17:21:17] Starting Calculation on 0 items
+Final: Rev=0, Exp=0
+[2026-02-18 17:21:22] Starting Calculation on 2 items
+Final: Rev=550, Exp=450
+[2026-02-18 17:22:03] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-18 17:22:13] Starting Calculation on 1 items
+Final: Rev=500, Exp=0
+[2026-02-18 19:02:51] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-18 19:08:00] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-18 19:14:33] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-19 17:21:19] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-19 17:27:58] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-19 17:48:41] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-19 17:48:44] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-19 17:49:47] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-19 18:16:06] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-19 18:16:12] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-19 18:16:32] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-19 18:16:43] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-19 18:16:56] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-19 18:18:41] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-19 18:18:47] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-19 18:19:56] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-19 18:20:06] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-19 18:20:07] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-19 18:24:08] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-19 18:24:16] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-19 18:28:39] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-19 18:31:24] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-19 18:31:28] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-19 18:31:44] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-19 18:31:48] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-19 18:31:53] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-19 18:32:17] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-19 18:32:24] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-19 18:32:44] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-19 18:37:47] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-19 18:46:24] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-19 18:46:41] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-19 18:46:52] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-19 18:46:53] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-19 18:46:57] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-19 18:47:05] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-19 18:47:15] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-19 18:47:29] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-19 18:49:59] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-19 18:51:17] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-19 18:51:21] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-19 18:51:34] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-19 18:51:55] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-19 19:50:35] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-19 21:51:20] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-19 21:51:38] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-19 21:52:23] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-19 22:01:07] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-19 22:01:44] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-19 22:02:13] Starting Calculation on 4 items
+Final: Rev=6050, Exp=450
+[2026-02-19 22:03:15] Starting Calculation on 4 items
+Final: Rev=6050, Exp=450
+[2026-02-19 22:11:08] Starting Calculation on 4 items
+Final: Rev=6050, Exp=450
+[2026-02-19 22:11:53] Starting Calculation on 4 items
+Final: Rev=6050, Exp=450
+[2026-02-19 22:11:58] Starting Calculation on 4 items
+Final: Rev=6050, Exp=450
+[2026-02-19 22:13:50] Starting Calculation on 4 items
+Final: Rev=6050, Exp=450
+[2026-02-19 22:13:58] Starting Calculation on 4 items
+Final: Rev=6050, Exp=450
+[2026-02-19 22:14:07] Starting Calculation on 4 items
+Final: Rev=6050, Exp=450
+[2026-02-19 22:14:18] Starting Calculation on 4 items
+Final: Rev=6050, Exp=450
+[2026-02-19 22:14:45] Starting Calculation on 4 items
+Final: Rev=6050, Exp=450
+[2026-02-19 22:15:03] Starting Calculation on 4 items
+Final: Rev=6050, Exp=450
+[2026-02-19 22:15:23] Starting Calculation on 4 items
+Final: Rev=6050, Exp=450
+[2026-02-19 22:15:43] Starting Calculation on 4 items
+Final: Rev=6050, Exp=450
+[2026-02-19 22:16:01] Starting Calculation on 5 items
+Final: Rev=6050, Exp=1450
+[2026-02-20 12:24:47] Starting Calculation on 5 items
+Final: Rev=6050, Exp=1450
+[2026-02-20 14:19:13] Starting Calculation on 5 items
+Final: Rev=6050, Exp=1450
+[2026-02-20 14:22:09] Starting Calculation on 5 items
+Final: Rev=6050, Exp=1450
+[2026-02-20 16:36:11] Starting Calculation on 5 items
+Final: Rev=6050, Exp=1450
+[2026-02-20 16:36:16] Starting Calculation on 4 items
+Final: Rev=6050, Exp=450
+[2026-02-20 16:36:18] Starting Calculation on 3 items
+Final: Rev=1050, Exp=450
+[2026-02-20 16:36:21] Starting Calculation on 2 items
+Final: Rev=550, Exp=450
+[2026-02-20 16:36:24] Starting Calculation on 1 items
+Final: Rev=550, Exp=0
+[2026-02-20 16:36:27] Starting Calculation on 0 items
+Final: Rev=0, Exp=0
+[2026-02-20 18:42:36] Starting Calculation on 0 items
+Final: Rev=0, Exp=0
+[2026-02-20 18:42:45] Starting Calculation on 0 items
+Final: Rev=0, Exp=0
+[2026-02-20 18:42:51] Starting Calculation on 0 items
+Final: Rev=0, Exp=0
+[2026-02-20 18:43:01] Starting Calculation on 0 items
+Final: Rev=0, Exp=0
+[2026-02-20 18:47:30] Starting Calculation on 0 items
+Final: Rev=0, Exp=0
+[2026-02-20 18:51:47] Starting Calculation on 0 items
+Final: Rev=0, Exp=0
+[2026-02-20 19:57:14] Starting Calculation on 0 items
+Final: Rev=0, Exp=0
+[2026-02-20 19:57:22] Starting Calculation on 0 items
+Final: Rev=0, Exp=0
+[2026-02-20 21:56:54] Starting Calculation on 0 items
+Final: Rev=0, Exp=0
+[2026-02-20 21:57:40] Starting Calculation on 0 items
+Final: Rev=0, Exp=0
+[2026-02-20 21:58:07] Starting Calculation on 1 items
+Final: Rev=5000, Exp=0
+[2026-02-20 23:51:26] Starting Calculation on 1 items
+Final: Rev=5000, Exp=0
+[2026-02-21 13:45:49] Starting Calculation on 1 items
+Final: Rev=5000, Exp=0
+[2026-02-21 18:48:35] Starting Calculation on 1 items
+Final: Rev=5000, Exp=0
+[2026-02-21 19:13:22] Starting Calculation on 1 items
+Final: Rev=5000, Exp=0
+[2026-02-21 19:14:11] Starting Calculation on 1 items
+Final: Rev=5000, Exp=0
+[2026-02-21 19:15:02] Starting Calculation on 1 items
+Final: Rev=5000, Exp=0
+[2026-02-21 19:15:31] Starting Calculation on 1 items
+Final: Rev=5000, Exp=0
+[2026-02-21 19:22:51] Starting Calculation on 1 items
+Final: Rev=5000, Exp=0

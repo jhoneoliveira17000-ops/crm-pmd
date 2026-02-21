@@ -1,0 +1,19 @@
+# PMDCRM .htaccess
+
+# Disable directory browsing
+Options -Indexes
+
+# Set default index file
+DirectoryIndex index.php index.html
+
+# Deny access to .env files
+<FilesMatch "^\.env">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Deny access to .git directories
+<FilesMatch "^\.git">
+    Order allow,deny
+    Deny from all
+</FilesMatch>

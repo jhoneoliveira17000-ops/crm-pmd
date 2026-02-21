@@ -1,0 +1,23 @@
+[17-Feb-2026 14:09:35 UTC] PHP Notice:  session_start(): Ignoring session_start() because a session is already active (started from /Users/jhonesilva/Antigravity/pmdcrm/src/auth.php on line 3) in /Users/jhonesilva/Antigravity/pmdcrm/api/settings.php on line 10
+[17-Feb-2026 14:09:35 UTC] Settings API Request: GET Session: 14ca4dad0c4a25d467cda7b740122ad9 User: 4
+[17-Feb-2026 14:10:27 UTC] PHP Notice:  session_start(): Ignoring session_start() because a session is already active (started from /Users/jhonesilva/Antigravity/pmdcrm/src/auth.php on line 3) in /Users/jhonesilva/Antigravity/pmdcrm/api/settings.php on line 10
+[17-Feb-2026 14:10:27 UTC] Settings API Request: GET Session: 14ca4dad0c4a25d467cda7b740122ad9 User: 4
+[17-Feb-2026 14:11:57 UTC] Settings API Request: GET Session: 14ca4dad0c4a25d467cda7b740122ad9 User: 4
+[17-Feb-2026 14:12:56 UTC] Settings API Request: GET Session: 14ca4dad0c4a25d467cda7b740122ad9 User: 4
+[17-Feb-2026 14:15:14 UTC] Settings API Request: GET Session: 14ca4dad0c4a25d467cda7b740122ad9 User: 4
+[17-Feb-2026 14:16:41 UTC] Settings API Request: GET Session: 14ca4dad0c4a25d467cda7b740122ad9 User: 4
+[17-Feb-2026 14:16:53 UTC] Settings API Request: POST Session: 14ca4dad0c4a25d467cda7b740122ad9 User: 4
+[17-Feb-2026 14:16:53 UTC] Settings API POST: Array
+(
+    [settings] => Array
+        (
+            [theme_color] => #3b82f6
+        )
+
+)
+
+[17-Feb-2026 14:16:53 UTC] Saved theme_color = #3b82f6
+[17-Feb-2026 14:17:06 UTC] Settings API Request: GET Session: 14ca4dad0c4a25d467cda7b740122ad9 User: 4
+[17-Feb-2026 14:17:19 UTC] Settings API Request: GET Session: 14ca4dad0c4a25d467cda7b740122ad9 User: 4
+[17-Feb-2026 14:18:11 UTC] Settings API Request: GET Session: 14ca4dad0c4a25d467cda7b740122ad9 User: 4
+[17-Feb-2026 14:18:24 UTC] Settings API Request: GET Session: 14ca4dad0c4a25d467cda7b740122ad9 User: 4

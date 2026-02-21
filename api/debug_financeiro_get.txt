@@ -1,0 +1,386 @@
+[2026-02-18 00:56:51] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 00:56:51] Found: 18 rows
+[2026-02-18 00:57:10] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 00:57:10] Found: 22 rows
+[2026-02-18 00:57:16] GET Request - Range: current, Start: 2026-02-01, End: 2026-02-28
+[2026-02-18 00:57:16] Found: 12 rows
+[2026-02-18 00:59:01] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 00:59:02] Found: 22 rows
+[2026-02-18 00:59:07] GET Request - Range: current, Start: 2026-02-01, End: 2026-02-28
+[2026-02-18 00:59:07] Found: 12 rows
+[2026-02-18 00:59:14] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 00:59:15] Found: 22 rows
+[2026-02-18 00:59:37] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 00:59:37] Found: 27 rows
+[2026-02-18 00:59:40] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 00:59:40] Found: 27 rows
+[2026-02-18 01:01:33] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 01:01:33] Found: 27 rows
+[2026-02-18 01:01:35] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 01:01:35] Found: 27 rows
+[2026-02-18 01:01:53] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 01:01:53] Found: 28 rows
+[2026-02-18 01:04:49] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 01:04:49] Found: 28 rows
+[2026-02-18 01:05:06] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 01:05:06] Found: 29 rows
+[2026-02-18 01:06:26] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 01:06:27] Found: 29 rows
+[2026-02-18 01:06:42] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 01:06:42] Found: 30 rows
+[2026-02-18 01:08:02] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 01:08:02] Found: 30 rows
+[2026-02-18 01:08:21] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 01:08:21] Found: 31 rows
+[2026-02-18 01:10:06] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 01:10:06] Found: 31 rows
+[2026-02-18 01:10:12] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 01:10:12] Found: 31 rows
+[2026-02-18 01:10:16] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 01:10:16] Found: 31 rows
+[2026-02-18 01:11:30] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 01:11:30] Found: 31 rows
+[2026-02-18 01:11:32] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 01:11:32] Found: 31 rows
+[2026-02-18 01:11:32] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 01:11:32] Found: 31 rows
+[2026-02-18 01:11:34] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 01:11:34] Found: 31 rows
+[2026-02-18 01:11:35] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 01:11:35] Found: 31 rows
+[2026-02-18 01:11:36] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 01:11:36] Found: 31 rows
+[2026-02-18 01:13:23] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 01:13:23] Found: 31 rows
+[2026-02-18 01:13:29] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 01:13:29] Found: 31 rows
+[2026-02-18 01:15:05] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 01:15:06] Found: 31 rows
+[2026-02-18 01:15:09] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 01:15:09] Found: 31 rows
+[2026-02-18 01:15:12] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 01:15:12] Found: 31 rows
+[2026-02-18 01:15:14] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 01:15:14] Found: 31 rows
+[2026-02-18 01:15:31] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 01:15:31] Found: 32 rows
+[2026-02-18 01:15:36] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 01:15:36] Found: 32 rows
+[2026-02-18 12:47:23] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 12:47:23] Found: 32 rows
+[2026-02-18 12:47:59] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 12:47:59] Found: 31 rows
+[2026-02-18 12:48:01] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 12:48:01] Found: 30 rows
+[2026-02-18 12:48:03] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 12:48:03] Found: 29 rows
+[2026-02-18 12:48:06] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 12:48:06] Found: 28 rows
+[2026-02-18 12:48:08] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 12:48:08] Found: 27 rows
+[2026-02-18 12:48:10] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 12:48:10] Found: 26 rows
+[2026-02-18 12:48:12] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 12:48:12] Found: 25 rows
+[2026-02-18 12:48:14] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 12:48:14] Found: 24 rows
+[2026-02-18 12:48:16] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 12:48:16] Found: 23 rows
+[2026-02-18 12:48:18] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 12:48:18] Found: 22 rows
+[2026-02-18 12:48:20] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 12:48:20] Found: 21 rows
+[2026-02-18 12:48:23] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 12:48:23] Found: 20 rows
+[2026-02-18 12:48:25] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 12:48:25] Found: 19 rows
+[2026-02-18 12:48:27] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 12:48:27] Found: 18 rows
+[2026-02-18 12:48:29] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 12:48:29] Found: 17 rows
+[2026-02-18 12:48:31] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 12:48:31] Found: 16 rows
+[2026-02-18 12:48:33] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 12:48:33] Found: 15 rows
+[2026-02-18 12:48:35] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 12:48:35] Found: 14 rows
+[2026-02-18 12:48:37] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 12:48:37] Found: 13 rows
+[2026-02-18 12:48:39] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 12:48:39] Found: 12 rows
+[2026-02-18 12:48:41] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 12:48:41] Found: 11 rows
+[2026-02-18 12:48:43] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 12:48:43] Found: 10 rows
+[2026-02-18 12:48:46] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 12:48:46] Found: 9 rows
+[2026-02-18 12:48:48] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 12:48:48] Found: 8 rows
+[2026-02-18 12:48:50] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 12:48:50] Found: 7 rows
+[2026-02-18 12:48:53] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 12:48:53] Found: 6 rows
+[2026-02-18 12:48:56] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 12:48:56] Found: 5 rows
+[2026-02-18 12:48:59] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 12:48:59] Found: 4 rows
+[2026-02-18 12:49:01] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 12:49:01] Found: 3 rows
+[2026-02-18 12:49:05] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 12:49:05] Found: 2 rows
+[2026-02-18 12:49:08] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 12:49:08] Found: 1 rows
+[2026-02-18 12:49:34] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 12:49:34] Found: 2 rows
+[2026-02-18 12:57:24] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 12:57:24] Found: 2 rows
+[2026-02-18 15:24:17] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 15:24:17] Found: 2 rows
+[2026-02-18 16:06:18] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 16:06:18] Found: 2 rows
+[2026-02-18 16:06:21] GET Request - Range: current, Start: 2026-02-01, End: 2026-02-28
+[2026-02-18 16:06:21] Found: 2 rows
+[2026-02-18 16:06:28] GET Request - Range: custom:2026-07, Start: 2026-02-01, End: 2026-02-28
+[2026-02-18 16:06:28] Found: 2 rows
+[2026-02-18 16:06:34] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 16:06:34] Found: 2 rows
+[2026-02-18 16:06:39] GET Request - Range: custom:2026-10, Start: 2026-02-01, End: 2026-02-28
+[2026-02-18 16:06:39] Found: 2 rows
+[2026-02-18 16:06:41] GET Request - Range: custom:2026-01, Start: 2026-02-01, End: 2026-02-28
+[2026-02-18 16:06:41] Found: 2 rows
+[2026-02-18 16:07:26] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 16:07:26] Found: 2 rows
+[2026-02-18 16:14:30] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-18 16:14:30] Found: 2 rows
+[2026-02-18 16:14:59] GET Request - Range: this_month, Start: 2026-02-01, End: 2026-02-28
+[2026-02-18 16:14:59] Found: 2 rows
+[2026-02-18 16:17:19] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-18 16:17:19] Found: 2 rows
+[2026-02-18 16:17:46] GET Request - Range: this_month, Start: 2023-10-01, End: 2023-10-31
+[2026-02-18 16:17:46] Found: 0 rows
+[2026-02-18 16:22:42] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-18 16:22:42] Found: 2 rows
+[2026-02-18 16:23:06] GET Request - Range: this_month, Start: 2026-02-01, End: 2026-02-28
+[2026-02-18 16:23:06] Found: 2 rows
+[2026-02-18 16:24:42] GET Request - Range: lastMonth, Start: 2026-02-01, End: 2026-02-28
+[2026-02-18 16:24:42] Found: 2 rows
+[2026-02-18 16:24:42] GET Request - Range: 3months, Start: 2025-11-18, End: 2027-12-31
+[2026-02-18 16:24:42] Found: 2 rows
+[2026-02-18 16:25:33] GET Request - Range: this_month, Start: 2026-02-01, End: 2026-02-28
+[2026-02-18 16:25:33] Found: 2 rows
+[2026-02-18 16:27:07] GET Request - Range: lastMonth, Start: 2026-02-01, End: 2026-02-28
+[2026-02-18 16:27:07] Found: 2 rows
+[2026-02-18 16:36:27] GET Request - Range: all, Start: 2000-01-01, End: 2036-12-31
+[2026-02-18 16:36:27] Found: 2 rows
+[2026-02-18 16:36:41] GET Request - Range: this_month, Start: 2026-02-01, End: 2026-02-28
+[2026-02-18 16:36:41] Found: 2 rows
+[2026-02-18 16:36:45] GET Request - Range: this_month, Start: 2023-10-01, End: 2023-10-31
+[2026-02-18 16:36:45] Found: 0 rows
+[2026-02-18 16:37:59] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-18 16:37:59] Found: 2 rows
+[2026-02-18 16:45:43] GET Request - Range: this_month, Start: 2026-01-01, End: 2026-01-31
+[2026-02-18 16:45:43] Found: 0 rows
+[2026-02-18 16:48:58] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-18 16:48:58] Found: 2 rows
+[2026-02-18 16:49:11] GET Request - Range: this_month, Start: 2026-01-01, End: 2026-01-31
+[2026-02-18 16:49:11] Found: 0 rows
+[2026-02-18 16:49:33] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-18 16:49:33] Found: 2 rows
+[2026-02-18 16:49:40] GET Request - Range: this_month, Start: 2026-01-01, End: 2026-01-31
+[2026-02-18 16:49:40] Found: 0 rows
+[2026-02-18 16:49:51] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-18 16:49:51] Found: 2 rows
+[2026-02-18 16:49:59] GET Request - Range: this_month, Start: 2026-01-01, End: 2026-01-31
+[2026-02-18 16:49:59] Found: 0 rows
+[2026-02-18 17:21:13] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-18 17:21:13] Found: 2 rows
+[2026-02-18 17:21:17] GET Request - Range: this_month, Start: 2026-01-01, End: 2026-01-31
+[2026-02-18 17:21:17] Found: 0 rows
+[2026-02-18 17:21:22] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-18 17:21:22] Found: 2 rows
+[2026-02-18 17:22:03] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-18 17:22:03] Found: 3 rows
+[2026-02-18 17:22:13] GET Request - Range: this_month, Start: 2026-06-01, End: 2026-06-30
+[2026-02-18 17:22:13] Found: 1 rows
+[2026-02-18 19:02:51] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-18 19:02:51] Found: 3 rows
+[2026-02-18 19:08:00] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-18 19:08:00] Found: 3 rows
+[2026-02-18 19:14:33] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-18 19:14:33] Found: 3 rows
+[2026-02-19 17:21:19] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 17:21:19] Found: 3 rows
+[2026-02-19 17:27:58] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 17:27:58] Found: 3 rows
+[2026-02-19 17:48:41] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 17:48:41] Found: 3 rows
+[2026-02-19 17:48:44] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 17:48:44] Found: 3 rows
+[2026-02-19 17:49:47] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 17:49:47] Found: 3 rows
+[2026-02-19 18:16:06] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 18:16:06] Found: 3 rows
+[2026-02-19 18:16:12] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 18:16:12] Found: 3 rows
+[2026-02-19 18:16:32] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 18:16:32] Found: 3 rows
+[2026-02-19 18:16:43] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 18:16:43] Found: 3 rows
+[2026-02-19 18:16:56] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 18:16:56] Found: 3 rows
+[2026-02-19 18:18:41] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 18:18:41] Found: 3 rows
+[2026-02-19 18:18:47] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 18:18:47] Found: 3 rows
+[2026-02-19 18:19:56] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 18:19:56] Found: 3 rows
+[2026-02-19 18:20:06] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 18:20:06] Found: 3 rows
+[2026-02-19 18:20:07] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 18:20:07] Found: 3 rows
+[2026-02-19 18:24:08] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 18:24:08] Found: 3 rows
+[2026-02-19 18:24:16] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 18:24:16] Found: 3 rows
+[2026-02-19 18:28:39] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 18:28:39] Found: 3 rows
+[2026-02-19 18:31:24] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 18:31:24] Found: 3 rows
+[2026-02-19 18:31:28] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 18:31:28] Found: 3 rows
+[2026-02-19 18:31:44] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 18:31:44] Found: 3 rows
+[2026-02-19 18:31:48] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 18:31:48] Found: 3 rows
+[2026-02-19 18:31:53] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 18:31:53] Found: 3 rows
+[2026-02-19 18:32:17] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 18:32:17] Found: 3 rows
+[2026-02-19 18:32:24] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 18:32:24] Found: 3 rows
+[2026-02-19 18:32:44] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 18:32:44] Found: 3 rows
+[2026-02-19 18:37:47] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 18:37:47] Found: 3 rows
+[2026-02-19 18:46:24] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 18:46:24] Found: 3 rows
+[2026-02-19 18:46:41] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 18:46:41] Found: 3 rows
+[2026-02-19 18:46:52] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 18:46:52] Found: 3 rows
+[2026-02-19 18:46:53] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 18:46:53] Found: 3 rows
+[2026-02-19 18:46:57] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 18:46:57] Found: 3 rows
+[2026-02-19 18:47:05] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 18:47:05] Found: 3 rows
+[2026-02-19 18:47:15] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 18:47:15] Found: 3 rows
+[2026-02-19 18:47:29] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 18:47:29] Found: 3 rows
+[2026-02-19 18:49:59] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 18:49:59] Found: 3 rows
+[2026-02-19 18:51:17] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 18:51:17] Found: 3 rows
+[2026-02-19 18:51:21] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 18:51:21] Found: 3 rows
+[2026-02-19 18:51:34] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 18:51:34] Found: 3 rows
+[2026-02-19 18:51:55] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 18:51:55] Found: 3 rows
+[2026-02-19 19:50:35] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 19:50:35] Found: 3 rows
+[2026-02-19 21:51:20] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 21:51:20] Found: 3 rows
+[2026-02-19 21:51:38] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 21:51:38] Found: 3 rows
+[2026-02-19 21:52:23] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 21:52:23] Found: 3 rows
+[2026-02-19 22:01:07] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 22:01:07] Found: 3 rows
+[2026-02-19 22:01:44] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 22:01:44] Found: 3 rows
+[2026-02-19 22:02:13] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 22:02:13] Found: 4 rows
+[2026-02-19 22:03:15] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 22:03:15] Found: 4 rows
+[2026-02-19 22:11:08] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 22:11:08] Found: 4 rows
+[2026-02-19 22:11:53] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 22:11:53] Found: 4 rows
+[2026-02-19 22:11:58] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 22:11:58] Found: 4 rows
+[2026-02-19 22:13:50] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 22:13:50] Found: 4 rows
+[2026-02-19 22:13:58] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 22:13:58] Found: 4 rows
+[2026-02-19 22:14:07] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 22:14:07] Found: 4 rows
+[2026-02-19 22:14:18] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 22:14:18] Found: 4 rows
+[2026-02-19 22:14:45] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 22:14:45] Found: 4 rows
+[2026-02-19 22:15:03] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 22:15:03] Found: 4 rows
+[2026-02-19 22:15:23] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 22:15:23] Found: 4 rows
+[2026-02-19 22:15:43] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 22:15:43] Found: 4 rows
+[2026-02-19 22:16:01] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-19 22:16:01] Found: 5 rows
+[2026-02-20 12:24:47] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-20 12:24:47] Found: 5 rows
+[2026-02-20 14:19:13] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-20 14:19:13] Found: 5 rows
+[2026-02-20 14:22:09] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-20 14:22:09] Found: 5 rows
+[2026-02-20 16:36:11] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-20 16:36:11] Found: 5 rows
+[2026-02-20 16:36:16] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-20 16:36:16] Found: 4 rows
+[2026-02-20 16:36:18] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-20 16:36:18] Found: 3 rows
+[2026-02-20 16:36:21] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-20 16:36:21] Found: 2 rows
+[2026-02-20 16:36:24] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-20 16:36:24] Found: 1 rows
+[2026-02-20 16:36:27] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-20 16:36:27] Found: 0 rows
+[2026-02-20 18:42:36] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-20 18:42:36] Found: 0 rows
+[2026-02-20 18:42:45] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-20 18:42:45] Found: 0 rows
+[2026-02-20 18:42:51] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-20 18:42:51] Found: 0 rows
+[2026-02-20 18:43:01] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-20 18:43:01] Found: 0 rows
+[2026-02-20 18:47:29] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-20 18:47:30] Found: 0 rows
+[2026-02-20 18:51:47] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-20 18:51:47] Found: 0 rows
+[2026-02-20 19:57:14] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-20 19:57:14] Found: 0 rows
+[2026-02-20 19:57:22] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-20 19:57:22] Found: 0 rows
+[2026-02-20 21:56:54] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-20 21:56:54] Found: 0 rows
+[2026-02-20 21:57:40] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-20 21:57:40] Found: 0 rows
+[2026-02-20 21:58:07] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-20 21:58:07] Found: 1 rows
+[2026-02-20 23:51:26] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-20 23:51:26] Found: 1 rows
+[2026-02-21 13:45:49] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-21 13:45:49] Found: 1 rows
+[2026-02-21 18:48:35] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-21 18:48:35] Found: 1 rows
+[2026-02-21 19:13:22] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-21 19:13:22] Found: 1 rows
+[2026-02-21 19:14:11] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-21 19:14:11] Found: 1 rows
+[2026-02-21 19:15:02] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-21 19:15:02] Found: 1 rows
+[2026-02-21 19:15:31] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-21 19:15:31] Found: 1 rows
+[2026-02-21 19:22:51] GET Request - Range: this_month, Start: 2025-12-01, End: 2026-02-28
+[2026-02-21 19:22:51] Found: 1 rows

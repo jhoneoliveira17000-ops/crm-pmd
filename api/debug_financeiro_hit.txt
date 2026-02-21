@@ -1,0 +1,280 @@
+[2026-02-18 00:41:15] Hit: POST {"test":1}
+[2026-02-18 00:44:05] Hit: GET 
+[2026-02-18 00:44:22] Hit: POST {"action":"create_transaction","tipo":"receita","valor":"400","descricao":"teste","categoria":"vendas","status":"pago","data_despesa":"2026-02-17"}
+[2026-02-18 00:44:24] Hit: GET 
+[2026-02-18 00:44:28] Hit: GET 
+[2026-02-18 00:44:30] Hit: GET 
+[2026-02-18 00:45:32] Hit: GET 
+[2026-02-18 00:45:42] Hit: POST {"action":"create_transaction","tipo":"receita","valor":"400","descricao":"teste","categoria":"vendas","status":"pago","data_despesa":"2026-02-18"}
+[2026-02-18 00:45:44] Hit: GET 
+[2026-02-18 00:45:50] Hit: GET 
+[2026-02-18 00:45:52] Hit: GET 
+[2026-02-18 00:45:53] Hit: GET 
+[2026-02-18 00:46:25] Hit: GET 
+[2026-02-18 00:46:28] Hit: GET 
+[2026-02-18 00:47:34] Hit: GET 
+[2026-02-18 00:47:38] Hit: GET 
+[2026-02-18 00:47:55] Hit: POST {"action":"create_transaction","tipo":"receita","valor":"4000","descricao":"teste teste","categoria":"vendas","status":"pago","data_despesa":"2026-02-18"}
+[2026-02-18 00:47:57] Hit: GET 
+[2026-02-18 00:48:06] Hit: GET 
+[2026-02-18 00:48:11] Hit: GET 
+[2026-02-18 00:48:15] Hit: GET 
+[2026-02-18 00:51:47] Hit: GET 
+[2026-02-18 00:52:05] Hit: POST {"action":"create_transaction","tipo":"receita","valor":"550","descricao":"testestes","categoria":"vendas","status":"pago","recorrente":"on","parcelas":"4","data_despesa":"2026-02-17"}
+[2026-02-18 00:52:08] Hit: GET 
+[2026-02-18 00:52:13] Hit: GET 
+[2026-02-18 00:52:20] Hit: GET 
+[2026-02-18 00:52:24] Hit: GET 
+[2026-02-18 00:52:27] Hit: GET 
+[2026-02-18 00:52:29] Hit: GET 
+[2026-02-18 00:54:10] Hit: GET 
+[2026-02-18 00:54:22] Hit: GET 
+[2026-02-18 00:55:08] Hit: GET 
+[2026-02-18 00:55:10] Hit: GET 
+[2026-02-18 00:55:30] Hit: POST {"action":"create_transaction","tipo":"receita","valor":"550","descricao":"testeststetttteteett","categoria":"vendas","status":"pago","recorrente":"on","parcelas":"3","data_despesa":"2026-02-16"}
+[2026-02-18 00:55:31] Hit: GET 
+[2026-02-18 00:55:40] Hit: GET 
+[2026-02-18 00:55:44] Hit: GET 
+[2026-02-18 00:55:47] Hit: GET 
+[2026-02-18 00:56:51] Hit: GET 
+[2026-02-18 00:57:09] Hit: POST {"action":"create_transaction","tipo":"receita","valor":"550","descricao":"jhone teste","categoria":"vendas","status":"pago","recorrente":"on","parcelas":"4","data_despesa":"2026-02-17"}
+[2026-02-18 00:57:10] Hit: GET 
+[2026-02-18 00:57:16] Hit: GET 
+[2026-02-18 00:59:01] Hit: GET 
+[2026-02-18 00:59:07] Hit: GET 
+[2026-02-18 00:59:14] Hit: GET 
+[2026-02-18 00:59:35] Hit: POST {"action":"create_transaction","tipo":"receita","valor":"350","descricao":"novo teste","categoria":"vendas","status":"pago","recorrente":"on","parcelas":"5","data_despesa":"2026-02-18"}
+[2026-02-18 00:59:37] Hit: GET 
+[2026-02-18 00:59:40] Hit: GET 
+[2026-02-18 01:01:33] Hit: GET 
+[2026-02-18 01:01:35] Hit: GET 
+[2026-02-18 01:01:52] Hit: POST {"action":"create_transaction","tipo":"receita","valor":"440","descricao":"novo teste 01","categoria":"vendas","status":"pago","parcelas":"12","data_despesa":"2026-02-16"}
+[2026-02-18 01:01:53] Hit: GET 
+[2026-02-18 01:04:49] Hit: GET 
+[2026-02-18 01:05:04] Hit: POST {"action":"create_transaction","tipo":"receita","valor":"440","descricao":"teste 03","categoria":"vendas","status":"pago","parcelas":"12","data_despesa":"2026-02-17"}
+[2026-02-18 01:05:06] Hit: GET 
+[2026-02-18 01:06:26] Hit: GET 
+[2026-02-18 01:06:41] Hit: POST {"action":"create_transaction","tipo":"receita","valor":"440","descricao":"novo teste 04","categoria":"vendas","status":"pago","parcelas":"12","data_despesa":"2026-02-17"}
+[2026-02-18 01:06:42] Hit: GET 
+[2026-02-18 01:07:56] Hit: GET 
+[2026-02-18 01:08:02] Hit: GET 
+[2026-02-18 01:08:19] Hit: POST {"action":"create_transaction","tipo":"receita","valor":"440","descricao":"jhone novo teste 05","categoria":"vendas","status":"pago","parcelas":"12","data_despesa":"2026-02-17"}
+[2026-02-18 01:08:21] Hit: GET 
+[2026-02-18 01:10:06] Hit: GET 
+[2026-02-18 01:10:12] Hit: GET 
+[2026-02-18 01:10:16] Hit: GET 
+[2026-02-18 01:11:30] Hit: GET 
+[2026-02-18 01:11:32] Hit: GET 
+[2026-02-18 01:11:32] Hit: GET 
+[2026-02-18 01:11:34] Hit: GET 
+[2026-02-18 01:11:35] Hit: GET 
+[2026-02-18 01:11:36] Hit: GET 
+[2026-02-18 01:13:23] Hit: GET 
+[2026-02-18 01:13:29] Hit: GET 
+[2026-02-18 01:15:05] Hit: GET 
+[2026-02-18 01:15:09] Hit: GET 
+[2026-02-18 01:15:12] Hit: GET 
+[2026-02-18 01:15:14] Hit: GET 
+[2026-02-18 01:15:29] Hit: POST {"action":"create_transaction","tipo":"receita","valor":"5000","descricao":"teste nov teste","categoria":"vendas","status":"pago","parcelas":"12","data_despesa":"2026-02-17"}
+[2026-02-18 01:15:31] Hit: GET 
+[2026-02-18 01:15:36] Hit: GET 
+[2026-02-18 12:47:23] Hit: GET 
+[2026-02-18 12:47:59] Hit: DELETE {"id":34}
+[2026-02-18 12:47:59] Hit: GET 
+[2026-02-18 12:48:01] Hit: DELETE {"id":33}
+[2026-02-18 12:48:01] Hit: GET 
+[2026-02-18 12:48:03] Hit: DELETE {"id":29}
+[2026-02-18 12:48:03] Hit: GET 
+[2026-02-18 12:48:06] Hit: DELETE {"id":22}
+[2026-02-18 12:48:06] Hit: GET 
+[2026-02-18 12:48:08] Hit: DELETE {"id":32}
+[2026-02-18 12:48:08] Hit: GET 
+[2026-02-18 12:48:10] Hit: DELETE {"id":28}
+[2026-02-18 12:48:10] Hit: GET 
+[2026-02-18 12:48:12] Hit: DELETE {"id":21}
+[2026-02-18 12:48:12] Hit: GET 
+[2026-02-18 12:48:14] Hit: DELETE {"id":25}
+[2026-02-18 12:48:14] Hit: GET 
+[2026-02-18 12:48:16] Hit: DELETE {"id":5}
+[2026-02-18 12:48:16] Hit: GET 
+[2026-02-18 12:48:18] Hit: DELETE {"id":31}
+[2026-02-18 12:48:18] Hit: GET 
+[2026-02-18 12:48:20] Hit: DELETE {"id":27}
+[2026-02-18 12:48:20] Hit: GET 
+[2026-02-18 12:48:22] Hit: DELETE {"id":20}
+[2026-02-18 12:48:23] Hit: GET 
+[2026-02-18 12:48:25] Hit: DELETE {"id":24}
+[2026-02-18 12:48:25] Hit: GET 
+[2026-02-18 12:48:27] Hit: DELETE {"id":4}
+[2026-02-18 12:48:27] Hit: GET 
+[2026-02-18 12:48:29] Hit: DELETE {"id":30}
+[2026-02-18 12:48:29] Hit: GET 
+[2026-02-18 12:48:31] Hit: DELETE {"id":18}
+[2026-02-18 12:48:31] Hit: GET 
+[2026-02-18 12:48:33] Hit: DELETE {"id":17}
+[2026-02-18 12:48:33] Hit: GET 
+[2026-02-18 12:48:35] Hit: DELETE {"id":12}
+[2026-02-18 12:48:35] Hit: GET 
+[2026-02-18 12:48:37] Hit: DELETE {"id":11}
+[2026-02-18 12:48:37] Hit: GET 
+[2026-02-18 12:48:39] Hit: DELETE {"id":10}
+[2026-02-18 12:48:39] Hit: GET 
+[2026-02-18 12:48:41] Hit: DELETE {"id":39}
+[2026-02-18 12:48:41] Hit: GET 
+[2026-02-18 12:48:43] Hit: DELETE {"id":36}
+[2026-02-18 12:48:43] Hit: GET 
+[2026-02-18 12:48:46] Hit: DELETE {"id":26}
+[2026-02-18 12:48:46] Hit: GET 
+[2026-02-18 12:48:48] Hit: DELETE {"id":19}
+[2026-02-18 12:48:48] Hit: GET 
+[2026-02-18 12:48:50] Hit: DELETE {"id":37}
+[2026-02-18 12:48:50] Hit: GET 
+[2026-02-18 12:48:53] Hit: DELETE {"id":16}
+[2026-02-18 12:48:53] Hit: GET 
+[2026-02-18 12:48:56] Hit: DELETE {"id":13}
+[2026-02-18 12:48:56] Hit: GET 
+[2026-02-18 12:48:59] Hit: DELETE {"id":38}
+[2026-02-18 12:48:59] Hit: GET 
+[2026-02-18 12:49:01] Hit: DELETE {"id":15}
+[2026-02-18 12:49:01] Hit: GET 
+[2026-02-18 12:49:05] Hit: DELETE {"id":14}
+[2026-02-18 12:49:05] Hit: GET 
+[2026-02-18 12:49:08] Hit: DELETE {"id":35}
+[2026-02-18 12:49:08] Hit: GET 
+[2026-02-18 12:49:33] Hit: POST {"action":"create_transaction","tipo":"despesa","valor":"450","descricao":"despesa teste","categoria":"operacional","status":"pago","parcelas":"12","data_despesa":"2026-02-18"}
+[2026-02-18 12:49:34] Hit: GET 
+[2026-02-18 12:57:24] Hit: GET 
+[2026-02-18 15:24:17] Hit: GET 
+[2026-02-18 16:06:18] Hit: GET 
+[2026-02-18 16:06:21] Hit: GET 
+[2026-02-18 16:06:28] Hit: GET 
+[2026-02-18 16:06:34] Hit: GET 
+[2026-02-18 16:06:39] Hit: GET 
+[2026-02-18 16:06:41] Hit: GET 
+[2026-02-18 16:07:26] Hit: GET 
+[2026-02-18 16:14:30] Hit: GET 
+[2026-02-18 16:14:59] Hit: GET 
+[2026-02-18 16:17:19] Hit: GET 
+[2026-02-18 16:17:46] Hit: GET 
+[2026-02-18 16:22:42] Hit: GET 
+[2026-02-18 16:23:06] Hit: GET 
+[2026-02-18 16:24:42] Hit: GET 
+[2026-02-18 16:24:42] Hit: GET 
+[2026-02-18 16:25:33] Hit: GET 
+[2026-02-18 16:27:07] Hit: GET 
+[2026-02-18 16:36:27] Hit: GET 
+[2026-02-18 16:36:41] Hit: GET 
+[2026-02-18 16:36:45] Hit: GET 
+[2026-02-18 16:37:59] Hit: GET 
+[2026-02-18 16:45:42] Hit: GET 
+[2026-02-18 16:48:58] Hit: GET 
+[2026-02-18 16:49:11] Hit: GET 
+[2026-02-18 16:49:33] Hit: GET 
+[2026-02-18 16:49:40] Hit: GET 
+[2026-02-18 16:49:51] Hit: GET 
+[2026-02-18 16:49:59] Hit: GET 
+[2026-02-18 17:21:13] Hit: GET 
+[2026-02-18 17:21:17] Hit: GET 
+[2026-02-18 17:21:22] Hit: GET 
+[2026-02-18 17:22:01] Hit: POST {"action":"create_transaction","tipo":"receita","valor":"500","descricao":"teste 5 meses","categoria":"vendas","status":"pago","recorrente":"on","parcelas":"5","data_despesa":"2026-02-18"}
+[2026-02-18 17:22:03] Hit: GET 
+[2026-02-18 17:22:13] Hit: GET 
+[2026-02-18 19:02:51] Hit: GET 
+[2026-02-18 19:08:00] Hit: GET 
+[2026-02-18 19:14:33] Hit: GET 
+[2026-02-19 17:21:19] Hit: GET 
+[2026-02-19 17:27:58] Hit: GET 
+[2026-02-19 17:48:41] Hit: GET 
+[2026-02-19 17:48:44] Hit: GET 
+[2026-02-19 17:49:47] Hit: GET 
+[2026-02-19 18:16:06] Hit: GET 
+[2026-02-19 18:16:12] Hit: GET 
+[2026-02-19 18:16:32] Hit: GET 
+[2026-02-19 18:16:43] Hit: GET 
+[2026-02-19 18:16:56] Hit: GET 
+[2026-02-19 18:18:41] Hit: GET 
+[2026-02-19 18:18:47] Hit: GET 
+[2026-02-19 18:19:56] Hit: GET 
+[2026-02-19 18:20:06] Hit: GET 
+[2026-02-19 18:20:07] Hit: GET 
+[2026-02-19 18:24:08] Hit: GET 
+[2026-02-19 18:24:16] Hit: GET 
+[2026-02-19 18:28:39] Hit: GET 
+[2026-02-19 18:31:24] Hit: GET 
+[2026-02-19 18:31:28] Hit: GET 
+[2026-02-19 18:31:44] Hit: GET 
+[2026-02-19 18:31:48] Hit: GET 
+[2026-02-19 18:31:53] Hit: GET 
+[2026-02-19 18:32:17] Hit: GET 
+[2026-02-19 18:32:24] Hit: GET 
+[2026-02-19 18:32:44] Hit: GET 
+[2026-02-19 18:37:47] Hit: GET 
+[2026-02-19 18:46:24] Hit: GET 
+[2026-02-19 18:46:41] Hit: GET 
+[2026-02-19 18:46:52] Hit: GET 
+[2026-02-19 18:46:53] Hit: GET 
+[2026-02-19 18:46:57] Hit: GET 
+[2026-02-19 18:47:05] Hit: GET 
+[2026-02-19 18:47:15] Hit: GET 
+[2026-02-19 18:47:29] Hit: GET 
+[2026-02-19 18:49:59] Hit: GET 
+[2026-02-19 18:51:17] Hit: GET 
+[2026-02-19 18:51:21] Hit: GET 
+[2026-02-19 18:51:34] Hit: GET 
+[2026-02-19 18:51:55] Hit: GET 
+[2026-02-19 19:50:35] Hit: GET 
+[2026-02-19 21:51:20] Hit: GET 
+[2026-02-19 21:51:38] Hit: GET 
+[2026-02-19 21:52:23] Hit: GET 
+[2026-02-19 22:01:07] Hit: GET 
+[2026-02-19 22:01:44] Hit: GET 
+[2026-02-19 22:02:12] Hit: POST {"action":"create_transaction","tipo":"receita","valor":"5000","descricao":"Anuncios","categoria":"marketing","status":"pago","recorrente":"on","parcelas":"4","data_despesa":"2026-02-19"}
+[2026-02-19 22:02:13] Hit: GET 
+[2026-02-19 22:03:15] Hit: GET 
+[2026-02-19 22:11:08] Hit: GET 
+[2026-02-19 22:11:53] Hit: GET 
+[2026-02-19 22:11:58] Hit: GET 
+[2026-02-19 22:13:50] Hit: GET 
+[2026-02-19 22:13:58] Hit: GET 
+[2026-02-19 22:14:07] Hit: GET 
+[2026-02-19 22:14:18] Hit: GET 
+[2026-02-19 22:14:45] Hit: GET 
+[2026-02-19 22:15:03] Hit: GET 
+[2026-02-19 22:15:23] Hit: GET 
+[2026-02-19 22:15:43] Hit: GET 
+[2026-02-19 22:16:00] Hit: POST {"action":"create_transaction","tipo":"despesa","valor":"1000","descricao":"teste","categoria":"marketing","status":"pago","parcelas":"12","data_despesa":"2026-02-19"}
+[2026-02-19 22:16:01] Hit: GET 
+[2026-02-20 12:24:47] Hit: GET 
+[2026-02-20 14:19:13] Hit: GET 
+[2026-02-20 14:22:09] Hit: GET 
+[2026-02-20 16:36:11] Hit: GET 
+[2026-02-20 16:36:16] Hit: DELETE {"id":50}
+[2026-02-20 16:36:16] Hit: GET 
+[2026-02-20 16:36:18] Hit: DELETE {"id":46}
+[2026-02-20 16:36:18] Hit: GET 
+[2026-02-20 16:36:21] Hit: DELETE {"id":41}
+[2026-02-20 16:36:21] Hit: GET 
+[2026-02-20 16:36:24] Hit: DELETE {"id":40}
+[2026-02-20 16:36:24] Hit: GET 
+[2026-02-20 16:36:27] Hit: DELETE {"id":23}
+[2026-02-20 16:36:27] Hit: GET 
+[2026-02-20 18:42:36] Hit: GET 
+[2026-02-20 18:42:45] Hit: GET 
+[2026-02-20 18:42:51] Hit: GET 
+[2026-02-20 18:43:01] Hit: GET 
+[2026-02-20 18:47:29] Hit: GET 
+[2026-02-20 18:51:47] Hit: GET 
+[2026-02-20 19:57:14] Hit: GET 
+[2026-02-20 19:57:22] Hit: GET 
+[2026-02-20 21:56:54] Hit: GET 
+[2026-02-20 21:57:40] Hit: GET 
+[2026-02-20 21:58:05] Hit: POST {"action":"create_transaction","tipo":"receita","valor":"5000","descricao":"lp","categoria":"operacional","status":"pago","recorrente":"on","parcelas":"5","data_despesa":"2026-02-20"}
+[2026-02-20 21:58:07] Hit: GET 
+[2026-02-20 23:51:26] Hit: GET 
+[2026-02-21 13:45:49] Hit: GET 
+[2026-02-21 18:48:35] Hit: GET 
+[2026-02-21 19:13:22] Hit: GET 
+[2026-02-21 19:14:11] Hit: GET 
+[2026-02-21 19:15:02] Hit: GET 
+[2026-02-21 19:15:31] Hit: GET 
+[2026-02-21 19:22:51] Hit: GET 

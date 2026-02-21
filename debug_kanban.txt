@@ -1,0 +1,2 @@
+[20-Feb-2026 18:23:42 UTC] Kanban API Error: SQLSTATE[HY000]: General error: 1366 Incorrect decimal value: '' for column 'valor_estimado' at row 1
+[20-Feb-2026 18:29:33 UTC] Kanban API Error: SQLSTATE[HY000]: General error: 1366 Incorrect decimal value: '' for column 'valor_estimado' at row 1
