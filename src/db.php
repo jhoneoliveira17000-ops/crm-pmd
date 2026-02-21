@@ -13,10 +13,17 @@ if (file_exists($envPath)) {
     $pass = $env['DB_PASS'] ?? '';
     $ssl_ca = $env['DB_SSL_CA'] ?? null;
 } else {
-    // Fallback ou erro se o arquivo .env não existir
-    // Para maior segurança, em produção o arquivo .env deve existir.
-    // Aqui mantemos um fallback seguro ou lançamos erro.
-    die('Arquivo .env de configuração não encontrado.');
+    // Check system environment variables (Railway / Cloud deployment)
+    $host = getenv('DB_HOST') ?: 'localhost';
+    $port = getenv('DB_PORT') ?: 3306;
+    $db   = getenv('DB_NAME') ?: 'pmdcrm';
+    $user = getenv('DB_USER') ?: 'root';
+    $pass = getenv('DB_PASS') ?: '';
+    $ssl_ca = getenv('DB_SSL_CA') ?: null;
+    
+    if ($host === 'localhost' && empty($pass)) {
+        die(json_encode(['error' => 'Acesso negado: Variaveis de ambiente nao encontradas no Servidor.']));
+    }
 }
 
 $charset = 'utf8mb4';
