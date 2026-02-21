@@ -33,6 +33,7 @@ $options = [
     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
     PDO::ATTR_EMULATE_PREPARES   => false,
+    PDO::ATTR_PERSISTENT         => true
 ];
 
 // Auto-detect correct CA Cert path if the one mapped in .env fails (Mac vs Linux/Railway differences)
