@@ -55,6 +55,11 @@ if (!empty($ssl_ca) && file_exists($ssl_ca)) {
 try {
     $pdo = new PDO($dsn, $user, $pass, $options);
 } catch (\PDOException $e) {
-    // Para desenvolvimento:
+    if (strpos($_SERVER['REQUEST_URI'] ?? '', '/api/') !== false) {
+        header('Content-Type: application/json; charset=utf-8');
+        http_response_code(500);
+        echo json_encode(['error' => 'DB Connection Failed: ' . $e->getMessage()]);
+        exit;
+    }
     throw new \PDOException($e->getMessage(), (int)$e->getCode());
 }
