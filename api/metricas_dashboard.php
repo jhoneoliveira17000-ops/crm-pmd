@@ -29,7 +29,7 @@ try {
         SELECT SUM(valor_mensal) as mrr 
         FROM clientes 
         WHERE 
-            data_inicio_contrato <= ? AND ({get_tenant_condition()})
+            data_inicio_contrato <= ? AND (" . get_tenant_condition() . ")
             AND (data_fim_contrato IS NULL OR data_fim_contrato >= ?)
             AND (
                 status_contrato = 'ativo' 
@@ -42,7 +42,7 @@ try {
     $mrr = $stmt->fetch()['mrr'] ?? 0;
 
     // 2. Custos Totais (todas as despesas do período)
-    $stmt = $pdo->prepare("SELECT SUM(valor) as total_custos FROM despesas WHERE data_despesa BETWEEN ? AND ? AND ({get_tenant_condition()})");
+    $stmt = $pdo->prepare("SELECT SUM(valor) as total_custos FROM despesas WHERE data_despesa BETWEEN ? AND ? AND (" . get_tenant_condition() . ")");
     $stmt->execute([$inicio, $fim]);
     $total_custos = $stmt->fetch()['total_custos'] ?? 0;
 
@@ -55,7 +55,7 @@ try {
         SELECT COUNT(*) as ativos_inicio 
         FROM clientes 
         WHERE 
-            data_inicio_contrato < ? AND ({get_tenant_condition()})
+            data_inicio_contrato < ? AND (" . get_tenant_condition() . ")
             AND (data_fim_contrato IS NULL OR data_fim_contrato >= ?)
             AND (data_cancelamento IS NULL OR data_cancelamento >= ?)
     ");
@@ -63,7 +63,7 @@ try {
     $ativos_inicio = $stmt->fetch()['ativos_inicio'] ?? 0;
 
     // Cancelados no período
-    $stmt = $pdo->prepare("SELECT COUNT(*) as cancelados FROM clientes WHERE data_cancelamento BETWEEN ? AND ? AND ({get_tenant_condition()})");
+    $stmt = $pdo->prepare("SELECT COUNT(*) as cancelados FROM clientes WHERE data_cancelamento BETWEEN ? AND ? AND (" . get_tenant_condition() . ")");
     $stmt->execute([$inicio, $fim]);
     $cancelados = $stmt->fetch()['cancelados'] ?? 0;
 
@@ -75,7 +75,7 @@ try {
         SELECT COUNT(*) as total_ativos 
         FROM clientes 
         WHERE 
-            data_inicio_contrato <= ? AND ({get_tenant_condition()})
+            data_inicio_contrato <= ? AND (" . get_tenant_condition() . ")
             AND (data_fim_contrato IS NULL OR data_fim_contrato >= ?)
             AND (status_contrato = 'ativo' OR (status_contrato = 'cancelado' AND data_cancelamento >= ?))
     ");
@@ -93,7 +93,7 @@ try {
     $ltv = $churn_rate > 0 ? ($mrr / ($churn_rate / 100)) : 0;
 
     // 6. Clientes Ativos (total count)
-    $stmt = $pdo->prepare("SELECT COUNT(*) as total FROM clientes WHERE status_contrato = 'ativo' AND ({get_tenant_condition()})");
+    $stmt = $pdo->prepare("SELECT COUNT(*) as total FROM clientes WHERE status_contrato = 'ativo' AND (" . get_tenant_condition() . ")");
     $stmt->execute();
     $clientes_ativos = $stmt->fetch()['total'] ?? 0;
 
@@ -103,7 +103,7 @@ try {
     // 8. Novos Clientes este Mês (mês atual, não o período selecionado)
     $primeiroDiaMesAtual = date('Y-m-01');
     $ultimoDiaMesAtual = date('Y-m-t');
-    $stmt = $pdo->prepare("SELECT COUNT(*) as novos FROM clientes WHERE data_entrada BETWEEN ? AND ? AND ({get_tenant_condition()})");
+    $stmt = $pdo->prepare("SELECT COUNT(*) as novos FROM clientes WHERE data_entrada BETWEEN ? AND ? AND (" . get_tenant_condition() . ")");
     $stmt->execute([$primeiroDiaMesAtual, $ultimoDiaMesAtual]);
     $novos_mes_atual = $stmt->fetch()['novos'] ?? 0;
 
@@ -121,12 +121,12 @@ try {
 
     // --- PRE-FETCH EM LOTE PARA ELIMINAR N+1 QUERIES ---
     // Buscar todos os clientes relevantes para os últimos 6 meses
-    $stmt_clients = $pdo->prepare("SELECT data_inicio_contrato, data_fim_contrato, status_contrato, data_cancelamento, valor_mensal, data_entrada FROM clientes WHERE data_inicio_contrato <= ? AND ({get_tenant_condition()})");
+    $stmt_clients = $pdo->prepare("SELECT data_inicio_contrato, data_fim_contrato, status_contrato, data_cancelamento, valor_mensal, data_entrada FROM clientes WHERE data_inicio_contrato <= ? AND (" . get_tenant_condition() . ")");
     $stmt_clients->execute([$history_end]);
     $all_clients = $stmt_clients->fetchAll(PDO::FETCH_ASSOC);
 
     // Buscar todas as despesas dos últimos 6 meses
-    $stmt_exp = $pdo->prepare("SELECT valor, data_despesa FROM despesas WHERE data_despesa BETWEEN ? AND ? AND ({get_tenant_condition()})");
+    $stmt_exp = $pdo->prepare("SELECT valor, data_despesa FROM despesas WHERE data_despesa BETWEEN ? AND ? AND (" . get_tenant_condition() . ")");
     $stmt_exp->execute([$history_start, $history_end]);
     $all_expenses = $stmt_exp->fetchAll(PDO::FETCH_ASSOC);
 
@@ -173,12 +173,12 @@ try {
     }
 
     // 9. Distribuição por Método de Pagamento (Ativos)
-    $stmt = $pdo->prepare("SELECT metodo_pagamento, COUNT(*) as qtd FROM clientes WHERE status_contrato = 'ativo' AND ({get_tenant_condition()}) GROUP BY metodo_pagamento");
+    $stmt = $pdo->prepare("SELECT metodo_pagamento, COUNT(*) as qtd FROM clientes WHERE status_contrato = 'ativo' AND (" . get_tenant_condition() . ") GROUP BY metodo_pagamento");
     $stmt->execute();
     $metodos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     // 10. Top 5 Clientes (Maior MRR)
-    $stmt = $pdo->prepare("SELECT nome_empresa, valor_mensal, foto_perfil FROM clientes WHERE status_contrato = 'ativo' AND ({get_tenant_condition()}) ORDER BY valor_mensal DESC LIMIT 5");
+    $stmt = $pdo->prepare("SELECT nome_empresa, valor_mensal, foto_perfil FROM clientes WHERE status_contrato = 'ativo' AND (" . get_tenant_condition() . ") ORDER BY valor_mensal DESC LIMIT 5");
     $stmt->execute();
     $top_clientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -204,8 +204,8 @@ try {
     $stmt = $pdo->query("
         SELECT s.nome, COUNT(l.id) as count, SUM(l.valor_estimado) as total_valor 
         FROM kanban_stages s 
-        LEFT JOIN leads l ON s.id = l.status_id AND ({get_tenant_condition('l')})
-        WHERE {get_tenant_condition('s')}
+        LEFT JOIN leads l ON s.id = l.status_id AND (" . get_tenant_condition("l") . ")
+        WHERE " . get_tenant_condition("s") . "
         GROUP BY s.id, s.nome, s.ordem 
         ORDER BY s.ordem ASC
     ");
@@ -218,7 +218,7 @@ try {
     // --- NEW METRICS (CAC, ROI, CLOSING TIME) ---
 
     // 16. New Clients in Period (Selected Date Range) - for CAC
-    $stmt = $pdo->prepare("SELECT COUNT(*) as novos FROM clientes WHERE data_entrada BETWEEN ? AND ? AND ({get_tenant_condition()})");
+    $stmt = $pdo->prepare("SELECT COUNT(*) as novos FROM clientes WHERE data_entrada BETWEEN ? AND ? AND (" . get_tenant_condition() . ")");
     $stmt->execute([$inicio, $fim]);
     $novos_periodo = $stmt->fetch()['novos'] ?? 0;
 
@@ -235,7 +235,7 @@ try {
     $stmt = $pdo->prepare("
         SELECT AVG(DATEDIFF(l.updated_at, l.created_at)) as avg_days
         FROM leads l
-        WHERE l.status_id = 4 AND ({get_tenant_condition('l')})
+        WHERE l.status_id = 4 AND (" . get_tenant_condition("l") . ")
     ");
     $stmt->execute();
     $avg_days = $stmt->fetch()['avg_days'] ?? 0;
