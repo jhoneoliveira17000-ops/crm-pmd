@@ -23,6 +23,23 @@ try {
         $stmtStations = $pdo->query("SELECT id, nome as name, ordem, cor as color FROM kanban_stages WHERE {$tenantScope} ORDER BY ordem ASC");
         $stages = $stmtStations->fetchAll(PDO::FETCH_ASSOC);
 
+        // Auto-heal missing stages for legacy or manual users
+        if (empty($stages)) {
+            $userId = get_current_user_id();
+            if ($userId && !is_admin()) {
+                $stmtSeed = $pdo->prepare("INSERT INTO kanban_stages (nome, cor, ordem, user_id) VALUES 
+                    ('Novo Lead', 'gray', 1, ?),
+                    ('Em Negociação', 'blue', 2, ?),
+                    ('Aguardando Visita', 'yellow', 3, ?),
+                    ('Fechado', 'green', 4, ?)");
+                $stmtSeed->execute([$userId, $userId, $userId, $userId]);
+                
+                // Retry fetch
+                $stmtStations = $pdo->query("SELECT id, nome as name, ordem, cor as color FROM kanban_stages WHERE {$tenantScope} ORDER BY ordem ASC");
+                $stages = $stmtStations->fetchAll(PDO::FETCH_ASSOC);
+            }
+        }
+
         // 2. Leads
         // 2. Leads (with Facebook Data)
         $tenantScope = get_tenant_condition('l');

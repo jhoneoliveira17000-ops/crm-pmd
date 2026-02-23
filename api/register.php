@@ -35,6 +35,16 @@ $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
 try {
     $stmt = $pdo->prepare("INSERT INTO usuarios (nome, email, senha_hash, role) VALUES (?, ?, ?, ?)");
     $stmt->execute([$nome, $email, $senha_hash, $role]);
+    $userId = $pdo->lastInsertId();
+
+    // Configuração inicial do Kanban para o novo usuário
+    $stmtSeed = $pdo->prepare("INSERT INTO kanban_stages (nome, cor, ordem, user_id) VALUES 
+        ('Novo Lead', 'gray', 1, ?),
+        ('Em Negociação', 'blue', 2, ?),
+        ('Aguardando Visita', 'yellow', 3, ?),
+        ('Fechado', 'green', 4, ?)");
+    $stmtSeed->execute([$userId, $userId, $userId, $userId]);
+
     json_response(['message' => 'Usuário registrado com sucesso'], 201);
 } catch (PDOException $e) {
     if ($e->getCode() == 23000) {
