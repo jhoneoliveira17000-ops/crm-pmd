@@ -1,19 +1,16 @@
-# PMDCRM .htaccess
+RewriteEngine On
 
-# Disable directory browsing
-Options -Indexes
+# Ensure Authorization headers are passed to PHP
+RewriteCond %{HTTP:Authorization} ^(.*)
+RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
 
-# Set default index file
-DirectoryIndex index.php index.html
+# Route /login to index.php (Login Page)
+RewriteRule ^login/?$ index.php [L,QSA]
 
-# Deny access to .env files
-<FilesMatch "^\.env">
-    Order allow,deny
-    Deny from all
-</FilesMatch>
-
-# Deny access to .git directories
-<FilesMatch "^\.git">
-    Order allow,deny
-    Deny from all
-</FilesMatch>
+# Remove .php extension for all other files
+# If the request is not a directory
+RewriteCond %{REQUEST_FILENAME} !-d
+# And if the request with .php appended is a valid file
+RewriteCond %{REQUEST_FILENAME}.php -f
+# Rewrite the request to .php
+RewriteRule ^([^\.]+)$ $1.php [NC,L]

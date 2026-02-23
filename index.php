@@ -65,10 +65,15 @@
                     Google
                 </a>
             </div>
+            
+            <div class="mt-4 text-center text-xs text-slate-500 max-w-sm mx-auto">
+                Ao entrar ou cadastrar-se, você concorda com nossos <br>
+                <a href="/termos_servico" class="text-blue-600 hover:underline">Termos de Serviço</a> e <a href="/politica_privacidade" class="text-blue-600 hover:underline">Política de Privacidade</a>.
+            </div>
         </div>
 
         <p class="text-center mt-6 text-sm text-slate-600 dark:text-slate-400">
-            Não tem uma conta? <a href="register.php" class="text-blue-600 dark:text-blue-400 font-medium hover:underline">Criar agora</a>
+            Não tem uma conta? <a href="/register" class="text-blue-600 dark:text-blue-400 font-medium hover:underline">Criar agora</a>
         </p>
     </div>
 
@@ -87,7 +92,7 @@
                 const result = await res.json();
                 
                 if (res.ok) {
-                    window.location.href = 'dashboard.php';
+                    window.location.href = '/dashboard';
                 } else {
                     alert(result.error || 'Erro ao entrar');
                 }

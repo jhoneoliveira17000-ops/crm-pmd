@@ -64,6 +64,11 @@
                     Google
                 </a>
             </div>
+            
+            <div class="mt-4 text-center text-xs text-slate-500 max-w-sm mx-auto">
+                Ao entrar ou cadastrar-se, você concorda com nossos <br>
+                <a href="/termos_servico" class="text-blue-600 hover:underline">Termos de Serviço</a> e <a href="/politica_privacidade" class="text-blue-600 hover:underline">Política de Privacidade</a>.
+            </div>
         </div>
 
         <p class="text-center mt-6 text-sm text-slate-600 dark:text-slate-400">
