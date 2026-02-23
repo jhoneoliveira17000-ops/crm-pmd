@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>body { font-family: 'Inter', sans-serif; }</style>
-    <!-- Tag de verificação do Google Site Verification pode ser inserida aqui posteriormente pelo usuário -->
+    <meta name="google-site-verification" content="oIR6JINIY1SHn3GnesqHTh0aueaeo1hshbow3uo0vOE" />
 </head>
 <body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
     
