@@ -14,14 +14,14 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-SET @MYSQLDUMP_TEMP_LOG_BIN = @@SESSION.SQL_LOG_BIN;
-SET @@SESSION.SQL_LOG_BIN= 0;
+
+
 
 --
 -- GTID state at the beginning of the backup 
 --
 
-SET @@GLOBAL.GTID_PURGED=/*!80000 '+'*/ '3e00c4b8-09cf-11f1-a6a3-49d03bb3d308:1-540';
+
 
 --
 -- Table structure for table `activity_logs`
@@ -40,7 +40,7 @@ CREATE TABLE `activity_logs` (
   PRIMARY KEY (`id`),
   KEY `cliente_id` (`cliente_id`),
   CONSTRAINT `activity_logs_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -49,6 +49,7 @@ CREATE TABLE `activity_logs` (
 
 LOCK TABLES `activity_logs` WRITE;
 /*!40000 ALTER TABLE `activity_logs` DISABLE KEYS */;
+INSERT INTO `activity_logs` VALUES (27,36,9,'Adicionou nota (geral)',NULL,'2026-02-21 16:23:22');
 /*!40000 ALTER TABLE `activity_logs` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -98,7 +99,7 @@ CREATE TABLE `client_notes` (
   PRIMARY KEY (`id`),
   KEY `cliente_id` (`cliente_id`),
   CONSTRAINT `client_notes_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `clientes` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -107,6 +108,7 @@ CREATE TABLE `client_notes` (
 
 LOCK TABLES `client_notes` WRITE;
 /*!40000 ALTER TABLE `client_notes` DISABLE KEYS */;
+INSERT INTO `client_notes` VALUES (9,36,9,'fechou contrato dia 19','geral','2026-02-21 16:23:21');
 /*!40000 ALTER TABLE `client_notes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -160,7 +162,7 @@ CREATE TABLE `clientes` (
   `periodo_meses` int DEFAULT '12',
   `data_inicio_contrato` date DEFAULT NULL,
   `data_fim_contrato` date DEFAULT NULL,
-  `status_contrato` enum('ativo','inativo','cancelado','pausado') COLLATE utf8mb4_unicode_ci DEFAULT 'ativo',
+  `status_contrato` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT 'ativo',
   `canal_aquisicao` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `data_entrada` date NOT NULL,
   `data_cancelamento` date DEFAULT NULL,
@@ -180,6 +182,8 @@ CREATE TABLE `clientes` (
   `estado` varchar(2) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `cep` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `obs` text COLLATE utf8mb4_unicode_ci,
+  `ads_account_id` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `whatsapp_template` text COLLATE utf8mb4_unicode_ci,
   PRIMARY KEY (`id`),
   KEY `idx_clientes_status` (`status_contrato`)
 ) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -191,7 +195,7 @@ CREATE TABLE `clientes` (
 
 LOCK TABLES `clientes` WRITE;
 /*!40000 ALTER TABLE `clientes` DISABLE KEYS */;
-INSERT INTO `clientes` VALUES (36,'teste','','','','','','','Padrão',1000.00,3,'2026-02-20','2026-05-20','ativo','','2026-02-20',NULL,'2026-02-20 18:50:32',19,'boleto',NULL,'verde','','','',NULL,'','','','','',NULL,'');
+INSERT INTO `clientes` VALUES (36,'teste','','','','','','','Padrão',1000.00,12,'2026-02-20','2027-02-20','ativo','','2026-02-20',NULL,'2026-02-20 18:50:32',19,'boleto',NULL,'verde','','','',NULL,'','','','','',NULL,'',NULL,NULL);
 /*!40000 ALTER TABLE `clientes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -210,7 +214,7 @@ CREATE TABLE `config` (
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `key_name` (`key_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=124 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=144 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -219,7 +223,7 @@ CREATE TABLE `config` (
 
 LOCK TABLES `config` WRITE;
 /*!40000 ALTER TABLE `config` DISABLE KEYS */;
-INSERT INTO `config` VALUES (1,'meta_verify_token','vw797defy6fbaq4lmyz7p9','2026-02-17 00:30:42','2026-02-19 17:46:46'),(2,'meta_page_access_token','','2026-02-17 00:30:42','2026-02-17 00:30:42'),(3,'meta_page_id','','2026-02-17 00:30:42','2026-02-17 00:30:42'),(4,'whatsapp_default_msg','teste teste','2026-02-17 00:30:42','2026-02-19 22:09:15'),(5,'theme_color','#32c834','2026-02-17 01:18:36','2026-02-19 22:09:15'),(6,'company_logo','assets/uploads/logos/logo_1771538955.png','2026-02-17 01:18:36','2026-02-19 22:09:15'),(7,'whatsapp_templates_json','[{\"title\":\"teste\",\"text\":\"ola tudo bem?\"},{\"title\":\"Tes 02\",\"text\":\"queo falar agora\"}]','2026-02-17 01:18:36','2026-02-17 18:28:38');
+INSERT INTO `config` VALUES (1,'meta_verify_token','vw797defy6fbaq4lmyz7p9','2026-02-17 00:30:42','2026-02-19 17:46:46'),(2,'meta_page_access_token','','2026-02-17 00:30:42','2026-02-17 00:30:42'),(3,'meta_page_id','','2026-02-17 00:30:42','2026-02-17 00:30:42'),(4,'whatsapp_default_msg','teste teste','2026-02-17 00:30:42','2026-02-19 22:09:15'),(5,'theme_color','#0f9518','2026-02-17 01:18:36','2026-02-21 19:23:27'),(6,'company_logo','assets/uploads/logos/logo_1771538955.png','2026-02-17 01:18:36','2026-02-19 22:09:15'),(7,'whatsapp_templates_json','[{\"title\":\"teste\",\"text\":\"ola tudo bem?\"},{\"title\":\"Tes 02\",\"text\":\"queo falar agora\"}]','2026-02-17 01:18:36','2026-02-17 18:28:38');
 /*!40000 ALTER TABLE `config` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -468,38 +472,6 @@ INSERT INTO `users` VALUES (1,'Administrador','admin@pmdcrm.com','$2y$12$.aYSRnB
 UNLOCK TABLES;
 
 --
--- Table structure for table `user_integrations`
---
-
-DROP TABLE IF EXISTS `user_integrations`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `user_integrations` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `user_id` int NOT NULL,
-  `provider` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `access_token` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `refresh_token` text COLLATE utf8mb4_unicode_ci,
-  `expires_at` timestamp NULL DEFAULT NULL,
-  `calendar_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `user_provider` (`user_id`,`provider`),
-  CONSTRAINT `fk_user_integrations_user_id` FOREIGN KEY (`user_id`) REFERENCES `usuarios` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `user_integrations`
---
-
-LOCK TABLES `user_integrations` WRITE;
-/*!40000 ALTER TABLE `user_integrations` DISABLE KEYS */;
-/*!40000 ALTER TABLE `user_integrations` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `usuarios`
 --
 
@@ -529,7 +501,7 @@ LOCK TABLES `usuarios` WRITE;
 INSERT INTO `usuarios` VALUES (1,'Browser Test','test@test.com',NULL,'2026-02-17 17:35:11','gestor','$2y$12$VDZCMjkqtT0PrcpbTQs3CO3ky7kKWMb3yD9.ejmCDvRejKVt4pqq.',NULL),(2,'Browser Test','test2@test.com',NULL,'2026-02-17 17:36:13','gestor','$2y$12$tE6MoSeE259h5.wwWk9UFupO/2LKq567W6TgPk1bTRhbqzwptcBAK',NULL),(3,'API Tester','api_test_1771350408@test.com',NULL,'2026-02-17 17:46:49','gestor','$2y$12$gyGnDlKBA/pBixnyow4EA.utb3xaCn2UgiemNdis4ofez4VZ2C6B.',NULL),(4,'System Tester','system_test_1234@test.com',NULL,'2026-02-17 17:53:08','gestor','$2y$12$2uw50SFo9u9B1O8dL5PtGuDY.Aq5Q.QNf25Z0IZrSF6Kh9255VRrG',NULL),(5,'Admin Test','admin_test@pmdcrm.com',NULL,'2026-02-17 18:42:52','gestor','$2y$12$atKvaTGp8QgRS7izPjUqful9exJMU1onjuNiOIxKsGCIJZ/w0T0FC',NULL),(6,'Admin','admin@pmdcrm.com',NULL,'2026-02-18 00:33:25','admin','$2y$12$605H5xxeQPCiHEh0cJBKlOVWAxd6xw9Bb4zKitunLHF2hdClRR8ne',NULL),(7,'Admin Test','admin@admin.com',NULL,'2026-02-18 12:53:52','gestor','$2y$12$3hMMr6dzGmhBcxMVbGzNvO.4vOO8e9YjXyoAIUgEc4EjtxxU61yp2',NULL),(8,'Test User','test@example.com',NULL,'2026-02-18 15:07:05','gestor','$2y$12$1D.IMyfFOtnRVGYT4hBLluZvDFBIxZQCwVUlxKxcgro4R0nUCh.n.',NULL),(9,'Jhone Oliveira','jhoneoliveira.17000@gmail.com',NULL,'2026-02-18 15:12:33','gestor','$2y$12$QsMezBme0Aa72jpT/gI92e7irXXGakhqLGOAObu1rKsChyv1hqFpK',NULL),(10,'Theme Tester','theme_tester@example.com',NULL,'2026-02-18 15:33:12','gestor','$2y$12$kzC58rTr2nMAuV3OLjXr4eswfnMUuCrToeVf0yAgrbezaz.J6BhLC',NULL),(11,'Agent Jetski','agent_jetski@test.com',NULL,'2026-02-20 14:16:59','gestor','$2y$12$HzbIb.tA/6QGRBy8EEPfRe8tc3oOB3OqHwObpFPsKpLxxPNfwHCGK',NULL);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
-SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
+
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -540,4 +512,4 @@ SET @@SESSION.SQL_LOG_BIN = @MYSQLDUMP_TEMP_LOG_BIN;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-02-21 11:15:09
+-- Dump completed on 2026-02-21 16:59:31

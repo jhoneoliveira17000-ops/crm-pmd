@@ -136,6 +136,15 @@ function openClientWhatsapp() {
     window.open(`https://wa.me/55${cleanPhone}?text=${encodeURIComponent(msg)}`, '_blank');
 }
 
+function openAgendaContext() {
+    if (!currentClientData || !currentClientData.cliente) return;
+    const c = currentClientData.cliente;
+    const leadId = c.id;
+    const leadName = c.nome_empresa || c.nome_responsavel || 'Cliente';
+    // Navigate to Agenda with prefill params
+    window.location.href = `agenda.php?lead_id=${encodeURIComponent(leadId)}&lead_name=${encodeURIComponent(leadName)}`;
+}
+
 function copiarRelatorioWhatsApp() {
     if (!currentClientData || !currentClientData.cliente) return;
     const c = currentClientData.cliente;
