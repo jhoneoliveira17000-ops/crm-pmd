@@ -76,7 +76,7 @@ $showModalAuto = ($prefillLeadId != '' && $prefillLeadName != '') ? 'true' : 'fa
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
     <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.11/locales/pt-br.global.min.js'></script>
 </head>
-<body class="bg-gray-50 dark:bg-[#0f172a] text-slate-900 dark:text-slate-200 h-screen overflow-hidden flex flex-col font-sans transition-colors duration-300">
+<body class="bg-gray-50 dark:bg-[#0f172a] text-slate-900 dark:text-slate-200 h-screen overflow-hidden flex flex-col font-sans transition-colors duration-300 pb-20 md:pb-0 md:pl-64">
 
     <!-- Navbar -->
     <?php include 'nav.php'; ?>
