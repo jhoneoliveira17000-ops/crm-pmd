@@ -62,6 +62,11 @@ async function loadSettings() {
                 localStorage.setItem('theme_color', s.theme_color);
             }
             if (s.whatsapp_default_msg) document.getElementById('whatsappMsgInput').value = s.whatsapp_default_msg;
+            if (s.webhook_token && document.getElementById('metaWebhookUrl')) {
+                const basePath = window.location.href.substring(0, window.location.href.lastIndexOf('/'));
+                const webhookUrl = basePath + '/api/webhook.php?token=' + s.webhook_token;
+                document.getElementById('metaWebhookUrl').value = webhookUrl;
+            }
             if (s.company_logo) {
                 document.getElementById('logoPreview').src = s.company_logo;
                 document.getElementById('logoPreview').classList.remove('hidden');
@@ -165,16 +170,8 @@ function copyToClipboard(id) {
     });
 }
 
-// Initial Webhook URL population
+// Webhook initial population is now handled inside loadSettings() to wait for the token to arrive
 document.addEventListener('DOMContentLoaded', () => {
-    const url = window.location.origin + window.location.pathname.replace('dashboard.php', 'api/webhook.php').replace('crm_kanban.php', 'api/webhook.php');
-    // More robust path finding
-    const basePath = window.location.href.substring(0, window.location.href.lastIndexOf('/'));
-    const webhookUrl = basePath + '/api/webhook.php';
-
-    if (document.getElementById('metaWebhookUrl')) {
-        document.getElementById('metaWebhookUrl').value = webhookUrl;
-    }
 
     // Drag & Drop Logo
     const dropZone = document.getElementById('logoDropZone');

@@ -1,8 +1,10 @@
 <?php
+require_once '../src/db.php';
 require_once '../src/auth.php';
 require_login(); // Only logged-in users can connect their calendar
 
-$stmt = $pdo->query("SELECT value FROM config WHERE key_name = 'google_client_id'");
+// Fetch from global config (user_id IS NULL)
+$stmt = $pdo->query("SELECT value FROM config WHERE key_name = 'google_client_id' AND user_id IS NULL");
 $clientId = $stmt->fetchColumn();
 
 if (empty($clientId)) {
@@ -12,10 +14,10 @@ if (empty($clientId)) {
 }
 
 // Redirect URI must match the one configured in Google Cloud Console
-// E.g. https://[app].up.railway.app/api/google_callback.php
 $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
 $domainName = $_SERVER['HTTP_HOST'];
-$redirectUri = $protocol . $domainName . '/api/google_callback.php';
+$redirectUri = $protocol . $domainName . dirname($_SERVER['PHP_SELF']) . '/google_callback.php';
+$redirectUri = str_replace('//google', '/google', $redirectUri); // Clean URL
 
 $scope = urlencode('https://www.googleapis.com/auth/calendar.events');
 $authUrl = "https://accounts.google.com/o/oauth2/v2/auth?" .

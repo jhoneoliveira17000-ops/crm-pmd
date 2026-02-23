@@ -90,6 +90,15 @@
             </div>
             <span class="font-medium tracking-wide">Financeiro</span>
         </a>
+
+        <?php if (is_admin()): ?>
+        <a href="admin_dashboard.php" class="group flex items-center px-4 py-3 mt-4 text-red-500 hover:text-white hover:bg-red-600/80 rounded-xl transition duration-200 <?= basename($_SERVER['PHP_SELF']) == 'admin_dashboard.php' ? 'bg-red-500/10 text-red-600 border border-red-500/20' : '' ?>">
+            <div class="mr-3">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+            </div>
+            <span class="font-bold tracking-wide text-sm">Painel Admin</span>
+        </a>
+        <?php endif; ?>
     </nav>
     
     <div class="p-4 border-t border-gray-200 dark:border-slate-800 bg-gray-50 dark:bg-slate-900/50">

@@ -21,7 +21,7 @@ function calculateMRR($pdo, $start, $end) {
         SELECT SUM(valor_mensal) as mrr 
         FROM clientes 
         WHERE 
-            data_inicio_contrato <= ? 
+            data_inicio_contrato <= ? AND ({get_tenant_condition()})
             AND (data_fim_contrato IS NULL OR data_fim_contrato >= ?)
             AND (
                 status_contrato = 'ativo' 
@@ -39,7 +39,8 @@ if ($method === 'DELETE') {
         json_response(['success' => false, 'error' => 'ID obrigatório'], 400);
     }
     try {
-        $stmt = $pdo->prepare("DELETE FROM despesas WHERE id = ?");
+        $tenantScope = get_tenant_condition();
+        $stmt = $pdo->prepare("DELETE FROM despesas WHERE id = ? AND ({$tenantScope})");
         $stmt->execute([(int)$input['id']]);
         json_response(['success' => true, 'message' => 'Despesa excluída com sucesso']);
     } catch (PDOException $e) {
@@ -73,15 +74,16 @@ if ($method === 'POST') {
         if ($id) {
             // Update single existing expense
             // IMPORTANT: Doesn't update future recurrences automatically to avoid complexity
-            $stmt = $pdo->prepare("UPDATE despesas SET descricao=?, categoria=?, tipo=?, valor=?, data_despesa=?, status=? WHERE id=?");
+            $tenantScope = get_tenant_condition();
+            $stmt = $pdo->prepare("UPDATE despesas SET descricao=?, categoria=?, tipo=?, valor=?, data_despesa=?, status=? WHERE id=? AND ({$tenantScope})");
             $stmt->execute([$descricao, $categoria, $tipo, $valor, $data_despesa, $status, $id]);
             json_response(['success' => true, 'message' => 'Despesa atualizada']);
         } else {
             // Create New
-            $stmt = $pdo->prepare("INSERT INTO despesas (descricao, categoria, tipo, valor, data_despesa, status, recorrente, id_origem_recorrencia) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt = $pdo->prepare("INSERT INTO despesas (descricao, categoria, tipo, valor, data_despesa, status, recorrente, id_origem_recorrencia, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
             
             // 1. Insert Initial
-            $stmt->execute([$descricao, $categoria, $tipo, $valor, $data_despesa, $status, $recorrente ? 1 : 0, null]);
+            $stmt->execute([$descricao, $categoria, $tipo, $valor, $data_despesa, $status, $recorrente ? 1 : 0, null, get_tenant_id()]);
             $firstId = $pdo->lastInsertId();
 
             // 2. Loop for Recurrence
@@ -99,7 +101,7 @@ if ($method === 'POST') {
                     // Let's default future ones to 'agendado' if current is 'pago', otherwise copy status.
                     $futureStatus = ($status === 'pago') ? 'agendado' : $status;
 
-                    $stmt->execute([$descricao, $categoria, $tipo, $valor, $nextDate, $futureStatus, 1, $firstId]);
+                    $stmt->execute([$descricao, $categoria, $tipo, $valor, $nextDate, $futureStatus, 1, $firstId, get_tenant_id()]);
                 }
             }
 
@@ -159,9 +161,10 @@ if ($method === 'GET') {
 
     try {
         // 1. List Transactions (Despesas)
+        $tenantScope = get_tenant_condition();
         $stmt = $pdo->prepare("
             SELECT * FROM despesas 
-            WHERE data_despesa BETWEEN ? AND ? 
+            WHERE data_despesa BETWEEN ? AND ? AND ({$tenantScope})
             ORDER BY data_despesa DESC, created_at DESC
         ");
         $stmt->execute([$start, $end]);
@@ -244,12 +247,13 @@ if ($method === 'GET') {
         // 3. Charts Data
 
         // Expenses by Category
-        $catStmt = $pdo->prepare("
+        $stmt_cat_query = "
             SELECT categoria, SUM(valor) as total 
             FROM despesas 
-            WHERE data_despesa BETWEEN ? AND ? 
+            WHERE data_despesa BETWEEN ? AND ? AND ({$tenantScope})
             GROUP BY categoria
-        ");
+        ";
+        $catStmt = $pdo->prepare($stmt_cat_query);
         $catStmt->execute([$start, $end]);
         $expensesByCategory = $catStmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -262,12 +266,12 @@ if ($method === 'GET') {
         $history_end = date('Y-m-t');
 
         // Buscar clientes para calcular MRR Mensal de forma otimizada
-        $stmt_clientes = $pdo->prepare("SELECT data_inicio_contrato, data_fim_contrato, status_contrato, data_cancelamento, valor_mensal FROM clientes WHERE data_inicio_contrato <= ?");
+        $stmt_clientes = $pdo->prepare("SELECT data_inicio_contrato, data_fim_contrato, status_contrato, data_cancelamento, valor_mensal FROM clientes WHERE data_inicio_contrato <= ? AND ({$tenantScope})");
         $stmt_clientes->execute([$history_end]);
         $history_clientes = $stmt_clientes->fetchAll(PDO::FETCH_ASSOC);
 
         // Buscar despesas dos últimos 6 meses para fluxo de caixa
-        $stmt_despesas = $pdo->prepare("SELECT valor, data_despesa FROM despesas WHERE data_despesa BETWEEN ? AND ?");
+        $stmt_despesas = $pdo->prepare("SELECT valor, data_despesa FROM despesas WHERE data_despesa BETWEEN ? AND ? AND ({$tenantScope})");
         $stmt_despesas->execute([$history_start, $history_end]);
         $history_despesas = $stmt_despesas->fetchAll(PDO::FETCH_ASSOC);
         

@@ -17,7 +17,8 @@ if (empty($data['id'])) {
 }
 
 try {
-    $stmt = $pdo->prepare("DELETE FROM despesas WHERE id = ?");
+    $tenantScope = get_tenant_condition();
+    $stmt = $pdo->prepare("DELETE FROM despesas WHERE id = ? AND ({$tenantScope})");
     $stmt->execute([$data['id']]);
 
     json_response(['message' => 'Despesa excluída com sucesso']);

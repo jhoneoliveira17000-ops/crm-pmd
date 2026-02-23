@@ -14,9 +14,17 @@ try {
     if ($method === 'GET') {
         // Fetch All Public Settings
         // Be careful not to expose sensitive server secrets if added in future
-        // Fetch All Public Settings
-        $stmt = $pdo->query("SELECT key_name, value FROM config");
+        // Fetch All Public Settings for this Tenant
+        $tenantScope = get_tenant_condition();
+        $stmt = $pdo->query("SELECT key_name, value FROM config WHERE {$tenantScope}");
         $settings = $stmt->fetchAll(PDO::FETCH_KEY_PAIR);
+        
+        // Fetch User Webhook Token
+        $userId = get_current_user_id();
+        $stmtToken = $pdo->prepare("SELECT webhook_token FROM usuarios WHERE id = ?");
+        $stmtToken->execute([$userId]);
+        $token = $stmtToken->fetchColumn();
+        $settings['webhook_token'] = $token;
         
         // Return structured object
         json_response(['success' => true, 'data' => $settings]);
@@ -49,7 +57,7 @@ try {
             'theme_color'
         ];
 
-        $stmt = $pdo->prepare("INSERT INTO config (key_name, value) VALUES (?, ?) ON DUPLICATE KEY UPDATE value = ?");
+        $tenantId = get_tenant_id();
 
         // Handle File Upload
         if (isset($_FILES['company_logo_file']) && $_FILES['company_logo_file']['error'] === UPLOAD_ERR_OK) {
@@ -66,8 +74,8 @@ try {
                 
                 if (move_uploaded_file($file['tmp_name'], $dest)) {
                     $url = 'assets/uploads/logos/' . $filename;
-                    $stmt = $pdo->prepare("INSERT INTO config (key_name, value) VALUES ('company_logo', ?) ON DUPLICATE KEY UPDATE value = ?");
-                    $stmt->execute([$url, $url]);
+                    $stmt = $pdo->prepare("INSERT INTO config (key_name, value, user_id) VALUES ('company_logo', ?, ?) ON DUPLICATE KEY UPDATE value = ?");
+                    $stmt->execute([$url, $tenantId, $url]);
                 }
             }
         }
@@ -81,8 +89,8 @@ try {
                 } else {
                     $val = sanitize_input($value);
                 }
-                $stmt = $pdo->prepare("INSERT INTO config (key_name, value) VALUES (?, ?) ON DUPLICATE KEY UPDATE value = ?");
-                $stmt->execute([$key, $val, $val]);
+                $stmt = $pdo->prepare("INSERT INTO config (key_name, value, user_id) VALUES (?, ?, ?) ON DUPLICATE KEY UPDATE value = ?");
+                $stmt->execute([$key, $val, $tenantId, $val]);
             }
         }
         

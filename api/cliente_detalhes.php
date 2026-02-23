@@ -14,7 +14,8 @@ $clienteId = (int)$_GET['id'];
 
 try {
     // 1. Basic Info
-    $stmt = $pdo->prepare("SELECT * FROM clientes WHERE id = ?");
+    $tenantScope = get_tenant_condition();
+    $stmt = $pdo->prepare("SELECT * FROM clientes WHERE id = ? AND ({$tenantScope})");
     $stmt->execute([$clienteId]);
     $cliente = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -23,24 +24,24 @@ try {
     }
 
     // 2. Services
-    $stmt = $pdo->prepare("SELECT * FROM client_services WHERE cliente_id = ? ORDER BY created_at DESC");
+    $stmt = $pdo->prepare("SELECT * FROM client_services WHERE cliente_id = ? AND ({$tenantScope}) ORDER BY created_at DESC");
     $stmt->execute([$clienteId]);
     $services = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     // 3. Notes (Join with users for name if possible, or just id)
-    // Assuming 'users' table exists and has 'nome'
+    // Assuming 'usuarios' table exists and has 'nome'
     $stmt = $pdo->prepare("
         SELECT n.*, u.nome as autor 
         FROM client_notes n 
-        LEFT JOIN users u ON n.user_id = u.id 
-        WHERE n.cliente_id = ? 
+        LEFT JOIN usuarios u ON n.user_id = u.id 
+        WHERE n.cliente_id = ? AND ({$tenantScope})
         ORDER BY n.created_at DESC
     ");
     $stmt->execute([$clienteId]);
     $notes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     // 4. Links
-    $stmt = $pdo->prepare("SELECT * FROM client_links WHERE cliente_id = ? ORDER BY created_at DESC");
+    $stmt = $pdo->prepare("SELECT * FROM client_links WHERE cliente_id = ? AND ({$tenantScope}) ORDER BY created_at DESC");
     $stmt->execute([$clienteId]);
     $links = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -48,8 +49,8 @@ try {
     $stmt = $pdo->prepare("
         SELECT l.*, u.nome as usuario
         FROM activity_logs l
-        LEFT JOIN users u ON l.user_id = u.id
-        WHERE l.cliente_id = ?
+        LEFT JOIN usuarios u ON l.user_id = u.id
+        WHERE l.cliente_id = ? AND ({$tenantScope})
         ORDER BY l.created_at DESC
     ");
     $stmt->execute([$clienteId]);

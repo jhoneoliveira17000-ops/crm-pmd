@@ -28,8 +28,9 @@ try {
             SELECT n.*, u.nome as usuario_nome 
             FROM lead_notes n 
             LEFT JOIN usuarios u ON n.user_id = u.id 
-            WHERE lead_id = ? 
-            ORDER BY created_at DESC
+            JOIN leads l ON n.lead_id = l.id
+            WHERE n.lead_id = ? AND ({get_tenant_condition('l')})
+            ORDER BY n.created_at DESC
         ");
         $stmt->execute([$leadId]);
         echo json_encode($stmt->fetchAll(PDO::FETCH_ASSOC));

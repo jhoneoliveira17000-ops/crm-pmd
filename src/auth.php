@@ -33,7 +33,20 @@ function get_current_user_id() {
     return $_SESSION['user_id'] ?? null;
 }
 
-
 function is_admin() {
     return isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin';
+}
+
+function get_tenant_condition($tableAlias = '') {
+    $prefix = $tableAlias ? $tableAlias . '.' : '';
+    if (is_admin()) {
+        // Admin vê dados de todos os tenants no dashboard e listagens globais.
+        return "1=1";
+    }
+    $userId = get_current_user_id();
+    return "{$prefix}user_id = " . (int)$userId;
+}
+
+function get_tenant_id() {
+    return get_current_user_id();
 }

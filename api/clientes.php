@@ -22,7 +22,8 @@ try {
 
     // === GET ===
     if ($method === 'GET') {
-        $stmt = $pdo->query("SELECT * FROM clientes ORDER BY created_at DESC");
+        $tenantScope = get_tenant_condition();
+        $stmt = $pdo->query("SELECT * FROM clientes WHERE {$tenantScope} ORDER BY created_at DESC");
         $clientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
         echo json_encode($clientes);
         exit;
@@ -37,7 +38,8 @@ try {
         }
 
         try {
-            $stmt = $pdo->prepare("DELETE FROM clientes WHERE id = ?");
+            $tenantScope = get_tenant_condition();
+            $stmt = $pdo->prepare("DELETE FROM clientes WHERE id = ? AND ({$tenantScope})");
             $stmt->execute([(int)$input['id']]);
             json_response(['success' => true, 'message' => 'Cliente excluído com sucesso']);
         } catch (PDOException $e) {
@@ -96,10 +98,11 @@ try {
             if (isset($input['periodo_meses']) && !isset($input['data_fim_contrato'])) {
                  // Busca data_inicio atual se não foi enviada
                 if (!isset($input['data_inicio_contrato'])) {
-                    $stmt = $pdo->prepare("SELECT data_inicio_contrato FROM clientes WHERE id = ?");
+                    $tenantScope = get_tenant_condition();
+                    $stmt = $pdo->prepare("SELECT data_inicio_contrato FROM clientes WHERE id = ? AND ({$tenantScope})");
                     $stmt->execute([$id]);
                     $current = $stmt->fetch();
-                    $start = $current['data_inicio_contrato'];
+                    $start = $current ? $current['data_inicio_contrato'] : null;
                 } else {
                     $start = $input['data_inicio_contrato'];
                 }
@@ -116,7 +119,8 @@ try {
             }
 
             $valores[] = $id;
-            $sql = "UPDATE clientes SET " . implode(', ', $campos) . " WHERE id = ?";
+            $tenantScope = get_tenant_condition();
+            $sql = "UPDATE clientes SET " . implode(', ', $campos) . " WHERE id = ? AND ({$tenantScope})";
 
             try {
                 $stmt = $pdo->prepare($sql);
@@ -143,8 +147,8 @@ try {
                     data_inicio_contrato, data_fim_contrato, status_contrato,
                     dia_pagamento, metodo_pagamento,
                     instagram, landing_page_url, produto_servico, lead_id,
-                    nicho, origem, endereco, cidade, estado, obs
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                    nicho, origem, endereco, cidade, estado, obs, user_id
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
                 $data_entrada = $input['data_entrada'] ?? date('Y-m-d');
                 $data_inicio = $input['data_inicio_contrato'] ?? $data_entrada;
@@ -189,7 +193,8 @@ try {
                     sanitize_input($input['endereco'] ?? ''),
                     sanitize_input($input['cidade'] ?? ''),
                     sanitize_input($input['estado'] ?? ''),
-                    sanitize_input($input['obs'] ?? '')
+                    sanitize_input($input['obs'] ?? ''),
+                    get_tenant_id()
                 ]);
 
                 $clienteId = $pdo->lastInsertId();

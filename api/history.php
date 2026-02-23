@@ -24,7 +24,8 @@ try {
         LEFT JOIN usuarios u ON lh.usuario_id = u.id
         LEFT JOIN kanban_stages ks_de ON lh.de_estagio_id = ks_de.id
         LEFT JOIN kanban_stages ks_para ON lh.para_estagio_id = ks_para.id
-        WHERE lh.lead_id = ?
+        JOIN leads l ON lh.lead_id = l.id
+        WHERE lh.lead_id = ? AND ({get_tenant_condition('l')})
         ORDER BY lh.data_movimentacao DESC
     ");
     $stmt->execute([$leadId]);

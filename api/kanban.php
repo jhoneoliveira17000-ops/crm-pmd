@@ -19,15 +19,18 @@ try {
     if ($method === 'GET') {
         // ... (GET logic unchanged) ...
         // 1. Stages (Map columns to API expectation)
-        $stmtStations = $pdo->query("SELECT id, nome as name, ordem, cor as color FROM kanban_stages ORDER BY ordem ASC");
+        $tenantScope = get_tenant_condition();
+        $stmtStations = $pdo->query("SELECT id, nome as name, ordem, cor as color FROM kanban_stages WHERE {$tenantScope} ORDER BY ordem ASC");
         $stages = $stmtStations->fetchAll(PDO::FETCH_ASSOC);
 
         // 2. Leads
         // 2. Leads (with Facebook Data)
+        $tenantScope = get_tenant_condition('l');
         $stmtLeads = $pdo->query("
             SELECT l.*, fl.payload_json as facebook_data 
             FROM leads l 
             LEFT JOIN facebook_leads fl ON l.id = fl.lead_id 
+            WHERE {$tenantScope}
             ORDER BY l.created_at DESC
         ");
         $leads = $stmtLeads->fetchAll(PDO::FETCH_ASSOC);
@@ -48,13 +51,14 @@ try {
             
             if ($id) {
                 // Update
-                $stmt = $pdo->prepare("UPDATE leads SET nome = ?, valor_estimado = ?, telefone = ?, status_id = ?, origem = ? WHERE id = ?");
+                $tenantScope = get_tenant_condition();
+                $stmt = $pdo->prepare("UPDATE leads SET nome = ?, valor_estimado = ?, telefone = ?, status_id = ?, origem = ? WHERE id = ? AND ({$tenantScope})");
                 $stmt->execute([$nome, $valor, $telefone, $statusId, $origem, $id]);
                  echo json_encode(['success' => true, 'message' => 'Lead atualizado']);
             } else {
                 // Create
-                $stmt = $pdo->prepare("INSERT INTO leads (nome, telefone, valor_estimado, status_id, origem) VALUES (?, ?, ?, ?, ?)");
-                $stmt->execute([$nome, $telefone, $valor, $statusId, $origem]);
+                $stmt = $pdo->prepare("INSERT INTO leads (nome, telefone, valor_estimado, status_id, origem, user_id) VALUES (?, ?, ?, ?, ?, ?)");
+                $stmt->execute([$nome, $telefone, $valor, $statusId, $origem, get_tenant_id()]);
                 echo json_encode(['success' => true, 'id' => $pdo->lastInsertId()]);
             }
 
@@ -69,7 +73,8 @@ try {
             $oldStageId = $stmtOld->fetchColumn();
 
             // Update
-            $stmt = $pdo->prepare("UPDATE leads SET status_id = ? WHERE id = ?");
+            $tenantScope = get_tenant_condition();
+            $stmt = $pdo->prepare("UPDATE leads SET status_id = ? WHERE id = ? AND ({$tenantScope})");
             $stmt->execute([$newStageId, $leadId]);
 
             // Log History
@@ -96,11 +101,24 @@ try {
                 LEFT JOIN usuarios u ON lh.usuario_id = u.id
                 LEFT JOIN kanban_stages ks_de ON lh.de_estagio_id = ks_de.id
                 LEFT JOIN kanban_stages ks_para ON lh.para_estagio_id = ks_para.id
-                WHERE lh.lead_id = ?
+                JOIN leads l ON lh.lead_id = l.id
+                WHERE lh.lead_id = ? AND l.user_id = ?
                 ORDER BY lh.created_at DESC
             ");
-            $stmt->execute([$leadId]);
-            echo json_encode($stmt->fetchAll(PDO::FETCH_ASSOC));
+            $stmt->execute([$leadId, get_tenant_id()]);
+            $history = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            if (empty($history) && is_admin()) { // Fallback for admin
+                $stmtAdmin = $pdo->prepare("
+                    SELECT lh.*, u.nome as usuario_nome, ks_de.nome as de_estagio_nome, ks_para.nome as para_estagio_nome
+                    FROM lead_history lh
+                    LEFT JOIN usuarios u ON lh.usuario_id = u.id
+                    LEFT JOIN kanban_stages ks_de ON lh.de_estagio_id = ks_de.id
+                    LEFT JOIN kanban_stages ks_para ON lh.para_estagio_id = ks_para.id
+                    WHERE lh.lead_id = ? ORDER BY lh.created_at DESC");
+                $stmtAdmin->execute([$leadId]);
+                $history = $stmtAdmin->fetchAll(PDO::FETCH_ASSOC);
+            }
+            echo json_encode($history);
 
         } elseif ($action === 'add_stage') {
             $nome = trim($input['nome']);
@@ -112,11 +130,12 @@ try {
                 exit;
             }
             
-            $stmt = $pdo->query("SELECT MAX(ordem) FROM kanban_stages");
+            $tenantScope = get_tenant_condition();
+            $stmt = $pdo->query("SELECT MAX(ordem) FROM kanban_stages WHERE {$tenantScope}");
             $maxOrder = $stmt->fetchColumn() ?: 0;
             
-            $stmt = $pdo->prepare("INSERT INTO kanban_stages (nome, ordem, cor) VALUES (?, ?, ?)");
-            $stmt->execute([$nome, $maxOrder + 1, $cor]);
+            $stmt = $pdo->prepare("INSERT INTO kanban_stages (nome, ordem, cor, user_id) VALUES (?, ?, ?, ?)");
+            $stmt->execute([$nome, $maxOrder + 1, $cor, get_tenant_id()]);
             
             echo json_encode(['success' => true, 'id' => $pdo->lastInsertId()]);
 
@@ -130,7 +149,8 @@ try {
                 exit;
             }
 
-            $stmt = $pdo->prepare("UPDATE kanban_stages SET nome = ? WHERE id = ?");
+            $tenantScope = get_tenant_condition();
+            $stmt = $pdo->prepare("UPDATE kanban_stages SET nome = ? WHERE id = ? AND ({$tenantScope})");
             $stmt->execute([$newName, $stageId]);
             
             echo json_encode(['success' => true]);
@@ -139,7 +159,8 @@ try {
              $id = $input['id'];
              
              // Check if has leads
-             $stmt = $pdo->prepare("SELECT COUNT(*) FROM leads WHERE status_id = ?");
+             $tenantScope = get_tenant_condition();
+             $stmt = $pdo->prepare("SELECT COUNT(*) FROM leads WHERE status_id = ? AND ({$tenantScope})");
              $stmt->execute([$id]);
              if ($stmt->fetchColumn() > 0) {
                  http_response_code(400);
@@ -147,7 +168,8 @@ try {
                  exit;
              }
              
-             $stmt = $pdo->prepare("DELETE FROM kanban_stages WHERE id = ?");
+             $tenantScope = get_tenant_condition();
+             $stmt = $pdo->prepare("DELETE FROM kanban_stages WHERE id = ? AND ({$tenantScope})");
              $stmt->execute([$id]);
              echo json_encode(['success' => true]);
 
@@ -162,7 +184,8 @@ try {
 
             $pdo->beginTransaction();
             try {
-                $stmt = $pdo->prepare("UPDATE kanban_stages SET ordem = ? WHERE id = ?");
+                $tenantScope = get_tenant_condition();
+                $stmt = $pdo->prepare("UPDATE kanban_stages SET ordem = ? WHERE id = ? AND ({$tenantScope})");
                 foreach ($order as $item) {
                     $stmt->execute([$item['ordem'], $item['id']]);
                 }
@@ -182,7 +205,8 @@ try {
                  exit;
             }
 
-            $stmt = $pdo->prepare("UPDATE kanban_stages SET cor = ? WHERE id = ?");
+            $tenantScope = get_tenant_condition();
+            $stmt = $pdo->prepare("UPDATE kanban_stages SET cor = ? WHERE id = ? AND ({$tenantScope})");
             $stmt->execute([$cor, $id]);
             echo json_encode(['success' => true]);
         
@@ -191,7 +215,8 @@ try {
             $leadId = $input['lead_id'];
             
             // Fetch Lead Data
-            $stmt = $pdo->prepare("SELECT * FROM leads WHERE id = ?");
+            $tenantScope = get_tenant_condition();
+            $stmt = $pdo->prepare("SELECT * FROM leads WHERE id = ? AND ({$tenantScope})");
             $stmt->execute([$leadId]);
             $lead = $stmt->fetch(PDO::FETCH_ASSOC);
             
@@ -207,8 +232,8 @@ try {
                 // Insert into Clients
                 $stmtClient = $pdo->prepare("INSERT INTO clientes (
                     nome_empresa, nome_responsavel, telefone, valor_mensal, 
-                    canal_aquisicao, lead_id, status_contrato, data_entrada
-                ) VALUES (?, ?, ?, ?, ?, ?, 'ativo', NOW())");
+                    canal_aquisicao, lead_id, status_contrato, data_entrada, user_id
+                ) VALUES (?, ?, ?, ?, ?, ?, 'ativo', NOW(), ?)");
                 
                 $stmtClient->execute([
                     $lead['nome'],              // nome_empresa
@@ -216,14 +241,16 @@ try {
                     $lead['telefone'],
                     $lead['valor_estimado'],
                     $lead['origem'],
-                    $lead['id']
+                    $lead['id'],
+                    $lead['user_id']
                 ]);
                 
                 $clientId = $pdo->lastInsertId();
                 
                 // Update Lead Status (e.g., move to a 'Converted' stage if exists, or just mark somehow)
                 // For now, let's look for a stage named 'Fechado' or 'Ganhou'
-                $stmtStage = $pdo->prepare("SELECT id FROM kanban_stages WHERE nome LIKE '%Fechado%' OR nome LIKE '%Ganhou%' OR nome LIKE '%Venda%' LIMIT 1");
+                $tenantScope = get_tenant_condition();
+                $stmtStage = $pdo->prepare("SELECT id FROM kanban_stages WHERE (nome LIKE '%Fechado%' OR nome LIKE '%Ganhou%' OR nome LIKE '%Venda%') AND ({$tenantScope}) LIMIT 1");
                 $stmtStage->execute();
                 $wonStageId = $stmtStage->fetchColumn();
                 
@@ -256,7 +283,8 @@ try {
             $pdo->prepare("UPDATE clientes SET lead_id = NULL WHERE lead_id = ?")->execute([$id]);
             
             // Delete the main lead record
-            $stmt = $pdo->prepare("DELETE FROM leads WHERE id = ?");
+            $tenantScope = get_tenant_condition();
+            $stmt = $pdo->prepare("DELETE FROM leads WHERE id = ? AND ({$tenantScope})");
             $stmt->execute([$id]);
             
             $pdo->commit();
