@@ -10,7 +10,7 @@ $route = trim($requestUri, '/');
 
 // 3. Define the actual PHP file mapping
 $routes = [
-    '' => 'login_page.php',
+    '' => 'landing.php',
     'login' => 'login_page.php',
     'register' => 'register.php',
     'dashboard' => 'dashboard.php',
