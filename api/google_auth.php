@@ -14,7 +14,14 @@ if (empty($clientId)) {
 }
 
 // Redirect URI must match the one configured in Google Cloud Console
-$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+$isSecure = false;
+if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') {
+    $isSecure = true;
+} elseif (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https' || !empty($_SERVER['HTTP_X_FORWARDED_SSL']) && $_SERVER['HTTP_X_FORWARDED_SSL'] == 'on') {
+    $isSecure = true;
+}
+$protocol = $isSecure ? 'https://' : 'http://';
+
 $domainName = $_SERVER['HTTP_HOST'];
 $redirectUri = $protocol . $domainName . dirname($_SERVER['PHP_SELF']) . '/google_callback.php';
 $redirectUri = str_replace('//google', '/google', $redirectUri); // Clean URL

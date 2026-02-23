@@ -11,8 +11,15 @@ if (!$clientId) {
     die("Google Client ID não configurado no sistema (Painel Super Admin).");
 }
 
-// Ensure HTTPS is used for redirect URI in production, but allow HTTP for localhost
-$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+// Ensure HTTPS is used for redirect URI in production
+$isSecure = false;
+if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') {
+    $isSecure = true;
+} elseif (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https' || !empty($_SERVER['HTTP_X_FORWARDED_SSL']) && $_SERVER['HTTP_X_FORWARDED_SSL'] == 'on') {
+    $isSecure = true;
+}
+$protocol = $isSecure ? 'https://' : 'http://';
+
 $domainName = $_SERVER['HTTP_HOST'];
 $redirectUri = $protocol . $domainName . dirname(dirname($_SERVER['PHP_SELF'])) . '/api/google_callback.php';
 
