@@ -8,32 +8,42 @@ if (in_array($ext, ['css', 'js', 'png', 'jpg', 'jpeg', 'gif', 'svg', 'woff', 'wo
     return false;
 }
 
-// Map root index specifically
+// Security: don't route to hidden files
+if (strpos($path, '/.') === 0) {
+    http_response_code(403);
+    die('Forbidden');
+}
+
+// Base Routing
 if ($path === '/' || $path === '') {
-    include 'index.php';
+    $_SERVER['SCRIPT_NAME'] = '/index.php';
+    $_SERVER['SCRIPT_FILENAME'] = __DIR__ . '/index.php';
+    require 'index.php';
     return true;
 }
 
-// Map /login directly to index.php
 if ($path === '/login') {
-    include 'index.php';
+    $_SERVER['SCRIPT_NAME'] = '/index.php';
+    $_SERVER['SCRIPT_FILENAME'] = __DIR__ . '/index.php';
+    require 'index.php';
     return true;
 }
 
 // Dynamic route matching for extensionless pages
 $file = ltrim($path, '/');
-if (file_exists($file . '.php')) {
-    include $file . '.php';
+if (file_exists(__DIR__ . '/' . $file . '.php')) {
+    $_SERVER['SCRIPT_NAME'] = '/' . $file . '.php';
+    $_SERVER['SCRIPT_FILENAME'] = __DIR__ . '/' . $file . '.php';
+    require __DIR__ . '/' . $file . '.php';
     return true;
 }
 
-// Fallback logic
-if (file_exists($file)) {
+// If physical file actually exists (like API endpoints with explicit .php)
+if (file_exists(__DIR__ . '/' . $file) && !is_dir(__DIR__ . '/' . $file)) {
     return false;
-} else {
-    // 404 handling or redirect
-    http_response_code(404);
-    echo "404 Not Found";
-    return true;
 }
+
+http_response_code(404);
+echo "404 Not Found - Path: " . htmlspecialchars($path);
+return true;
 ?>
