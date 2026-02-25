@@ -56,15 +56,54 @@ $showModalAuto = ($prefillLeadId != '' && $prefillLeadName != '') ? 'true' : 'fa
             .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
             .dark .custom-scrollbar::-webkit-scrollbar-thumb { background: #475569; }
             
-            /* FullCalendar Overrides for Dark Mode / Premium Look */
-            .fc { --fc-border-color: #e2e8f0; --fc-button-text-color: #1e293b; --fc-button-bg-color: #f1f5f9; --fc-button-border-color: #e2e8f0; --fc-button-hover-bg-color: #e2e8f0; --fc-button-hover-border-color: #cbd5e1; --fc-button-active-bg-color: #e2e8f0; --fc-button-active-border-color: #cbd5e1; --fc-event-bg-color: var(--theme-color); --fc-event-border-color: var(--theme-color); --fc-event-text-color: #fff; --fc-page-bg-color: transparent; --fc-neutral-bg-color: #f8fafc; --fc-neutral-text-color: #64748b; --fc-today-bg-color: rgba(var(--theme-color-rgb), 0.1); }
-            .dark .fc { --fc-border-color: #1e293b; --fc-button-text-color: #f1f5f9; --fc-button-bg-color: #1e293b; --fc-button-border-color: #334155; --fc-button-hover-bg-color: #334155; --fc-button-hover-border-color: #475569; --fc-button-active-bg-color: #334155; --fc-button-active-border-color: #475569; --fc-neutral-bg-color: #0f172a; --fc-neutral-text-color: #94a3b8; --fc-today-bg-color: rgba(var(--theme-color-rgb), 0.2); }
-            .fc-toolbar-title { font-weight: 800 !important; font-size: 1.25rem !important; letter-spacing: -0.025em !important; }
-            .fc-button { text-transform: capitalize !important; font-weight: 600 !important; border-radius: 0.5rem !important; padding: 0.5rem 1rem !important; transition: all 0.2s !important; box-shadow: none !important; }
-            .fc-button-primary:not(:disabled):active, .fc-button-primary:not(:disabled).fc-button-active { background-color: var(--theme-color) !important; border-color: var(--theme-color) !important; color: white !important; }
-            .fc-event { border-radius: 4px !important; padding: 2px 4px !important; font-weight: 600 !important; border: none !important; box-shadow: 0 1px 2px rgba(0,0,0,0.1) !important; cursor: pointer; }
-            .fc-daygrid-day-number { font-weight: 600 !important; padding: 0.5rem !important; }
-            .fc-col-header-cell-cushion { padding: 0.75rem !important; font-weight: 700 !important; text-transform: uppercase !important; font-size: 0.75rem !important; letter-spacing: 0.05em !important; }
+            /* Google Calendar Clone Overrides */
+            .fc { 
+                --fc-page-bg-color: #ffffff; 
+                --fc-neutral-bg-color: #f8f9fa;
+                --fc-neutral-text-color: #3c4043; 
+                --fc-border-color: #dadce0; 
+                --fc-button-text-color: #3c4043; 
+                --fc-button-bg-color: #ffffff; 
+                --fc-button-border-color: #dadce0; 
+                --fc-button-hover-bg-color: #f1f3f4; 
+                --fc-button-hover-border-color: #dadce0; 
+                --fc-button-active-bg-color: #e8eaed; 
+                --fc-button-active-border-color: #dadce0; 
+                --fc-event-bg-color: #039be5;
+                --fc-event-border-color: #039be5; 
+                --fc-event-text-color: #ffffff; 
+                --fc-today-bg-color: #e8f0fe; 
+            }
+            .dark .fc { 
+                --fc-page-bg-color: #202124; 
+                --fc-neutral-bg-color: #202124; 
+                --fc-neutral-text-color: #e8eaed; 
+                --fc-border-color: #5f6368; 
+                --fc-button-text-color: #e8eaed; 
+                --fc-button-bg-color: #202124; 
+                --fc-button-border-color: #5f6368; 
+                --fc-button-hover-bg-color: #303134; 
+                --fc-button-hover-border-color: #5f6368; 
+                --fc-button-active-bg-color: #434446; 
+                --fc-button-active-border-color: #5f6368; 
+                --fc-today-bg-color: rgba(138, 180, 248, 0.15); 
+            }
+            /* Google specific typography and sharp edges */
+            .fc-header-toolbar { padding: 8px 16px !important; margin-bottom: 0 !important; border-bottom: 1px solid var(--fc-border-color); }
+            .fc-toolbar-title { font-weight: 400 !important; font-size: 1.375rem !important; color: #3c4043 !important; }
+            .dark .fc-toolbar-title { color: #e8eaed !important; }
+            .fc-button { text-transform: capitalize !important; font-weight: 500 !important; border-radius: 4px !important; padding: 6px 16px !important; box-shadow: none !important; }
+            .fc-button-primary { transition: background-color .15s,box-shadow .15s,color .15s !important; }
+            .fc-daygrid-event { border-radius: 4px !important; padding: 2px 6px !important; font-size: 0.75rem !important; font-weight: 500 !important; border: none !important; margin: 1px 4px !important; }
+            .fc-timegrid-event { border-radius: 4px !important; border: 1px solid #ffffff !important; box-shadow: none !important; }
+            .fc-col-header-cell-cushion { padding: 8px 0 !important; font-weight: 500 !important; text-transform: uppercase !important; font-size: 0.6875rem !important; color: #70757a !important; }
+            .dark .fc-col-header-cell-cushion { color: #9aa0a6 !important; }
+            .fc-daygrid-day-number { font-weight: 500 !important; font-size: 0.75rem !important; width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; padding: 0 !important; margin: 4px; }
+            .fc-daygrid-day.fc-day-today .fc-daygrid-day-number { background-color: #1a73e8; color: white !important; }
+            .dark .fc-daygrid-day.fc-day-today .fc-daygrid-day-number { background-color: #8ab4f8; color: #202124 !important; }
+            .fc-theme-standard td, .fc-theme-standard th { border: 1px solid var(--fc-border-color) !important; }
+            .fc-scrollgrid { border: none !important; }
+            .fc-view-harness { background-color: var(--fc-page-bg-color); }
         }
     </style>
     
@@ -81,66 +120,65 @@ $showModalAuto = ($prefillLeadId != '' && $prefillLeadName != '') ? 'true' : 'fa
     <!-- Navbar -->
     <?php include 'nav.php'; ?>
 
-    <div class="flex-1 overflow-y-auto custom-scrollbar p-4 lg:p-8">
-        <div class="max-w-[1400px] mx-auto space-y-6 animate-fade-in-up">
-            
-            <!-- Page Header -->
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                <div>
-                    <h1 class="text-3xl font-black text-slate-900 dark:text-white tracking-tight flex items-center gap-3">
-                        <svg class="w-8 h-8 text-[var(--theme-color)]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                        Agenda Inteligente
+    <div class="flex-1 flex flex-col h-screen overflow-hidden">
+        
+        <!-- Google Calendar Style Top Bar -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 px-4 py-2 bg-white dark:bg-[#202124] border-b border-[#dadce0] dark:border-[#5f6368] sticky top-0 z-40 shrink-0 h-16">
+            <div class="flex items-center gap-4">
+                <a href="dashboard" class="md:hidden text-slate-500 hover:text-slate-900 transition p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                </a>
+                <div class="flex items-center gap-2">
+                    <svg class="w-6 h-6 text-[#1a73e8] dark:text-[#8ab4f8]" fill="currentColor" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5C3.89 4 3 4.9 3 6v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z"></path></svg>
+                    <h1 class="text-xl font-normal text-[#3c4043] dark:text-[#e8eaed] tracking-tight">
+                        Agenda
                     </h1>
-                    <p class="text-sm font-medium text-slate-500 dark:text-slate-400 mt-1">
-                        Sincronização bidirecional em tempo real com o seu Google Calendar.
-                    </p>
-                </div>
-
-                <div class="flex items-center gap-3">
-                    <?php if (!$isGoogleConnected): ?>
-                        <a href="api/google_auth.php" class="flex items-center gap-2 px-5 py-2.5 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 hover:border-blue-500 hover:shadow-md hover:bg-gray-50 dark:hover:bg-slate-750 text-slate-700 dark:text-white font-bold rounded-lg transition-all text-sm">
-                            <svg class="w-5 h-5" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.9c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/><path fill="none" d="M0 0h48v48H0z"/></svg>
-                            Conectar Google Calendar
-                        </a>
-                    <?php else: ?>
-                        <div class="px-3 py-1.5 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/50 rounded-lg text-xs font-bold flex items-center gap-1.5">
-                            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                            Sincronizado
-                        </div>
-                        <a href="api/google_auth.php" class="text-xs text-slate-500 hover:text-slate-800 dark:hover:text-white underline decoration-dotted transition-colors ml-2">Reconectar</a>
-                    <?php endif; ?>
-                    
-                    <?php if ($isGoogleConnected): ?>
-                    <button onclick="openEventModal()" class="flex items-center gap-2 px-5 py-2.5 bg-[var(--theme-color)] hover:bg-opacity-90 text-white font-bold rounded-lg transition-transform hover:scale-105 active:scale-95 shadow-lg shadow-[var(--theme-color)]/20 text-sm">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
-                        Novo Agendamento
-                    </button>
-                    <?php endif; ?>
                 </div>
             </div>
 
-            <!-- Calendar Container -->
-            <div class="bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-gray-200 dark:border-slate-800 p-6 flex-1 min-h-[600px] relative">
+            <div class="flex items-center gap-3">
                 <?php if (!$isGoogleConnected): ?>
-                    <!-- Blocker Overlay -->
-                    <div class="absolute inset-0 z-10 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm flex flex-col items-center justify-center rounded-2xl">
-                        <div class="bg-white dark:bg-[#1e293b] p-8 rounded-2xl shadow-xl max-w-md w-full text-center border border-gray-200 dark:border-slate-700">
-                            <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900/40 rounded-full flex items-center justify-center mx-auto mb-4">
-                                <svg class="w-8 h-8 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
-                            </div>
-                            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Conecte sua Agenda</h3>
-                            <p class="text-slate-500 dark:text-slate-400 text-sm mb-6">Para visualizar e gerenciar seus compromissos, autorize a conexão segura com o Google Calendar.</p>
-                            <a href="api/google_auth.php" class="flex items-center justify-center gap-2 w-full px-5 py-3 bg-[var(--theme-color)] hover:bg-opacity-90 text-white font-bold rounded-lg transition-transform active:scale-95 shadow-md">
-                                Conectar Conta Google
-                            </a>
-                        </div>
-                    </div>
+                    <a href="api/google_auth.php" class="flex items-center gap-2 px-4 py-2 bg-white dark:bg-[#303134] border border-[#dadce0] dark:border-[#5f6368] hover:bg-[#f1f3f4] dark:hover:bg-[#434446] text-[#3c4043] dark:text-[#e8eaed] font-medium rounded transition-colors text-sm">
+                        <svg class="w-4 h-4" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.9c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/><path fill="none" d="M0 0h48v48H0z"/></svg>
+                        Conectar Google
+                    </a>
+                <?php else: ?>
+                    <a href="api/google_auth.php" title="Reconectar Conta" class="flex items-center gap-2 p-2 px-3 hover:bg-[#f1f3f4] dark:hover:bg-[#303134] text-[#1a73e8] dark:text-[#8ab4f8] rounded transition-colors text-sm font-medium">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                        Sincronizado
+                    </a>
                 <?php endif; ?>
                 
-                <div id="calendar"></div>
+                <?php if ($isGoogleConnected): ?>
+                <button onclick="openEventModal()" class="flex items-center gap-2 px-4 py-2 bg-white dark:bg-[#303134] hover:bg-[#f8f9fa] dark:hover:bg-[#434446] border border-[#dadce0] dark:border-[#5f6368] text-[#3c4043] dark:text-[#e8eaed] font-medium rounded-full shadow-sm transition-all focus:outline-none focus:ring-1 focus:ring-gray-300">
+                    <svg class="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                    Criar
+                </button>
+                <?php endif; ?>
             </div>
-
         </div>
+
+        <!-- Edge to Edge Calendar Container -->
+        <div class="flex-1 bg-white dark:bg-[#202124] relative overflow-hidden flex flex-col">
+            <?php if (!$isGoogleConnected): ?>
+                <!-- Blocker Overlay -->
+                <div class="absolute inset-0 z-10 bg-white/90 dark:bg-[#202124]/90 backdrop-blur-sm flex flex-col items-center justify-center">
+                    <div class="bg-white dark:bg-[#303134] p-8 rounded-lg shadow-lg max-w-sm w-full text-center border border-[#dadce0] dark:border-[#5f6368]">
+                        <div class="mb-4">
+                            <svg class="w-12 h-12 text-[#1a73e8] dark:text-[#8ab4f8] mx-auto" fill="currentColor" viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5C3.89 4 3 4.9 3 6v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-normal text-[#3c4043] dark:text-[#e8eaed] mb-2">Google Calendar</h3>
+                        <p class="text-[#70757a] dark:text-[#9aa0a6] text-sm mb-6">Conecte sua conta para visualizar os agendamentos nativos do Google em tempo real.</p>
+                        <a href="api/google_auth.php" class="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-[#1a73e8] hover:bg-[#1b66c9] text-white font-medium rounded transition-colors text-sm w-full">
+                            Fazer Login
+                        </a>
+                    </div>
+                </div>
+            <?php endif; ?>
+            
+            <div id="calendar" class="flex-1 w-full h-full"></div>
+        </div>
+
     </div>
 
     <!-- Event Modal (Create/Edit) -->
