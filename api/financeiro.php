@@ -21,7 +21,7 @@ function calculateMRR($pdo, $start, $end) {
         SELECT SUM(valor_mensal) as mrr 
         FROM clientes 
         WHERE 
-            data_inicio_contrato <= ? AND ({get_tenant_condition()})
+            data_inicio_contrato <= ? AND (" . get_tenant_condition() . ")
             AND (data_fim_contrato IS NULL OR data_fim_contrato >= ?)
             AND (
                 status_contrato = 'ativo' 
