@@ -59,24 +59,21 @@ try {
 
         $tenantId = get_tenant_id();
 
-        // Handle File Upload
+        // Handle File Upload (base64 para persistência em containers Docker)
         if (isset($_FILES['company_logo_file']) && $_FILES['company_logo_file']['error'] === UPLOAD_ERR_OK) {
             $file = $_FILES['company_logo_file'];
             $ext = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
             $allowed = ['jpg', 'jpeg', 'png', 'svg', 'webp'];
             
             if (in_array($ext, $allowed)) {
-                $uploadDir = __DIR__ . '/../assets/uploads/logos/';
-                if (!is_dir($uploadDir)) mkdir($uploadDir, 0777, true);
-                
-                $filename = 'logo_' . time() . '.' . $ext;
-                $dest = $uploadDir . $filename;
-                
-                if (move_uploaded_file($file['tmp_name'], $dest)) {
-                    $url = 'assets/uploads/logos/' . $filename;
-                    $stmt = $pdo->prepare("INSERT INTO config (key_name, value, user_id) VALUES ('company_logo', ?, ?) ON DUPLICATE KEY UPDATE value = ?");
-                    $stmt->execute([$url, $tenantId, $url]);
-                }
+                $mimeTypes = ['jpg' => 'image/jpeg', 'jpeg' => 'image/jpeg', 'png' => 'image/png', 'svg' => 'image/svg+xml', 'webp' => 'image/webp'];
+                $mime = $mimeTypes[$ext] ?? 'image/png';
+                $imageData = file_get_contents($file['tmp_name']);
+                $base64 = base64_encode($imageData);
+                $dataUri = 'data:' . $mime . ';base64,' . $base64;
+
+                $stmt = $pdo->prepare("INSERT INTO config (key_name, value, user_id) VALUES ('company_logo', ?, ?) ON DUPLICATE KEY UPDATE value = ?");
+                $stmt->execute([$dataUri, $tenantId, $dataUri]);
             }
         }
 

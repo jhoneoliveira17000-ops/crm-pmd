@@ -14,7 +14,6 @@ if (!isset($_FILES['file'])) {
 }
 
 $file = $_FILES['file'];
-$uploadDir = __DIR__ . '/../assets/uploads/';
 $allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
 
 // Validações
@@ -26,20 +25,10 @@ if ($file['size'] > 5 * 1024 * 1024) { // 5MB
     json_response(['error' => 'Arquivo muito grande. Máximo de 5MB.'], 400);
 }
 
-// Garante que o diretório existe
-if (!is_dir($uploadDir)) {
-    mkdir($uploadDir, 0755, true);
-}
+// Converte para base64 data URI (persiste no banco, compatível com Docker/containers)
+$imageData = file_get_contents($file['tmp_name']);
+$base64 = base64_encode($imageData);
+$dataUri = 'data:' . $file['type'] . ';base64,' . $base64;
 
-// Gera nome único
-$ext = pathinfo($file['name'], PATHINFO_EXTENSION);
-$filename = uniqid('img_') . '.' . $ext;
-$targetPath = $uploadDir . $filename;
-
-if (move_uploaded_file($file['tmp_name'], $targetPath)) {
-    $publicUrl = 'assets/uploads/' . $filename; // URL relativa para salvar no banco
-    json_response(['url' => $publicUrl]);
-} else {
-    json_response(['error' => 'Falha ao salvar o arquivo'], 500);
-}
+json_response(['url' => $dataUri]);
 ?>
