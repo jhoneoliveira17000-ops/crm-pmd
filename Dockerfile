@@ -8,6 +8,11 @@ RUN a2enmod rewrite
 # A biblioteca pdo_mysql é a recomendada para conectar o PHP ao banco de dados moderno
 RUN docker-php-ext-install pdo pdo_mysql
 
+# Aumenta limites de upload do PHP (padrão é 2MB, insuficiente para logos/fotos)
+RUN echo "upload_max_filesize = 10M" > /usr/local/etc/php/conf.d/uploads.ini \
+    && echo "post_max_size = 20M" >> /usr/local/etc/php/conf.d/uploads.ini \
+    && echo "memory_limit = 128M" >> /usr/local/etc/php/conf.d/uploads.ini
+
 # Copia todos os arquivos do seu repositório/projeto atual para o diretório raiz web do Apache no container
 COPY . /var/www/html/
 
