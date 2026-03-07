@@ -92,7 +92,12 @@
                 const result = await res.json();
                 
                 if (res.ok) {
-                    window.location.href = '/dashboard';
+                    // Admin vai para painel de admin, gestores para dashboard normal
+                    if (result.user && result.user.role === 'admin') {
+                        window.location.href = '/admin_dashboard';
+                    } else {
+                        window.location.href = '/dashboard';
+                    }
                 } else {
                     alert(result.error || 'Erro ao entrar');
                 }
