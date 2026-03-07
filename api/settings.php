@@ -68,11 +68,56 @@ try {
             $allowed = ['jpg', 'jpeg', 'png', 'svg', 'webp', 'gif'];
             
             if (in_array($ext, $allowed)) {
-                $mimeTypes = ['jpg' => 'image/jpeg', 'jpeg' => 'image/jpeg', 'png' => 'image/png', 'svg' => 'image/svg+xml', 'webp' => 'image/webp', 'gif' => 'image/gif'];
-                $mime = $mimeTypes[$ext] ?? 'image/png';
-                $imageData = file_get_contents($file['tmp_name']);
-                $base64 = base64_encode($imageData);
-                $logoDataUri = 'data:' . $mime . ';base64,' . $base64;
+                // SVGs são texto — salva direto sem compressão
+                if ($ext === 'svg') {
+                    $imageData = file_get_contents($file['tmp_name']);
+                    $base64 = base64_encode($imageData);
+                    $logoDataUri = 'data:image/svg+xml;base64,' . $base64;
+                } else {
+                    // Comprime imagem com GD para caber no limite de 6MB do TiDB
+                    $src = null;
+                    switch ($ext) {
+                        case 'png': $src = @imagecreatefrompng($file['tmp_name']); break;
+                        case 'jpg': case 'jpeg': $src = @imagecreatefromjpeg($file['tmp_name']); break;
+                        case 'webp': $src = @imagecreatefromwebp($file['tmp_name']); break;
+                        case 'gif': $src = @imagecreatefromgif($file['tmp_name']); break;
+                    }
+                    
+                    if ($src) {
+                        // Redimensiona se muito grande (max 800px de largura para logo)
+                        $origW = imagesx($src);
+                        $origH = imagesy($src);
+                        $maxW = 800;
+                        
+                        if ($origW > $maxW) {
+                            $newW = $maxW;
+                            $newH = intval($origH * ($maxW / $origW));
+                            $resized = imagecreatetruecolor($newW, $newH);
+                            // Preserva transparência para PNG
+                            imagealphablending($resized, false);
+                            imagesavealpha($resized, true);
+                            imagecopyresampled($resized, $src, 0, 0, 0, 0, $newW, $newH, $origW, $origH);
+                            imagedestroy($src);
+                            $src = $resized;
+                        }
+                        
+                        // Salva como JPEG comprimido (qualidade 80 — bom visual, tamanho pequeno)
+                        ob_start();
+                        imagejpeg($src, null, 80);
+                        $compressedData = ob_get_clean();
+                        imagedestroy($src);
+                        
+                        $base64 = base64_encode($compressedData);
+                        $logoDataUri = 'data:image/jpeg;base64,' . $base64;
+                    } else {
+                        // Fallback: salva sem compressão se GD falhar
+                        $imageData = file_get_contents($file['tmp_name']);
+                        $base64 = base64_encode($imageData);
+                        $mimeTypes = ['jpg' => 'image/jpeg', 'jpeg' => 'image/jpeg', 'png' => 'image/png', 'webp' => 'image/webp', 'gif' => 'image/gif'];
+                        $mime = $mimeTypes[$ext] ?? 'image/png';
+                        $logoDataUri = 'data:' . $mime . ';base64,' . $base64;
+                    }
+                }
             }
         }
 
