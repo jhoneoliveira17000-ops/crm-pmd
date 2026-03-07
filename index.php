@@ -24,7 +24,8 @@ $routes = [
     'perfil' => 'perfil.php',
     'admin_dashboard' => 'admin_dashboard.php',
     'termos_servico' => 'termos_servico.php',
-    'politica_privacidade' => 'politica_privacidade.php'
+    'politica_privacidade' => 'politica_privacidade.php',
+    'logout' => 'src/logout.php'
 ];
 
 // 4. Check if route exists in our mapping

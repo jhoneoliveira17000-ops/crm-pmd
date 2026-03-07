@@ -27,8 +27,8 @@ try {
         
         if (isset($data['foto_perfil'])) {
             $fields[] = "foto_perfil = ?";
-            $params[] = sanitize_input($data['foto_perfil']);
-            $_SESSION['user_foto'] = sanitize_input($data['foto_perfil']); // Atualiza sessão
+            $params[] = $data['foto_perfil']; // Não sanitizar: base64 data URI é corrompido por htmlspecialchars
+            $_SESSION['user_foto'] = $data['foto_perfil'];
         }
 
         if (!empty($fields)) {
