@@ -60,20 +60,19 @@ try {
         $tenantId = get_tenant_id();
 
         // Handle File Upload (base64 para persistência em containers Docker)
+        // Logo é salvo FORA da transação para evitar limites de tamanho de transação
+        $logoDataUri = null;
         if (isset($_FILES['company_logo_file']) && $_FILES['company_logo_file']['error'] === UPLOAD_ERR_OK) {
             $file = $_FILES['company_logo_file'];
             $ext = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
-            $allowed = ['jpg', 'jpeg', 'png', 'svg', 'webp'];
+            $allowed = ['jpg', 'jpeg', 'png', 'svg', 'webp', 'gif'];
             
             if (in_array($ext, $allowed)) {
-                $mimeTypes = ['jpg' => 'image/jpeg', 'jpeg' => 'image/jpeg', 'png' => 'image/png', 'svg' => 'image/svg+xml', 'webp' => 'image/webp'];
+                $mimeTypes = ['jpg' => 'image/jpeg', 'jpeg' => 'image/jpeg', 'png' => 'image/png', 'svg' => 'image/svg+xml', 'webp' => 'image/webp', 'gif' => 'image/gif'];
                 $mime = $mimeTypes[$ext] ?? 'image/png';
                 $imageData = file_get_contents($file['tmp_name']);
                 $base64 = base64_encode($imageData);
-                $dataUri = 'data:' . $mime . ';base64,' . $base64;
-
-                $stmt = $pdo->prepare("INSERT INTO config (key_name, value, user_id) VALUES ('company_logo', ?, ?) ON DUPLICATE KEY UPDATE value = ?");
-                $stmt->execute([$dataUri, $tenantId, $dataUri]);
+                $logoDataUri = 'data:' . $mime . ';base64,' . $base64;
             }
         }
 
@@ -92,11 +91,27 @@ try {
         }
         
         $pdo->commit();
+
+        // Salva logo DEPOIS do commit (fora da transação para evitar limites)
+        if ($logoDataUri) {
+            // Verifica se já existe
+            $check = $pdo->prepare("SELECT id FROM config WHERE key_name = 'company_logo' AND user_id = ?");
+            $check->execute([$tenantId]);
+            
+            if ($check->fetch()) {
+                $stmt = $pdo->prepare("UPDATE config SET value = ? WHERE key_name = 'company_logo' AND user_id = ?");
+                $stmt->execute([$logoDataUri, $tenantId]);
+            } else {
+                $stmt = $pdo->prepare("INSERT INTO config (key_name, value, user_id) VALUES ('company_logo', ?, ?)");
+                $stmt->execute([$logoDataUri, $tenantId]);
+            }
+        }
+
         json_response(['success' => true, 'message' => 'Configurações salvas.']);
     }
 
 } catch (Exception $e) {
     if ($pdo->inTransaction()) $pdo->rollBack();
     error_log("Settings API Error: " . $e->getMessage());
-    json_response(['error' => 'Erro ao salvar configurações'], 500);
+    json_response(['error' => 'Erro ao salvar configurações: ' . $e->getMessage()], 500);
 }
