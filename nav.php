@@ -1,6 +1,23 @@
 <?php
 // PMDCRM/nav.php
 ?>
+<?php if (isset($_SESSION['is_impersonating']) && $_SESSION['is_impersonating']): ?>
+<div class="fixed top-0 left-0 right-0 bg-red-600 text-white z-[200] flex items-center justify-between px-4 py-2 text-sm font-bold shadow-lg md:pl-64">
+    <span>⚠️ Impersonando: <strong><?= htmlspecialchars($_SESSION['user_nome']) ?></strong> (ID #<?= $_SESSION['user_id'] ?>)</span>
+    <button onclick="exitImpersonation()" class="bg-white text-red-600 px-3 py-1 rounded-lg font-bold hover:bg-red-100 transition text-xs">
+        ↩️ Voltar ao Admin
+    </button>
+</div>
+<script>
+async function exitImpersonation() {
+    const res = await fetch('api/admin_impersonate.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ action: 'exit' }) });
+    const data = await res.json();
+    if (data.success) window.location.href = '/admin_tenants';
+    else alert(data.error);
+}
+</script>
+<style>body { padding-top: 40px; }</style>
+<?php endif; ?>
 <!-- Bottom Navbar (Mobile) -->
 <nav class="fixed bottom-0 left-0 w-full bg-white/90 dark:bg-slate-900/90 backdrop-blur border-t border-gray-200 dark:border-slate-800 md:hidden z-50 transition-colors duration-300">
     <div class="flex justify-around items-center h-16">

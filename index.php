@@ -25,7 +25,12 @@ $routes = [
     'admin_dashboard' => 'admin_dashboard.php',
     'termos_servico' => 'termos_servico.php',
     'politica_privacidade' => 'politica_privacidade.php',
-    'logout' => 'src/logout.php'
+    'logout' => 'src/logout.php',
+    'admin_tenants' => 'admin_tenants.php',
+    'admin_plans' => 'admin_plans.php',
+    'admin_logs' => 'admin_logs.php',
+    'admin_config' => 'admin_config.php',
+    'admin_tenant_detail' => 'admin_tenant_detail.php'
 ];
 
 // 4. Check if route exists in our mapping
