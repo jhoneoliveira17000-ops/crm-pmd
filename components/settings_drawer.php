@@ -63,7 +63,7 @@
                 </div>
 
                 <!-- Save Button (Specific) -->
-                <button onclick="saveSettings()" class="w-full bg-[var(--theme-color)] hover:bg-green-600 text-white font-bold py-2.5 rounded-lg shadow-lg shadow-green-900/20 transition">
+                <button onclick="saveSettings()" class="w-full bg-[var(--theme-color)] hover:brightness-90 text-white font-bold py-2.5 rounded-lg shadow-lg shadow-black/20 transition">
                     Salvar Meta Config
                 </button>
 
@@ -142,7 +142,7 @@
         </details>
 
         <div class="px-1 pt-2">
-            <button onclick="saveSettings()" class="w-full bg-[var(--theme-color)] hover:bg-green-600 text-white font-bold py-3 rounded-lg shadow-lg shadow-green-900/20 transition flex items-center justify-center gap-2">
+            <button onclick="saveSettings()" class="w-full bg-[var(--theme-color)] hover:brightness-90 text-white font-bold py-3 rounded-lg shadow-lg shadow-black/20 transition flex items-center justify-center gap-2">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                 Salvar Configurações
             </button>
