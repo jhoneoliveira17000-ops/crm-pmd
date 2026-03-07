@@ -33,7 +33,7 @@ try {
 
         if (!empty($fields)) {
             $params[] = $userId;
-            $sql = "UPDATE users SET " . implode(', ', $fields) . " WHERE id = ?";
+            $sql = "UPDATE usuarios SET " . implode(', ', $fields) . " WHERE id = ?";
             $stmt = $pdo->prepare($sql);
             $stmt->execute($params);
         }

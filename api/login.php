@@ -26,15 +26,7 @@ try {
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['user_nome'] = $user['nome'];
         $_SESSION['user_role'] = $user['role'];
-        
-        // Carrega foto_perfil: tenta da tabela usuarios primeiro, depois da users
-        $foto = $user['foto_perfil'];
-        if (empty($foto)) {
-            $stmtFoto = $pdo->prepare("SELECT foto_perfil FROM users WHERE email = ?");
-            $stmtFoto->execute([$email]);
-            $foto = $stmtFoto->fetchColumn();
-        }
-        $_SESSION['user_foto'] = $foto ?: '';
+        $_SESSION['user_foto'] = $user['foto_perfil'] ?: '';
         
         json_response([
             'message' => 'Login realizado com sucesso',

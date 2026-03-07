@@ -7,6 +7,12 @@ RewriteRule .* - [e=HTTP_AUTHORIZATION:%1]
 # Route /login to index.php (Login Page)
 RewriteRule ^login/?$ index.php [L,QSA]
 
+# Route /logout to index.php (Logout)
+RewriteRule ^logout/?$ index.php [L,QSA]
+
+# Route /register to index.php (Register)
+RewriteRule ^register/?$ index.php [L,QSA]
+
 # Remove .php extension for all other files
 # If the request is not a directory
 RewriteCond %{REQUEST_FILENAME} !-d

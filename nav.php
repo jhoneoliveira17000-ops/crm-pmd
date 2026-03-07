@@ -41,15 +41,15 @@
         }
 
         $logo = '';
-        if (isset($pdo)) {
-            $stmt = $pdo->prepare("SELECT value FROM config WHERE key_name = 'company_logo'");
-            $stmt->execute();
+        if (isset($pdo) && isset($_SESSION['user_id'])) {
+            $stmt = $pdo->prepare("SELECT value FROM config WHERE key_name = 'company_logo' AND user_id = ?");
+            $stmt->execute([$_SESSION['user_id']]);
             $logo = $stmt->fetchColumn();
         }
         ?>
 
         <?php if (!empty($logo)): ?>
-            <img src="<?= htmlspecialchars($logo) ?>" alt="Logo" class="max-h-24 max-w-full object-contain">
+            <img src="<?= $logo ?>" alt="Logo" class="max-h-24 max-w-full object-contain">
         <?php else: ?>
             <span class="text-2xl font-black italic tracking-tighter text-slate-900 dark:text-white">PMD<span class="text-[var(--theme-color)]">CRM</span></span>
         <?php endif; ?>
