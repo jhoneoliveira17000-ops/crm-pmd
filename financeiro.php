@@ -203,6 +203,7 @@ require_login();
             
             <form id="transactionForm" class="p-6 space-y-4" novalidate>
                 <input type="hidden" name="action" value="create_transaction">
+                <input type="hidden" name="id" value="">
                 
                 <div class="grid grid-cols-2 gap-4">
                      <div>
@@ -501,6 +502,10 @@ require_login();
         const modal = document.getElementById('transactionModal');
         
         function openTransactionModal() {
+            const form = document.getElementById('transactionForm');
+            form.reset();
+            form.querySelector('[name="id"]').value = '';
+            form.querySelector('[name="action"]').value = 'create_transaction';
             modal.classList.remove('hidden');
             setTimeout(() => {
                 modal.classList.remove('opacity-0');
