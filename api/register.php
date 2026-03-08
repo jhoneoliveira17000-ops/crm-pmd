@@ -44,8 +44,22 @@ try {
         ('Aguardando Visita', 'yellow', 3, ?),
         ('Fechado', 'green', 4, ?)");
     $stmtSeed->execute([$userId, $userId, $userId, $userId]);
+    // Auto-login: set session
+    require_once __DIR__ . '/../src/auth.php';
+    $_SESSION['user_id'] = $userId;
+    $_SESSION['user_nome'] = $nome;
+    $_SESSION['user_role'] = $role;
+    $_SESSION['user_foto'] = '';
 
-    json_response(['message' => 'Usuário registrado com sucesso'], 201);
+    json_response([
+        'message' => 'Cadastro realizado com sucesso',
+        'user' => [
+            'id' => $userId,
+            'nome' => $nome,
+            'email' => $email,
+            'role' => $role
+        ]
+    ], 201);
 } catch (PDOException $e) {
     if ($e->getCode() == 23000) {
         json_response(['error' => 'Email já cadastrado'], 409);

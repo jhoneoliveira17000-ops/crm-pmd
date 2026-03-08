@@ -72,7 +72,7 @@
         </div>
 
         <p class="text-center mt-6 text-sm text-slate-600 dark:text-slate-400">
-            Já tem uma conta? <a href="index.php" class="text-blue-600 dark:text-blue-400 font-medium hover:underline">Fazer login</a>
+            Já tem uma conta? <a href="/login" class="text-blue-600 dark:text-blue-400 font-medium hover:underline">Fazer login</a>
         </p>
     </div>
 
@@ -91,8 +91,8 @@
                 const result = await res.json();
                 
                 if (res.ok) {
-                    alert('Cadastro realizado! Faça login.');
-                    window.location.href = 'index.php';
+                    // Auto-login: redireciona direto para o dashboard
+                    window.location.href = '/dashboard';
                 } else {
                     alert(result.error || 'Erro ao cadastrar');
                 }
