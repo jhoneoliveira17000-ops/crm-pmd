@@ -16,7 +16,7 @@ require_admin();
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>body { font-family: 'Inter', sans-serif; }</style>
 </head>
-<body class="bg-slate-950 text-slate-200 pb-20 md:pb-0 md:pl-64">
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-200 pb-20 md:pb-0 md:pl-64 transition-colors">
     <?php include 'admin_nav.php'; ?>
     <main class="p-4 md:p-8 max-w-3xl mx-auto">
         <header class="mb-8">

@@ -32,7 +32,7 @@ require_admin();
         .dark .card-bi { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5); border: 1px solid #222; }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-200 pb-20 md:pb-0 md:pl-64">
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-200 pb-20 md:pb-0 md:pl-64 transition-colors">
 
     <?php include 'admin_nav.php'; ?>
 
