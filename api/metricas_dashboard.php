@@ -222,8 +222,9 @@ try {
     $stmt->execute([$inicio, $fim]);
     $novos_periodo = $stmt->fetch()['novos'] ?? 0;
 
-    // Custos de Aquisição (apenas Marketing e Vendas)
-    $stmt = $pdo->prepare("SELECT SUM(valor) as custos_acq FROM despesas WHERE (categoria = 'marketing' OR categoria = 'vendas') AND data_despesa BETWEEN ? AND ? AND (" . get_tenant_condition() . ")");
+    // Custos de Aquisição (apenas despesas de Marketing e Vendas)
+    // IMPORTANT: A tabela chama-se 'despesas' mas guarda tanto receitas quanto despesas (tipo='receita' ou 'despesa')
+    $stmt = $pdo->prepare("SELECT SUM(valor) as custos_acq FROM despesas WHERE tipo = 'despesa' AND (categoria = 'marketing' OR categoria = 'vendas') AND data_despesa BETWEEN ? AND ? AND (" . get_tenant_condition() . ")");
     $stmt->execute([$inicio, $fim]);
     $custos_aquisicao = $stmt->fetch()['custos_acq'] ?? 0;
 
