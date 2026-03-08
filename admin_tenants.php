@@ -24,7 +24,7 @@ require_admin();
         <!-- Header -->
         <header class="mb-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
             <div>
-                <h1 class="text-3xl font-extrabold text-white tracking-tight">Gestão de <span class="text-red-500">Tenants</span></h1>
+                <h1 class="text-3xl font-extrabold text-slate-800 dark:text-white tracking-tight">Gestão de <span class="text-red-500">Tenants</span></h1>
                 <p class="text-slate-500 mt-1">Gerenciar usuários, planos e acessos</p>
             </div>
             <button onclick="openCreateModal()" class="bg-red-600 hover:bg-red-700 text-white font-bold px-5 py-2.5 rounded-lg shadow-lg shadow-red-900/30 transition flex items-center gap-2">
@@ -35,36 +35,36 @@ require_admin();
 
         <!-- Stats Cards -->
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-            <div class="bg-slate-900 border border-slate-800 rounded-xl p-4">
+            <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-4 shadow-sm">
                 <p class="text-xs font-bold text-slate-500 uppercase">Total</p>
-                <p class="text-2xl font-black text-white mt-1" id="statTotal">--</p>
+                <p class="text-2xl font-black text-slate-800 dark:text-white mt-1" id="statTotal">--</p>
             </div>
-            <div class="bg-slate-900 border border-slate-800 rounded-xl p-4">
-                <p class="text-xs font-bold text-green-500 uppercase">Ativos</p>
-                <p class="text-2xl font-black text-green-400 mt-1" id="statActive">--</p>
+            <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-4 shadow-sm">
+                <p class="text-xs font-bold text-green-600 dark:text-green-500 uppercase">Ativos</p>
+                <p class="text-2xl font-black text-green-600 dark:text-green-400 mt-1" id="statActive">--</p>
             </div>
-            <div class="bg-slate-900 border border-slate-800 rounded-xl p-4">
-                <p class="text-xs font-bold text-yellow-500 uppercase">Inativos</p>
-                <p class="text-2xl font-black text-yellow-400 mt-1" id="statInactive">--</p>
+            <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-4 shadow-sm">
+                <p class="text-xs font-bold text-yellow-600 dark:text-yellow-500 uppercase">Inativos</p>
+                <p class="text-2xl font-black text-yellow-600 dark:text-yellow-400 mt-1" id="statInactive">--</p>
             </div>
-            <div class="bg-slate-900 border border-slate-800 rounded-xl p-4">
-                <p class="text-xs font-bold text-red-500 uppercase">Suspensos</p>
-                <p class="text-2xl font-black text-red-400 mt-1" id="statSuspended">--</p>
+            <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl p-4 shadow-sm">
+                <p class="text-xs font-bold text-red-600 dark:text-red-500 uppercase">Suspensos</p>
+                <p class="text-2xl font-black text-red-600 dark:text-red-400 mt-1" id="statSuspended">--</p>
             </div>
         </div>
 
         <!-- Search -->
         <div class="mb-4">
             <input type="text" id="searchInput" placeholder="Buscar por nome ou email..." 
-                   class="w-full bg-slate-900 border border-slate-800 rounded-lg px-4 py-3 text-white placeholder-slate-600 outline-none focus:border-red-600 transition" 
+                   class="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-4 py-3 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-600 outline-none focus:border-red-500 dark:focus:border-red-600 transition shadow-sm" 
                    oninput="filterTable()">
         </div>
 
         <!-- Table -->
-        <div class="bg-slate-900 rounded-xl border border-slate-800 overflow-hidden">
+        <div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
             <div class="overflow-x-auto">
                 <table class="w-full text-left text-sm">
-                    <thead class="bg-slate-800/50 text-slate-400 font-bold uppercase text-[10px]">
+                    <thead class="bg-slate-50 dark:bg-slate-800/50 text-slate-500 dark:text-slate-400 font-bold uppercase text-[10px]">
                         <tr>
                             <th class="px-4 py-3">Usuário</th>
                             <th class="px-4 py-3">Plano</th>
@@ -75,7 +75,7 @@ require_admin();
                             <th class="px-4 py-3 text-right">Ações</th>
                         </tr>
                     </thead>
-                    <tbody id="tenantsBody" class="divide-y divide-slate-800">
+                    <tbody id="tenantsBody" class="divide-y divide-slate-100 dark:divide-slate-800">
                         <tr><td colspan="7" class="px-4 py-8 text-center text-slate-500 italic">Carregando...</td></tr>
                     </tbody>
                 </table>
@@ -84,37 +84,37 @@ require_admin();
     </main>
 
     <!-- Create/Edit Modal -->
-    <div id="userModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-[200] hidden flex items-center justify-center p-4">
-        <div class="bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl w-full max-w-md">
-            <div class="p-6 border-b border-slate-800 flex justify-between items-center">
-                <h3 class="font-bold text-lg text-white" id="modalTitle">Novo Usuário</h3>
-                <button onclick="closeModal()" class="text-slate-400 hover:text-white"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+    <div id="userModal" class="fixed inset-0 bg-black/50 dark:bg-black/70 backdrop-blur-sm z-[200] hidden flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl shadow-2xl w-full max-w-md">
+            <div class="p-6 border-b border-slate-200 dark:border-slate-800 flex justify-between items-center">
+                <h3 class="font-bold text-lg text-slate-900 dark:text-white" id="modalTitle">Novo Usuário</h3>
+                <button onclick="closeModal()" class="text-slate-400 hover:text-slate-900 dark:hover:text-white"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
             </div>
             <form id="userForm" class="p-6 space-y-4" onsubmit="return saveUser(event)">
                 <input type="hidden" id="editUserId">
                 <div>
-                    <label class="block text-xs font-bold text-slate-400 mb-1">Nome</label>
-                    <input type="text" id="inputNome" required class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2.5 text-white outline-none focus:border-red-500">
+                    <label class="block text-xs font-bold text-slate-500 dark:text-slate-400 mb-1">Nome</label>
+                    <input type="text" id="inputNome" required class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2.5 text-slate-900 dark:text-white outline-none focus:border-red-500">
                 </div>
                 <div>
-                    <label class="block text-xs font-bold text-slate-400 mb-1">Email</label>
-                    <input type="email" id="inputEmail" required class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2.5 text-white outline-none focus:border-red-500">
+                    <label class="block text-xs font-bold text-slate-500 dark:text-slate-400 mb-1">Email</label>
+                    <input type="email" id="inputEmail" required class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2.5 text-slate-900 dark:text-white outline-none focus:border-red-500">
                 </div>
                 <div id="senhaGroup">
-                    <label class="block text-xs font-bold text-slate-400 mb-1">Senha</label>
-                    <input type="password" id="inputSenha" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2.5 text-white outline-none focus:border-red-500">
+                    <label class="block text-xs font-bold text-slate-500 dark:text-slate-400 mb-1">Senha</label>
+                    <input type="password" id="inputSenha" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2.5 text-slate-900 dark:text-white outline-none focus:border-red-500">
                 </div>
                 <div class="grid grid-cols-2 gap-4">
                     <div>
-                        <label class="block text-xs font-bold text-slate-400 mb-1">Role</label>
-                        <select id="inputRole" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2.5 text-white outline-none focus:border-red-500">
+                        <label class="block text-xs font-bold text-slate-500 dark:text-slate-400 mb-1">Role</label>
+                        <select id="inputRole" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2.5 text-slate-900 dark:text-white outline-none focus:border-red-500">
                             <option value="gestor">Gestor</option>
                             <option value="admin">Admin</option>
                         </select>
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-slate-400 mb-1">Plano</label>
-                        <select id="inputPlan" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-3 py-2.5 text-white outline-none focus:border-red-500">
+                        <label class="block text-xs font-bold text-slate-500 dark:text-slate-400 mb-1">Plano</label>
+                        <select id="inputPlan" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg px-3 py-2.5 text-slate-900 dark:text-white outline-none focus:border-red-500">
                             <option value="1">Free</option>
                             <option value="2">Pro</option>
                             <option value="3">Enterprise</option>
@@ -127,23 +127,23 @@ require_admin();
     </div>
 
     <!-- Actions Dropdown (positioned dynamically) -->
-    <div id="actionsMenu" class="fixed hidden bg-slate-800 border border-slate-700 rounded-xl shadow-2xl z-[300] w-56 py-2">
-        <button onclick="impersonateUser()" class="w-full px-4 py-2 text-left text-sm text-slate-300 hover:bg-slate-700 flex items-center gap-2">
+    <div id="actionsMenu" class="fixed hidden bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-2xl z-[300] w-56 py-2">
+        <button onclick="impersonateUser()" class="w-full px-4 py-2 text-left text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 flex items-center gap-2">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
             Acessar como Tenant
         </button>
-        <button onclick="editUser()" class="w-full px-4 py-2 text-left text-sm text-slate-300 hover:bg-slate-700 flex items-center gap-2">
+        <button onclick="editUser()" class="w-full px-4 py-2 text-left text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 flex items-center gap-2">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
             Editar Dados
         </button>
-        <button onclick="resetPassword()" class="w-full px-4 py-2 text-left text-sm text-slate-300 hover:bg-slate-700 flex items-center gap-2">
+        <button onclick="resetPassword()" class="w-full px-4 py-2 text-left text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 flex items-center gap-2">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"></path></svg>
             Resetar Senha
         </button>
         <hr class="border-slate-700 my-1">
-        <button onclick="toggleStatus('ativo')" class="w-full px-4 py-2 text-left text-sm text-green-400 hover:bg-slate-700">✅ Ativar</button>
-        <button onclick="toggleStatus('suspenso')" class="w-full px-4 py-2 text-left text-sm text-yellow-400 hover:bg-slate-700">⏸️ Suspender</button>
-        <button onclick="toggleStatus('inativo')" class="w-full px-4 py-2 text-left text-sm text-slate-400 hover:bg-slate-700">🚫 Desativar</button>
+        <button onclick="toggleStatus('ativo')" class="w-full px-4 py-2 text-left text-sm text-green-400 hover:bg-slate-100 dark:hover:bg-slate-700">✅ Ativar</button>
+        <button onclick="toggleStatus('suspenso')" class="w-full px-4 py-2 text-left text-sm text-yellow-400 hover:bg-slate-100 dark:hover:bg-slate-700">⏸️ Suspender</button>
+        <button onclick="toggleStatus('inativo')" class="w-full px-4 py-2 text-left text-sm text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700">🚫 Desativar</button>
         <hr class="border-slate-700 my-1">
         <button onclick="deleteUser()" class="w-full px-4 py-2 text-left text-sm text-red-400 hover:bg-red-900/30">🗑️ Excluir</button>
     </div>
@@ -199,14 +199,14 @@ require_admin();
             const isAdmin = u.role === 'admin';
             
             return `
-                <tr class="hover:bg-slate-800/50 transition">
+                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition">
                     <td class="px-4 py-3">
                         <div class="flex items-center gap-3">
-                            <div class="w-9 h-9 rounded-full bg-slate-800 flex items-center justify-center text-sm font-bold ${isAdmin ? 'text-red-400 border border-red-800' : 'text-slate-400'}">
+                            <div class="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-sm font-bold ${isAdmin ? 'text-red-500 dark:text-red-400 border border-red-300 dark:border-red-800' : 'text-slate-500 dark:text-slate-400'}">
                                 ${u.nome.charAt(0).toUpperCase()}
                             </div>
                             <div>
-                                <p class="font-semibold text-white text-sm">${u.nome} ${isAdmin ? '<span class="text-[10px] bg-red-900/50 text-red-400 px-1.5 py-0.5 rounded ml-1">ADMIN</span>' : ''}</p>
+                                <p class="font-semibold text-slate-900 dark:text-white text-sm">${u.nome} ${isAdmin ? '<span class="text-[10px] bg-red-100 dark:bg-red-900/50 text-red-600 dark:text-red-400 px-1.5 py-0.5 rounded ml-1">ADMIN</span>' : ''}</p>
                                 <p class="text-xs text-slate-500">${u.email}</p>
                             </div>
                         </div>

@@ -20,12 +20,12 @@ require_admin();
     <?php include 'admin_nav.php'; ?>
     <main class="p-4 md:p-8 max-w-7xl mx-auto">
         <header class="mb-8">
-            <h1 class="text-3xl font-extrabold text-white">Logs de <span class="text-red-500">Atividade</span></h1>
+            <h1 class="text-3xl font-extrabold text-slate-800 dark:text-white">Logs de <span class="text-red-500">Atividade</span></h1>
             <p class="text-slate-500 mt-1">Audit trail — todas as ações do sistema</p>
         </header>
 
         <div class="mb-4 flex gap-3">
-            <select id="filterAction" class="bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-sm text-white outline-none" onchange="loadLogs()">
+            <select id="filterAction" class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-3 py-2 text-sm text-slate-900 dark:text-white outline-none shadow-sm" onchange="loadLogs()">
                 <option value="">Todas as Ações</option>
                 <option value="user_created">Criação de Usuário</option>
                 <option value="user_deleted">Exclusão de Usuário</option>
@@ -38,9 +38,9 @@ require_admin();
             </select>
         </div>
 
-        <div class="bg-slate-900 rounded-xl border border-slate-800 overflow-hidden">
+        <div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
             <table class="w-full text-left text-sm">
-                <thead class="bg-slate-800/50 text-slate-400 font-bold uppercase text-[10px]">
+                <thead class="bg-slate-50 dark:bg-slate-800/50 text-slate-500 dark:text-slate-400 font-bold uppercase text-[10px]">
                     <tr>
                         <th class="px-4 py-3">Data</th>
                         <th class="px-4 py-3">Admin</th>
@@ -49,7 +49,7 @@ require_admin();
                         <th class="px-4 py-3">IP</th>
                     </tr>
                 </thead>
-                <tbody id="logsBody" class="divide-y divide-slate-800">
+                <tbody id="logsBody" class="divide-y divide-slate-100 dark:divide-slate-800">
                     <tr><td colspan="5" class="px-4 py-8 text-center text-slate-500 italic">Carregando...</td></tr>
                 </tbody>
             </table>
