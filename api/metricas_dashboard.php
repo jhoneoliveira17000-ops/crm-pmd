@@ -222,13 +222,16 @@ try {
     $stmt->execute([$inicio, $fim]);
     $novos_periodo = $stmt->fetch()['novos'] ?? 0;
 
-    // CAC = Total Custos / Novos Clientes
-    $cac = $novos_periodo > 0 ? ($total_custos / $novos_periodo) : 0;
+    // Custos de Aquisição (apenas Marketing e Vendas)
+    $stmt = $pdo->prepare("SELECT SUM(valor) as custos_acq FROM despesas WHERE (categoria = 'marketing' OR categoria = 'vendas') AND data_despesa BETWEEN ? AND ? AND (" . get_tenant_condition() . ")");
+    $stmt->execute([$inicio, $fim]);
+    $custos_aquisicao = $stmt->fetch()['custos_acq'] ?? 0;
 
-    // ROI = (MRR - Custos) / Custos  (Or just Revenue/Cost ratio as requested "4.2x")
-    // User image shows "4.2x", implying Revenue / Cost or (Revenue-Cost)/Cost + 1.
-    // Let's use Revenue / Cost ratio for "ROAS/ROI" style
-    $roi = $total_custos > 0 ? ($mrr / $total_custos) : 0;
+    // CAC = Custos de Aquisição / Novos Clientes
+    $cac = $novos_periodo > 0 ? ($custos_aquisicao / $novos_periodo) : 0;
+
+    // ROI = (MRR - Custos de Aquisição) / Custos de Aquisição
+    $roi = $custos_aquisicao > 0 ? ($mrr / $custos_aquisicao) : 0;
 
     // Tempo de Fechamento (Avg days from created_at to updated_at for Won leads)
     // Status 4 = Fechado.
