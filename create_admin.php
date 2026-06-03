@@ -12,18 +12,18 @@ $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
 
 try {
     // Verifica se já existe
-    $stmt = $pdo->prepare("SELECT id FROM users WHERE email = ?");
+    $stmt = $pdo->prepare("SELECT id FROM usuarios WHERE email = ?");
     $stmt->execute([$email]);
     $user = $stmt->fetch();
 
     if ($user) {
         // Atualiza senha
-        $stmt = $pdo->prepare("UPDATE users SET senha_hash = ? WHERE email = ?");
+        $stmt = $pdo->prepare("UPDATE usuarios SET senha_hash = ? WHERE email = ?");
         $stmt->execute([$senhaHash, $email]);
         echo "SUCESSO: Senha do usuário '$email' atualizada para '$senha'.";
     } else {
         // Cria novo
-        $stmt = $pdo->prepare("INSERT INTO users (nome, email, senha_hash, role) VALUES (?, ?, ?, ?)");
+        $stmt = $pdo->prepare("INSERT INTO usuarios (nome, email, senha_hash, role) VALUES (?, ?, ?, ?)");
         $stmt->execute(['Administrador', $email, $senhaHash, 'admin']);
         echo "SUCESSO: Usuário '$email' criado com a senha '$senha'.";
     }

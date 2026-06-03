@@ -66,6 +66,7 @@ try {
     ]);
 
 } catch (PDOException $e) {
-    json_response(['error' => 'Erro ao carregar dados: ' . $e->getMessage()], 500);
+    error_log("Cliente Detalhes API Error: " . $e->getMessage());
+    json_response(['error' => 'Erro interno ao carregar dados do cliente.'], 500);
 }
 ?>

@@ -57,6 +57,7 @@ try {
     ]);
 
 } catch (PDOException $e) {
-    json_response(['error' => 'Erro ao carregar métricas globais: ' . $e->getMessage()], 500);
+    error_log("Admin Metrics API Error: " . $e->getMessage());
+    json_response(['error' => 'Erro interno ao carregar métricas globais.'], 500);
 }
 ?>

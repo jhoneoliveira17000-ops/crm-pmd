@@ -2,46 +2,13 @@
 // PMDCRM/financeiro.php
 require_once 'src/auth.php';
 require_login();
+$page_title = "PMDCRM - Financeiro";
+include 'includes/header.php';
+include 'nav.php';
 ?>
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="js/theme-loader.js"></script>
-    <title>PMDCRM - Financeiro</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        brand: 'var(--theme-color)',
-                    }
-                }
-            }
-        }
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/design-system.css">
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-         /* Custom scrollbar */
-        .custom-scrollbar::-webkit-scrollbar { width: 8px; }
-        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
-        .dark .custom-scrollbar::-webkit-scrollbar-track { background: #0f172a; }
-        .dark .custom-scrollbar::-webkit-scrollbar-thumb { background: #334155; }
-        .dark .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #475569; }
-    </style>
-</head>
-<body class="bg-gray-50 dark:bg-[#0f172a] text-slate-800 dark:text-slate-200 transition-colors duration-300">
-
-    <?php include 'nav.php'; ?>
-
-    <main class="md:ml-64 p-4 md:p-8 pb-24 transition-all duration-300">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link class="link-design-system" rel="stylesheet" href="assets/css/design-system.css">
+<main class="p-4 md:p-8 pb-24 transition-all duration-300">
         <!-- Header -->
         <header class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
             <div>
@@ -621,55 +588,7 @@ require_login();
 
     </script>
     
-    <div id="debug-panel" style="position: fixed; bottom: 0; left: 0; right: 0; height: 150px; background: #000; color: #0f0; font-family: monospace; font-size: 10px; overflow-y: scroll; padding: 10px; z-index: 9999; border-top: 2px solid #0f0; display: none;">
-        <div><strong>DEBUG PANEL</strong> <button onclick="this.parentElement.parentElement.style.display='none'" style="color:white; border: 1px solid white; padding: 0 5px;">X</button></div>
-        <div id="debug-content"></div>
-    </div>
-
-    <script>
-        // Override console.log to show in panel
-        const originalLog = console.log;
-        const originalError = console.error;
-        const debugContent = document.getElementById('debug-content');
-        const debugPanel = document.getElementById('debug-panel');
-
-        function appendDebug(type, args) {
-            // Show panel on first log
-            debugPanel.style.display = 'block';
-            const line = document.createElement('div');
-            line.style.borderBottom = '1px solid #333';
-            line.style.padding = '2px 0';
-            line.style.color = type === 'error' ? '#f55' : '#0f0';
-            
-            // Safe stringify
-            const msg = Array.from(args).map(arg => {
-                if(arg instanceof Error) return `${arg.name}: ${arg.message}`;
-                if(typeof arg === 'object') return JSON.stringify(arg);
-                return String(arg);
-            }).join(' ');
-
-            line.textContent = `[${new Date().toLocaleTimeString()}] ${type.toUpperCase()}: ${msg}`;
-            debugContent.appendChild(line);
-            debugContent.scrollTop = debugContent.scrollHeight;
-        }
-
-        console.log = function(...args) {
-            originalLog.apply(console, args);
-            appendDebug('info', args);
-        };
-
-        console.error = function(...args) {
-            originalError.apply(console, args);
-            appendDebug('error', args);
-        };
-        
-        window.onerror = function(msg, url, line) {
-            console.error(`Global Error: ${msg} @ ${url}:${line}`);
-        };
-    </script>
-
     <!-- Settings Drawer -->
     <?php include 'components/settings_drawer.php'; ?>
     <script src="js/settings.js?v=<?= time() ?>"></script>
-</body>
-</html>
+<?php include 'includes/footer.php'; ?>

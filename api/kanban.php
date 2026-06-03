@@ -84,13 +84,21 @@ try {
             $leadId = $input['lead_id'];
             $newStageId = $input['stage_id'];
             
-            // Get old stage for history
-            $stmtOld = $pdo->prepare("SELECT status_id FROM leads WHERE id = ?");
+            // Verify and get old stage for history
+            $tenantScope = get_tenant_condition();
+            $stmtOld = $pdo->prepare("SELECT status_id FROM leads WHERE id = ? AND ({$tenantScope})");
             $stmtOld->execute([$leadId]);
-            $oldStageId = $stmtOld->fetchColumn();
+            $oldStageId = $stmtOld->fetch();
+            
+            if ($oldStageId === false) {
+                http_response_code(403);
+                echo json_encode(['error' => 'Acesso negado ou Lead não encontrado.']);
+                exit;
+            }
+            
+            $oldStageId = $oldStageId['status_id'];
 
             // Update
-            $tenantScope = get_tenant_condition();
             $stmt = $pdo->prepare("UPDATE leads SET status_id = ? WHERE id = ? AND ({$tenantScope})");
             $stmt->execute([$newStageId, $leadId]);
 
@@ -283,7 +291,7 @@ try {
                 $pdo->rollBack();
                 error_log("Erro ao converter lead: " . $e->getMessage());
                 http_response_code(500);
-                echo json_encode(['error' => 'Erro ao converter: ' . $e->getMessage()]);
+                echo json_encode(['error' => 'Erro ao converter lead.']);
             }
         }
 
@@ -310,12 +318,12 @@ try {
             $pdo->rollBack();
             error_log("Delete Lead Error: " . $e->getMessage());
             http_response_code(500);
-            echo json_encode(['error' => 'Erro ao excluir lead: ' . $e->getMessage()]);
+            echo json_encode(['error' => 'Erro ao excluir lead.']);
         }
     }
 
 } catch (Exception $e) {
     error_log("Kanban API Error: " . $e->getMessage());
     http_response_code(500);
-    echo json_encode(['error' => $e->getMessage()]);
+    echo json_encode(['error' => 'Erro interno no servidor.']);
 }

@@ -2,8 +2,7 @@
 // PMDCRM/api/google_callback.php
 require_once __DIR__ . '/../src/db.php';
 require_once __DIR__ . '/../src/utils.php';
-
-session_start();
+require_once __DIR__ . '/../src/auth.php';
 
 $code = $_GET['code'] ?? null;
 if (!$code) {

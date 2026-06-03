@@ -17,105 +17,68 @@ if ($stmt->fetch()) {
 $prefillLeadId = $_GET['lead_id'] ?? '';
 $prefillLeadName = $_GET['lead_name'] ?? '';
 $showModalAuto = ($prefillLeadId != '' && $prefillLeadName != '') ? 'true' : 'false';
-?>
-<!DOCTYPE html>
-<html lang="pt-BR" class="antialiased">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-    
-    <title>Agenda &bull; PMDCRM</title>
-    
-    <!-- Theme System Initialization -->
-    <script src="js/theme-loader.js"></script>
 
-    <!-- Tailwind CSS (via CDN for build-less setup) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        slate: { 850: '#151e2e' }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    <style type="text/tailwindcss">
-        @layer utilities {
-            .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
-            .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
-            .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
-            .dark .custom-scrollbar::-webkit-scrollbar-thumb { background: #475569; }
-            
-            /* Google Calendar Clone Overrides */
-            .fc { 
-                --fc-page-bg-color: #ffffff; 
-                --fc-neutral-bg-color: #f8f9fa;
-                --fc-neutral-text-color: #3c4043; 
-                --fc-border-color: #dadce0; 
-                --fc-button-text-color: #3c4043; 
-                --fc-button-bg-color: #ffffff; 
-                --fc-button-border-color: #dadce0; 
-                --fc-button-hover-bg-color: #f1f3f4; 
-                --fc-button-hover-border-color: #dadce0; 
-                --fc-button-active-bg-color: #e8eaed; 
-                --fc-button-active-border-color: #dadce0; 
-                --fc-event-bg-color: #039be5;
-                --fc-event-border-color: #039be5; 
-                --fc-event-text-color: #ffffff; 
-                --fc-today-bg-color: #e8f0fe; 
-            }
-            .dark .fc { 
-                --fc-page-bg-color: #202124; 
-                --fc-neutral-bg-color: #202124; 
-                --fc-neutral-text-color: #e8eaed; 
-                --fc-border-color: #5f6368; 
-                --fc-button-text-color: #e8eaed; 
-                --fc-button-bg-color: #202124; 
-                --fc-button-border-color: #5f6368; 
-                --fc-button-hover-bg-color: #303134; 
-                --fc-button-hover-border-color: #5f6368; 
-                --fc-button-active-bg-color: #434446; 
-                --fc-button-active-border-color: #5f6368; 
-                --fc-today-bg-color: rgba(138, 180, 248, 0.15); 
-            }
-            /* Google specific typography and sharp edges */
-            .fc-header-toolbar { padding: 8px 16px !important; margin-bottom: 0 !important; border-bottom: 1px solid var(--fc-border-color); }
-            .fc-toolbar-title { font-weight: 400 !important; font-size: 1.375rem !important; color: #3c4043 !important; }
-            .dark .fc-toolbar-title { color: #e8eaed !important; }
-            .fc-button { text-transform: capitalize !important; font-weight: 500 !important; border-radius: 4px !important; padding: 6px 16px !important; box-shadow: none !important; }
-            .fc-button-primary { transition: background-color .15s,box-shadow .15s,color .15s !important; }
-            .fc-daygrid-event { border-radius: 4px !important; padding: 2px 6px !important; font-size: 0.75rem !important; font-weight: 500 !important; border: none !important; margin: 1px 4px !important; }
-            .fc-timegrid-event { border-radius: 4px !important; border: 1px solid #ffffff !important; box-shadow: none !important; }
-            .fc-col-header-cell-cushion { padding: 8px 0 !important; font-weight: 500 !important; text-transform: uppercase !important; font-size: 0.6875rem !important; color: #70757a !important; }
-            .dark .fc-col-header-cell-cushion { color: #9aa0a6 !important; }
-            .fc-daygrid-day-number { font-weight: 500 !important; font-size: 0.75rem !important; width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; padding: 0 !important; margin: 4px; }
-            .fc-daygrid-day.fc-day-today .fc-daygrid-day-number { background-color: #1a73e8; color: white !important; }
-            .dark .fc-daygrid-day.fc-day-today .fc-daygrid-day-number { background-color: #8ab4f8; color: #202124 !important; }
-            .fc-theme-standard td, .fc-theme-standard th { border: 1px solid var(--fc-border-color) !important; }
-            .fc-scrollgrid { border: none !important; }
-            .fc-view-harness { background-color: var(--fc-page-bg-color); }
-        }
-    </style>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <!-- SweetAlert2 -->
-    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
-    
-    <!-- FullCalendar -->
-    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
-    <script src='https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.11/locales/pt-br.global.min.js'></script>
-</head>
-<body class="bg-gray-50 dark:bg-[#0f172a] text-slate-900 dark:text-slate-200 h-screen overflow-hidden flex flex-col font-sans transition-colors duration-300 pb-20 md:pb-0 md:pl-64">
+$page_title = "Agenda • PMDCRM";
+$body_class = "bg-gray-50 dark:bg-[#0f172a] text-slate-900 dark:text-slate-200 h-screen overflow-hidden flex flex-col font-sans transition-colors duration-300 pb-20 md:pb-0 md:pl-64";
+include 'includes/header.php';
+?>
+<!-- SweetAlert2 -->
+<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
+
+<!-- FullCalendar -->
+<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.11/locales/pt-br.global.min.js'></script>
+
+<style>
+    /* Google Calendar Clone Overrides */
+    .fc { 
+        --fc-page-bg-color: #ffffff; 
+        --fc-neutral-bg-color: #f8f9fa;
+        --fc-neutral-text-color: #3c4043; 
+        --fc-border-color: #dadce0; 
+        --fc-button-text-color: #3c4043; 
+        --fc-button-bg-color: #ffffff; 
+        --fc-button-border-color: #dadce0; 
+        --fc-button-hover-bg-color: #f1f3f4; 
+        --fc-button-hover-border-color: #dadce0; 
+        --fc-button-active-bg-color: #e8eaed; 
+        --fc-button-active-border-color: #dadce0; 
+        --fc-event-bg-color: #039be5;
+        --fc-event-border-color: #039be5; 
+        --fc-event-text-color: #ffffff; 
+        --fc-today-bg-color: #e8f0fe; 
+    }
+    .dark .fc { 
+        --fc-page-bg-color: #202124; 
+        --fc-neutral-bg-color: #202124; 
+        --fc-neutral-text-color: #e8eaed; 
+        --fc-border-color: #5f6368; 
+        --fc-button-text-color: #e8eaed; 
+        --fc-button-bg-color: #202124; 
+        --fc-button-border-color: #5f6368; 
+        --fc-button-hover-bg-color: #303134; 
+        --fc-button-hover-border-color: #5f6368; 
+        --fc-button-active-bg-color: #434446; 
+        --fc-button-active-border-color: #5f6368; 
+        --fc-today-bg-color: rgba(138, 180, 248, 0.15); 
+    }
+    /* Google specific typography and sharp edges */
+    .fc-header-toolbar { padding: 8px 16px !important; margin-bottom: 0 !important; border-bottom: 1px solid var(--fc-border-color); }
+    .fc-toolbar-title { font-weight: 400 !important; font-size: 1.375rem !important; color: #3c4043 !important; }
+    .dark .fc-toolbar-title { color: #e8eaed !important; }
+    .fc-button { text-transform: capitalize !important; font-weight: 500 !important; border-radius: 4px !important; padding: 6px 16px !important; box-shadow: none !important; }
+    .fc-button-primary { transition: background-color .15s,box-shadow .15s,color .15s !important; }
+    .fc-daygrid-event { border-radius: 4px !important; padding: 2px 6px !important; font-size: 0.75rem !important; font-weight: 500 !important; border: none !important; margin: 1px 4px !important; }
+    .fc-timegrid-event { border-radius: 4px !important; border: 1px solid #ffffff !important; box-shadow: none !important; }
+    .fc-col-header-cell-cushion { padding: 8px 0 !important; font-weight: 500 !important; text-transform: uppercase !important; font-size: 0.6875rem !important; color: #70757a !important; }
+    .dark .fc-col-header-cell-cushion { color: #9aa0a6 !important; }
+    .fc-daygrid-day-number { font-weight: 500 !important; font-size: 0.75rem !important; width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; padding: 0 !important; margin: 4px; }
+    .fc-daygrid-day.fc-day-today .fc-daygrid-day-number { background-color: #1a73e8; color: white !important; }
+    .dark .fc-daygrid-day.fc-day-today .fc-daygrid-day-number { background-color: #8ab4f8; color: #202124 !important; }
+    .fc-theme-standard td, .fc-theme-standard th { border: 1px solid var(--fc-border-color) !important; }
+    .fc-scrollgrid { border: none !important; }
+    .fc-view-harness { background-color: var(--fc-page-bg-color); }
+</style>
 
     <!-- Navbar -->
     <?php include 'nav.php'; ?>
@@ -611,5 +574,4 @@ $showModalAuto = ($prefillLeadId != '' && $prefillLeadName != '') ? 'true' : 'fa
             }
         }
     </script>
-</body>
-</html>
+<?php include 'includes/footer.php'; ?>

@@ -31,7 +31,8 @@ if ($method === 'POST') {
 
         json_response(['success' => true, 'id' => $pdo->lastInsertId()]);
     } catch (PDOException $e) {
-        json_response(['error' => $e->getMessage()], 500);
+        error_log("Erro ao salvar nota: " . $e->getMessage());
+        json_response(['error' => 'Erro interno ao salvar nota.'], 500);
     }
 } elseif ($method === 'DELETE') {
     $id = $input['id'] ?? null;
@@ -41,7 +42,8 @@ if ($method === 'POST') {
         $pdo->prepare("DELETE FROM client_notes WHERE id = ?")->execute([$id]);
         json_response(['success' => true]);
     } catch (PDOException $e) {
-        json_response(['error' => $e->getMessage()], 500);
+        error_log("Erro ao excluir nota: " . $e->getMessage());
+        json_response(['error' => 'Erro interno ao excluir nota.'], 500);
     }
 }
 

@@ -75,6 +75,17 @@ try {
          $pdo->exec("ALTER TABLE activity_logs ADD COLUMN cliente_id INT NULL");
     }
 
+    // 7. Create sessoes table if not exists (DB session persistence)
+    echo "Verificando tabela sessoes...\n";
+    $pdo->exec("CREATE TABLE IF NOT EXISTS sessoes (
+        id VARCHAR(128) NOT NULL PRIMARY KEY,
+        data TEXT NOT NULL,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+        expires_at INT UNSIGNED NOT NULL,
+        INDEX idx_expires_at (expires_at)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4");
+    echo " - Tabela sessoes verificada.\n";
+
     echo "Atualização de banco de dados concluída com sucesso!\n";
 
 } catch (PDOException $e) {

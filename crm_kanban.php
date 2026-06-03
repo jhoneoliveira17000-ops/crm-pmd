@@ -2,46 +2,18 @@
 // PMDCRM/crm_kanban.php
 require_once 'src/auth.php';
 require_login();
+$page_title = "CRM Kanban - PMDCRM";
+$body_class = "overflow-x-hidden bg-gray-50 dark:bg-[#0f172a] text-slate-800 dark:text-slate-200 transition-colors duration-300";
+include 'includes/header.php';
 ?>
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRM Kanban - PMDCRM</title>
-    <script src="js/theme-loader.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        brand: 'var(--theme-color)',
-                    }
-                }
-            }
-        }
-    </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        .kanban-col { min-height: calc(100vh - 200px); }
-        .ghost-card { opacity: 0.5; background: #cbd5e1; border: 2px dashed #94a3b8; }
-        .dark .ghost-card { background: #1e293b; border: 2px dashed #475569; }
-        .lead-card { transition: transform 0.2s, box-shadow 0.2s; cursor: grab; }
-        .lead-card:active { cursor: grabbing; transform: scale(1.02); }
-         /* Custom scrollbar */
-        .custom-scrollbar::-webkit-scrollbar { width: 8px; }
-        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
-        .dark .custom-scrollbar::-webkit-scrollbar-track { background: #0f172a; }
-        .dark .custom-scrollbar::-webkit-scrollbar-thumb { background: #334155; }
-        .dark .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #475569; }
-    </style>
-</head>
-<body class="overflow-x-hidden bg-gray-50 dark:bg-[#0f172a] text-slate-800 dark:text-slate-200 transition-colors duration-300">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
+<style>
+    .kanban-col { min-height: calc(100vh - 200px); }
+    .ghost-card { opacity: 0.5; background: #cbd5e1; border: 2px dashed #94a3b8; }
+    .dark .ghost-card { background: #1e293b; border: 2px dashed #475569; }
+    .lead-card { transition: transform 0.2s, box-shadow 0.2s; cursor: grab; }
+    .lead-card:active { cursor: grabbing; transform: scale(1.02); }
+</style>
 
     <!-- Header -->
     <header class="bg-white dark:bg-slate-900 border-b border-gray-200 dark:border-slate-800 p-4 sticky top-0 z-50">
@@ -817,5 +789,4 @@ require_login();
     <!-- Settings Drawer -->
     <?php include 'components/settings_drawer.php'; ?>
     <script src="js/settings.js?v=<?= time() ?>"></script>
-</body>
-</html>
+<?php include 'includes/footer.php'; ?>

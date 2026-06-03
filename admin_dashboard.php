@@ -4,35 +4,10 @@ require_once 'src/auth.php';
 require_login();
 require_admin();
 ?>
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel Administrativo - PMDCRM</title>
-    <script src="js/theme-loader.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        brand: 'var(--theme-color, #3b82f6)',
-                    }
-                }
-            }
-        }
-    </script>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        .font-mono { font-family: 'JetBrains Mono', monospace; }
-        .card-bi { border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
-        .dark .card-bi { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5); border: 1px solid #222; }
-    </style>
-</head>
-<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-200 pb-20 md:pb-0 md:pl-64 transition-colors">
+$page_title = "Painel Administrativo - PMDCRM";
+$body_class = "md:pl-64";
+include 'includes/header.php';
+?>
 
     <?php include 'admin_nav.php'; ?>
 
@@ -168,5 +143,4 @@ require_admin();
             }
         });
     </script>
-</body>
-</html>
+<?php include 'includes/footer.php'; ?>

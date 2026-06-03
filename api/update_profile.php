@@ -39,10 +39,27 @@ try {
         }
     }
 
+    // Exigir senha atual para qualquer alteração
+    if (empty($data['senha_atual'])) {
+        json_response(['error' => 'A senha atual é obrigatória para salvar as alterações.'], 400);
+    }
+    
+    // Verifica a senha atual
+    $stmtCheck = $pdo->prepare("SELECT senha_hash FROM usuarios WHERE id = ?");
+    $stmtCheck->execute([$userId]);
+    $currentHash = $stmtCheck->fetchColumn();
+    
+    if (!$currentHash || !password_verify($data['senha_atual'], $currentHash)) {
+        json_response(['error' => 'Senha atual incorreta.'], 401);
+    }
+
     // Atualiza senha se fornecida
     if (!empty($data['nova_senha'])) {
+        if (strlen($data['nova_senha']) < 8) {
+            json_response(['error' => 'A nova senha deve conter pelo menos 8 caracteres.'], 400);
+        }
         $hash = password_hash($data['nova_senha'], PASSWORD_DEFAULT);
-        $stmt = $pdo->prepare("UPDATE users SET senha_hash = ? WHERE id = ?");
+        $stmt = $pdo->prepare("UPDATE usuarios SET senha_hash = ? WHERE id = ?");
         $stmt->execute([$hash, $userId]);
     }
 

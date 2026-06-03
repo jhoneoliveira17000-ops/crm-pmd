@@ -1,3 +1,23 @@
+# Environment variables
 .env
+
+# Logs and Debug outputs
+*.log
+debug_*.txt
+php_errors.log
+server.log
 php_server*.log
 test_*.log
+
+# Databases and exports
+*.db
+*.sqlite
+*.sql
+backups/
+
+# Backups and archive files
+*.zip
+PMDCRM_backup_*.zip
+
+# OS files
+.DS_Store

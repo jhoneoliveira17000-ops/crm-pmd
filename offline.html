@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sem Conexão - PMDCRM</title>
+    <meta name="description" content="Você está offline. Verifique sua conexão para acessar o PMDCRM.">
+    <meta property="og:title" content="Sem Conexão - PMDCRM">
+    <meta property="og:description" content="Você está offline. Verifique sua conexão para acessar o PMDCRM.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex items-center justify-center p-4">
+    <div class="max-w-md w-full text-center space-y-6 bg-slate-850 border border-slate-800 p-8 rounded-2xl shadow-2xl">
+        <div class="mx-auto w-20 h-20 bg-rose-500/10 border border-rose-500/20 text-rose-500 rounded-full flex items-center justify-center animate-pulse">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636a9 9 0 010 12.728m0 0l-2.829-2.829m2.829 2.829L21 21M15.536 8.464a5 5 0 010 7.072m0 0l-2.829-2.829m-4.243 2.829a4.978 4.978 0 01-1.414-3.536 4.978 4.978 0 011.414-3.536m0 0L11.314 11.3M8.464 15.536a9 9 0 01-1.414-6.364A9 9 0 018.464 2.829M12 14a2 2 0 100-4 2 2 0 000 4z"></path>
+            </svg>
+        </div>
+        
+        <div class="space-y-2">
+            <h1 class="text-2xl font-black tracking-tight text-white">Ops! Você está offline</h1>
+            <p class="text-slate-400 text-sm">Parece que sua conexão com a internet caiu. Verifique seus cabos ou sinal de Wi-Fi e tente novamente.</p>
+        </div>
+
+        <button onclick="window.location.reload()" class="w-full bg-slate-800 hover:bg-slate-700 text-white font-bold py-3 px-6 rounded-xl border border-slate-700 hover:border-slate-600 transition shadow-lg flex items-center justify-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 8H18.2"></path>
+            </svg>
+            Tentar Novamente
+        </button>
+    </div>
+</body>
+</html>

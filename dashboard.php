@@ -2,45 +2,11 @@
 // PMDCRM/dashboard.php
 require_once 'src/auth.php';
 require_login();
+$page_title = "BI Dashboard - PMDCRM";
+$body_class = "md:pl-64";
+include 'includes/header.php';
 ?>
-<!DOCTYPE html>
-<html lang="pt-BR"> <!-- Added dark class check in JS -->
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BI Dashboard - PMDCRM</title>
-    <script src="js/theme-loader.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        brand: 'var(--theme-color)',
-                    }
-                }
-            }
-        }
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        .font-mono { font-family: 'JetBrains Mono', monospace; }
-        .card-bi { border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
-        .dark .card-bi { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5); border: 1px solid #222; }
-    
-        /* Scrollbar */
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
-        .dark ::-webkit-scrollbar-track { background: #0a0a0a; }
-        .dark ::-webkit-scrollbar-thumb { background: #333; }
-        .dark ::-webkit-scrollbar-thumb:hover { background: #444; }
-    </style>
-</head>
-<body class="bg-slate-50 text-slate-900 dark:bg-[#0f172a] dark:text-[#e2e8f0] pb-20 md:pb-0 md:pl-64 transition-colors duration-300">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <?php include 'nav.php'; ?>
 
@@ -552,5 +518,4 @@ require_login();
     <!-- Settings Drawer -->
     <?php include 'components/settings_drawer.php'; ?>
     <script src="js/settings.js?v=<?= time() ?>"></script>
-</body>
-</html>
+<?php include 'includes/footer.php'; ?>

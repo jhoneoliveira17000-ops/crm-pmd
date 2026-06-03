@@ -1,34 +1,9 @@
 <?php
-// PMDCRM/perfil.php
-require_once 'src/auth.php';
-require_login();
+$page_title = "PMDCRM - Meu Perfil";
+$body_class = "md:pl-64";
+include 'includes/header.php';
+include 'nav.php';
 ?>
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="js/theme-loader.js"></script>
-    <title>PMDCRM - Meu Perfil</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        brand: 'var(--theme-color)',
-                    }
-                }
-            }
-        }
-    </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>body { font-family: 'Inter', sans-serif; }</style>
-</head>
-<body class="bg-slate-50 dark:bg-[#0f172a] text-slate-900 dark:text-slate-100 pb-20 md:pb-0 md:pl-64 transition-colors duration-300">
-
-    <?php include 'nav.php'; ?>
 
     <main class="p-4 md:p-8">
         <header class="mb-8">
@@ -70,8 +45,13 @@ require_login();
                 <hr class="border-slate-100 dark:border-slate-700">
 
                 <div>
+                    <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Senha Atual</label>
+                    <input type="password" name="senha_atual" required placeholder="Necessária para confirmar as alterações" class="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 dark:bg-slate-800 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none">
+                </div>
+
+                <div>
                     <label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">Nova Senha</label>
-                    <input type="password" name="nova_senha" placeholder="Deixe em branco para manter a atual" class="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 dark:bg-slate-800 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none">
+                    <input type="password" name="nova_senha" placeholder="Deixe em branco para manter a atual (mín. 8 caracteres)" class="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 dark:bg-slate-800 dark:text-white focus:ring-2 focus:ring-blue-500 outline-none">
                 </div>
 
                 <div class="flex justify-end pt-4">
@@ -94,7 +74,7 @@ require_login();
         // Vamos assumir que o nome está na sessão PHP e injetar no value, ou criar um 'api/me.php'. 
         // Para simplificar, vou injetar via PHP.
         
-        document.getElementById('userName').value = "<?= $_SESSION['user_nome'] ?? '' ?>";
+        document.getElementById('userName').value = <?= json_encode($_SESSION['user_nome'] ?? '') ?>;
         // Foto de perfil na sessão? Se não tiver, usar placeholder.
         
         const photoInput = document.getElementById('fotoUpload');
@@ -158,5 +138,4 @@ require_login();
             }
         });
     </script>
-</body>
-</html>
+<?php include 'includes/footer.php'; ?>

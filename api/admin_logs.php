@@ -29,5 +29,6 @@ try {
     json_response(['success' => true, 'data' => $stmt->fetchAll(PDO::FETCH_ASSOC)]);
 
 } catch (Exception $e) {
-    json_response(['error' => $e->getMessage()], 500);
+    error_log("Admin Logs API Error: " . $e->getMessage());
+    json_response(['error' => 'Erro interno ao carregar logs.'], 500);
 }

@@ -1,43 +1,9 @@
 <?php
-// PMDCRM/clientes.php
-require_once 'src/auth.php';
-require_login();
+$page_title = "PMDCRM - Clientes";
+$body_class = "pb-20 md:pb-0 md:pl-64";
+include 'includes/header.php';
+include 'nav.php';
 ?>
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="js/theme-loader.js"></script>
-    <title>PMDCRM - Clientes</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        brand: 'var(--theme-color)',
-                    }
-                }
-            }
-        }
-    </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        /* Custom scrollbar */
-        .custom-scrollbar::-webkit-scrollbar { width: 8px; }
-        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
-        .dark .custom-scrollbar::-webkit-scrollbar-track { background: #0f172a; }
-        .dark .custom-scrollbar::-webkit-scrollbar-thumb { background: #334155; }
-        .dark .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #475569; }
-    </style>
-</head>
-<body class="bg-gray-50 dark:bg-[#0f172a] pb-20 md:pb-0 md:pl-64 transition-colors duration-300">
-
-    <?php include 'nav.php'; ?>
 
     <main class="p-4 md:p-8">
         <header class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
@@ -546,5 +512,11 @@ require_login();
     <?php include 'components/client_drawer.php'; ?>
     
     <script src="js/settings.js?v=<?= time() ?>"></script>
-</body>
-</html>
+    <script>
+        // Auto-open client modal if action parameter is present
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('action') === 'new') {
+            openModal('new');
+        }
+    </script>
+<?php include 'includes/footer.php'; ?>

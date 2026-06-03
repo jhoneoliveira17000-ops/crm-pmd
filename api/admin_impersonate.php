@@ -26,6 +26,14 @@ try {
             $target = $stmt->fetch();
             
             if (!$target) json_response(['error' => 'Usuário não encontrado'], 404);
+            
+            // Block admin-to-admin impersonation
+            if ($target['role'] === 'admin') {
+                json_response(['error' => 'Operação não permitida: Não é possível impersonar outro administrador.'], 403);
+            }
+
+            // Regenerate session ID to prevent fixation
+            session_regenerate_id(true);
 
             // Save original admin session
             $_SESSION['original_admin_id'] = $_SESSION['user_id'];
@@ -53,6 +61,9 @@ try {
 
             $impersonatedId = $_SESSION['user_id'];
 
+            // Regenerate session ID to prevent fixation
+            session_regenerate_id(true);
+
             // Restore original admin session
             $_SESSION['user_id'] = $_SESSION['original_admin_id'];
             $_SESSION['user_nome'] = $_SESSION['original_admin_nome'];
@@ -74,5 +85,5 @@ try {
     }
 } catch (Exception $e) {
     error_log("Impersonate Error: " . $e->getMessage());
-    json_response(['error' => 'Erro: ' . $e->getMessage()], 500);
+    json_response(['error' => 'Erro interno ao realizar impersonação.'], 500);
 }

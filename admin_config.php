@@ -4,19 +4,10 @@ require_once 'src/auth.php';
 require_login();
 require_admin();
 ?>
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Configurações Globais - PMDCRM Admin</title>
-    <script src="js/theme-loader.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>tailwind.config = { darkMode: 'class' }</script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>body { font-family: 'Inter', sans-serif; }</style>
-</head>
-<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-200 pb-20 md:pb-0 md:pl-64 transition-colors">
+$page_title = "Configurações Globais - PMDCRM Admin";
+$body_class = "md:pl-64";
+include 'includes/header.php';
+?>
     <?php include 'admin_nav.php'; ?>
     <main class="p-4 md:p-8 max-w-3xl mx-auto">
         <header class="mb-8">
@@ -84,5 +75,4 @@ require_admin();
         } catch (e) { alert('Erro'); }
     }
     </script>
-</body>
-</html>
+<?php include 'includes/footer.php'; ?>

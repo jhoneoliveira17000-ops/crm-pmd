@@ -11,25 +11,6 @@ $method = $_SERVER['REQUEST_METHOD'];
 $input = json_decode(file_get_contents('php://input'), true);
 
 if ($method === 'POST') {
-    $clienteId = $input['cliente_id'] ?? null;
-    $titulo = sanitize_input($input['titulo'] ?? '');
-    $url = sanitize_input($input['url'] ?? '');
-    
-    if (!$clienteId || empty($titulo) || empty($url)) {
-        json_response(['error' => 'Dados incompletos'], 400);
-    }
-
-    try {
-        $stmt = $pdo->prepare("INSERT INTO client_links (cliente_id, titulo, url) VALUES (?, ?, ?)");
-        $stmt->execute([$clienteId, $titulo, $url]);
-        
-        log_activity($pdo, $clienteId, $_SESSION['user_id'], "Adicionou link: $titulo");
-
-        json_response(['success' => true, 'id' => $pdo->lastInsertId()]);
-    } catch (PDOException $e) {
-        json_response(['error' => $e->getMessage()], 500);
-    }
-} elseif ($method === 'POST') {
     $action = $input['action'] ?? 'create';
 
     if ($action === 'create') {
@@ -50,7 +31,8 @@ if ($method === 'POST') {
 
             json_response(['success' => true, 'id' => $pdo->lastInsertId()]);
         } catch (PDOException $e) {
-            json_response(['error' => $e->getMessage()], 500);
+            error_log("Erro ao criar link: " . $e->getMessage());
+            json_response(['error' => 'Erro interno ao salvar link.'], 500);
         }
     } elseif ($action === 'toggle_pin') {
         $id = $input['id'] ?? null;
@@ -66,7 +48,8 @@ if ($method === 'POST') {
             log_activity($pdo, $clienteId, $_SESSION['user_id'], "Alterou destaque do link #$id");
             json_response(['success' => true]);
         } catch (PDOException $e) {
-            json_response(['error' => $e->getMessage()], 500);
+            error_log("Erro ao destacar link: " . $e->getMessage());
+            json_response(['error' => 'Erro interno ao atualizar destaque do link.'], 500);
         }
     }
 
@@ -78,8 +61,11 @@ if ($method === 'POST') {
         $pdo->prepare("DELETE FROM client_links WHERE id = ?")->execute([$id]);
         json_response(['success' => true]);
     } catch (PDOException $e) {
-        json_response(['error' => $e->getMessage()], 500);
+        error_log("Erro ao excluir link: " . $e->getMessage());
+        json_response(['error' => 'Erro interno ao excluir link.'], 500);
     }
+} else {
+    json_response(['error' => 'Método inválido'], 405);
 }
 
 function log_activity($pdo, $cid, $uid, $msg) {

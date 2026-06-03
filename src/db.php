@@ -63,11 +63,13 @@ if (!empty($ssl_ca) && file_exists($ssl_ca)) {
 try {
     $pdo = new PDO($dsn, $user, $pass, $options);
 } catch (\PDOException $e) {
-    if (strpos($_SERVER['REQUEST_URI'] ?? '', '/api/') !== false) {
+    error_log("Erro na conexão com o banco de dados: " . $e->getMessage());
+    if (strpos($_SERVER['REQUEST_URI'] ?? '', '/api/') !== false || (isset($_SERVER['HTTP_ACCEPT']) && strpos($_SERVER['HTTP_ACCEPT'], 'application/json') !== false)) {
         header('Content-Type: application/json; charset=utf-8');
         http_response_code(500);
-        echo json_encode(['error' => 'DB Connection Failed: ' . $e->getMessage()]);
+        echo json_encode(['error' => 'Erro interno na conexão com o banco de dados.']);
         exit;
     }
-    throw new \PDOException($e->getMessage(), (int)$e->getCode());
+    http_response_code(500);
+    die('Erro de conexão: Não foi possível conectar ao banco de dados.');
 }

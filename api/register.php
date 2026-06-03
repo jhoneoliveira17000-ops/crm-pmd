@@ -16,7 +16,11 @@ if (!isset($data['nome'], $data['email'], $data['senha'])) {
 $nome = sanitize_input($data['nome']);
 $email = filter_var($data['email'], FILTER_SANITIZE_EMAIL);
 $senha = $data['senha'];
-$role = isset($data['role']) && $data['role'] === 'admin' ? 'admin' : 'gestor'; // Simples regra para demo
+$role = 'gestor'; // Hardcoded to prevent privilege escalation to admin
+
+if (strlen($senha) < 8) {
+    json_response(['error' => 'A senha deve conter pelo menos 8 caracteres'], 400);
+}
 
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     json_response(['error' => 'Email inválido'], 400);

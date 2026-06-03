@@ -1,6 +1,22 @@
 <?php
 // PMDCRM/src/auth.php
-session_start();
+// Hardened session cookie configuration (keep logged in indefinitely - 1 year)
+require_once __DIR__ . '/session.php';
+
+ini_set('session.gc_maxlifetime', 31536000);
+session_set_cookie_params([
+    'lifetime' => 31536000,
+    'path' => '/',
+    'secure' => isset($_SERVER['HTTPS']) || (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https'),
+    'httponly' => true,
+    'samesite' => 'Lax'
+]);
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+require_once __DIR__ . '/helpers.php';
 
 function require_login() {
     if (!isset($_SESSION['user_id'])) {

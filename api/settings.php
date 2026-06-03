@@ -158,5 +158,5 @@ try {
 } catch (Exception $e) {
     if ($pdo->inTransaction()) $pdo->rollBack();
     error_log("Settings API Error: " . $e->getMessage());
-    json_response(['error' => 'Erro ao salvar configurações: ' . $e->getMessage()], 500);
+    json_response(['error' => 'Erro ao salvar configurações.'], 500);
 }

@@ -9,7 +9,7 @@ if (!is_admin()) json_response(['error' => 'Acesso negado'], 403);
 
 try {
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-        $stmt = $pdo->query("SELECT * FROM plans ORDER BY price ASC");
+        $stmt = $pdo->query("SELECT id, name, max_clients, max_leads, max_integrations, price, features, is_active, created_at FROM plans ORDER BY price ASC");
         json_response(['success' => true, 'data' => $stmt->fetchAll(PDO::FETCH_ASSOC)]);
     }
 
@@ -37,5 +37,6 @@ try {
         }
     }
 } catch (Exception $e) {
-    json_response(['error' => $e->getMessage()], 500);
+    error_log("Admin Plans API Error: " . $e->getMessage());
+    json_response(['error' => 'Erro interno ao carregar ou atualizar planos.'], 500);
 }

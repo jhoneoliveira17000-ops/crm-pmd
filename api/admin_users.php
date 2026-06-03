@@ -33,7 +33,8 @@ try {
         
         if ($action === 'get' && isset($_GET['id'])) {
             $stmt = $pdo->prepare("
-                SELECT u.*, p.name as plan_name, p.max_clients, p.max_leads
+                SELECT u.id, u.nome, u.email, u.role, u.status, u.plan_id, u.created_at, u.webhook_token,
+                       p.name as plan_name, p.max_clients, p.max_leads
                 FROM usuarios u
                 LEFT JOIN plans p ON u.plan_id = p.id
                 WHERE u.id = ?
@@ -54,6 +55,10 @@ try {
         if ($action === 'create') {
             if (empty($data['nome']) || empty($data['email']) || empty($data['senha'])) {
                 json_response(['error' => 'Nome, email e senha são obrigatórios'], 400);
+            }
+
+            if (strlen($data['senha']) < 8) {
+                json_response(['error' => 'A senha deve conter pelo menos 8 caracteres'], 400);
             }
 
             // Check if email exists
@@ -124,6 +129,10 @@ try {
         if ($action === 'reset_password') {
             if (empty($data['new_password'])) json_response(['error' => 'Nova senha obrigatória'], 400);
             
+            if (strlen($data['new_password']) < 8) {
+                json_response(['error' => 'A nova senha deve conter pelo menos 8 caracteres'], 400);
+            }
+            
             $hash = password_hash($data['new_password'], PASSWORD_DEFAULT);
             $stmt = $pdo->prepare("UPDATE usuarios SET senha_hash = ? WHERE id = ?");
             $stmt->execute([$hash, (int)$data['id']]);
@@ -180,5 +189,5 @@ try {
 
 } catch (Exception $e) {
     error_log("Admin Users API Error: " . $e->getMessage());
-    json_response(['error' => 'Erro: ' . $e->getMessage()], 500);
+    json_response(['error' => 'Erro interno no servidor.'], 500);
 }

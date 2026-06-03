@@ -1,5 +1,6 @@
 <?php
 require_once '../src/auth.php';
+require_once '../src/db.php';
 require_login();
 
 $userId = $_SESSION['user_id'];

@@ -1,6 +1,5 @@
 <?php
 // PMDCRM/api/financeiro.php
-file_put_contents('debug_financeiro_hit.txt', date('[Y-m-d H:i:s] ') . "Hit: " . $_SERVER['REQUEST_METHOD'] . " " . file_get_contents('php://input') . "\n", FILE_APPEND);
 
 require_once __DIR__ . '/../src/db.php';
 require_once __DIR__ . '/../src/auth.php';
@@ -44,7 +43,8 @@ if ($method === 'DELETE') {
         $stmt->execute([(int)$input['id']]);
         json_response(['success' => true, 'message' => 'Despesa excluída com sucesso']);
     } catch (PDOException $e) {
-        json_response(['success' => false, 'error' => 'Erro ao excluir: ' . $e->getMessage()], 500);
+        error_log("Erro ao excluir despesa: " . $e->getMessage());
+        json_response(['success' => false, 'error' => 'Erro ao excluir despesa.'], 500);
     }
     exit;
 }
@@ -59,8 +59,6 @@ if ($method === 'POST') {
     $data_despesa = $input['data_despesa'] ?? date('Y-m-d');
     $status = sanitize_input($input['status'] ?? 'pago');
     
-    // Debug Log
-    file_put_contents('debug_financeiro.txt', date('[Y-m-d H:i:s] ') . "Input: " . json_encode($input) . "\n", FILE_APPEND);
 
     // Recurrence Logic
     $recorrente = !empty($input['recorrente']);
@@ -108,8 +106,8 @@ if ($method === 'POST') {
             json_response(['success' => true, 'message' => $recorrente ? "Despesa criada ($parcelas recorrências)" : 'Despesa criada', 'id' => $firstId]);
         }
     } catch (PDOException $e) {
-        file_put_contents('debug_financeiro_error.txt', date('[Y-m-d H:i:s] ') . "Error: " . $e->getMessage() . "\n", FILE_APPEND);
-        json_response(['success' => false, 'error' => 'Erro ao salvar: ' . $e->getMessage()], 500);
+        error_log("Erro ao salvar despesa: " . $e->getMessage());
+        json_response(['success' => false, 'error' => 'Erro ao salvar despesa.'], 500);
     }
     exit;
 }
@@ -156,8 +154,6 @@ if ($method === 'GET') {
     if (!empty($_GET['start'])) $start = $_GET['start'];
     if (!empty($_GET['end'])) $end = $_GET['end'];
     
-    // DEBUG GET
-    file_put_contents('debug_financeiro_get.txt', date('[Y-m-d H:i:s] ') . "GET Request - Range: $range, Start: $start, End: $end\n", FILE_APPEND);
 
     try {
         // 1. List Transactions (Despesas)
@@ -170,8 +166,6 @@ if ($method === 'GET') {
         $stmt->execute([$start, $end]);
         $transactions = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        // DEBUG RESULTS
-        file_put_contents('debug_financeiro_get.txt', date('[Y-m-d H:i:s] ') . "Found: " . count($transactions) . " rows\n", FILE_APPEND);
 
         // 2. Metrics Calculation
         
@@ -183,7 +177,7 @@ if ($method === 'GET') {
         $expensesByCategory = [];
 
         // Calculate from Transactions
-        file_put_contents('debug_financeiro_calc.txt', date('[Y-m-d H:i:s] ') . "Starting Calculation on " . count($transactions) . " items\n", FILE_APPEND);
+
         
         foreach ($transactions as $t) {
             $val = (float)$t['valor'];
@@ -206,7 +200,6 @@ if ($method === 'GET') {
             }
         }
         
-        file_put_contents('debug_financeiro_calc.txt', "Final: Rev=$revenue, Exp=$expenses\n", FILE_APPEND);
 
         // Add MRR from Contracts (Optional: If user wants contracts mixed with manual revenue)
         // For now, let's keep it simple: Financeiro page shows what is in 'despesas' table (Cash Flow).
@@ -324,7 +317,8 @@ if ($method === 'GET') {
         ]);
 
     } catch (PDOException $e) {
-        json_response(['success' => false, 'error' => 'Erro ao carregar dados: ' . $e->getMessage()], 500);
+        error_log("Erro ao carregar dados financeiros: " . $e->getMessage());
+        json_response(['success' => false, 'error' => 'Erro ao carregar dados financeiros.'], 500);
     }
 }
 ?>

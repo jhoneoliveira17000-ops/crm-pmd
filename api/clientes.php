@@ -23,7 +23,17 @@ try {
     // === GET ===
     if ($method === 'GET') {
         $tenantScope = get_tenant_condition();
-        $stmt = $pdo->query("SELECT * FROM clientes WHERE {$tenantScope} ORDER BY created_at DESC");
+        $stmt = $pdo->query("
+            SELECT id, nome_empresa, nome_responsavel, email, telefone, segmento,
+                   pasta_drive_url, plano_nome, valor_mensal, periodo_meses,
+                   data_inicio_contrato, data_fim_contrato, status_contrato,
+                   canal_aquisicao, data_entrada, created_at, dia_pagamento,
+                   metodo_pagamento, status_risco, instagram, landing_page_url,
+                   produto_servico, nicho, origem, endereco, cidade, estado, cep, obs
+            FROM clientes 
+            WHERE {$tenantScope} 
+            ORDER BY created_at DESC
+        ");
         $clientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
         echo json_encode($clientes);
         exit;
@@ -43,7 +53,8 @@ try {
             $stmt->execute([(int)$input['id']]);
             json_response(['success' => true, 'message' => 'Cliente excluído com sucesso']);
         } catch (PDOException $e) {
-            json_response(['success' => false, 'error' => 'Erro ao excluir cliente: ' . $e->getMessage()], 500);
+            error_log("Erro ao excluir cliente: " . $e->getMessage());
+            json_response(['success' => false, 'error' => 'Erro ao excluir cliente.'], 500);
         }
         exit;
     }
@@ -127,7 +138,8 @@ try {
                 $stmt->execute($valores);
                 json_response(['success' => true, 'message' => 'Cliente atualizado com sucesso']);
             } catch (PDOException $e) {
-                json_response(['success' => false, 'message' => 'Erro ao atualizar: ' . $e->getMessage()], 500);
+                error_log("Erro ao atualizar cliente: " . $e->getMessage());
+                json_response(['success' => false, 'message' => 'Erro ao atualizar cliente.'], 500);
             }
 
         } else {
@@ -203,13 +215,12 @@ try {
 
             } catch (PDOException $e) {
                 $pdo->rollBack();
-                file_put_contents(__DIR__ . '/../debug_insert.txt', "PDO Error: " . $e->getMessage() . "\n", FILE_APPEND);
                 error_log("Erro ao criar cliente PDO: " . $e->getMessage()); 
-                json_response(['success' => false, 'message' => 'Erro ao criar: ' . $e->getMessage()], 500);
+                json_response(['success' => false, 'message' => 'Erro ao criar cliente.'], 500);
             } catch (Exception $e) {
                 $pdo->rollBack();
-                file_put_contents(__DIR__ . '/../debug_insert.txt', "General Error: " . $e->getMessage() . "\n", FILE_APPEND);
-                json_response(['success' => false, 'message' => 'Erro desconhecido: ' . $e->getMessage()], 500);
+                error_log("Erro geral ao criar cliente: " . $e->getMessage());
+                json_response(['success' => false, 'message' => 'Erro desconhecido ao criar cliente.'], 500);
             }
         }
         exit;
@@ -221,6 +232,6 @@ try {
 } catch (Throwable $t) {
     error_log("Erro Fatal API Clientes: " . $t->getMessage() . " in " . $t->getFile() . ":" . $t->getLine());
     http_response_code(500);
-    echo json_encode(['success' => false, 'error' => 'Erro interno do servidor: ' . $t->getMessage()]);
+    echo json_encode(['success' => false, 'error' => 'Erro interno do servidor.']);
 }
 ?>

@@ -24,6 +24,7 @@ try {
         WHERE 
             status_contrato = 'ativo' 
             AND data_fim_contrato BETWEEN ? AND ?
+            AND ( " . get_tenant_condition() . " )
         ORDER BY data_fim_contrato ASC
     ");
     
@@ -42,6 +43,7 @@ try {
         FROM clientes 
         WHERE 
             status_contrato = 'ativo'
+            AND ( " . get_tenant_condition() . " )
     ");
     
     $stmt->execute();
@@ -86,7 +88,8 @@ try {
 
     // 3. Leads Estagnados ou Novos (CRM)
     // Buscas leads em 'Novo Lead' (status_id=1) 
-    $stmtLeads = $pdo->query("SELECT count(*) FROM leads WHERE status_id = 1");
+    $tenantCond = get_tenant_condition();
+    $stmtLeads = $pdo->query("SELECT count(*) FROM leads WHERE status_id = 1 AND ({$tenantCond})");
     $novosLeads = $stmtLeads->fetchColumn();
 
     if ($novosLeads > 0) {

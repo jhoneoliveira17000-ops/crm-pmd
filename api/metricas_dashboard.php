@@ -283,6 +283,7 @@ try {
     ]);
 
 } catch (PDOException $e) {
-    json_response(['error' => 'Erro ao calcular métricas: ' . $e->getMessage()], 500);
+    error_log("Metricas Dashboard API Error: " . $e->getMessage());
+    json_response(['error' => 'Erro interno ao calcular métricas.'], 500);
 }
 ?>

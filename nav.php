@@ -3,7 +3,7 @@
 ?>
 <?php if (isset($_SESSION['is_impersonating']) && $_SESSION['is_impersonating']): ?>
 <div class="fixed top-0 left-0 right-0 bg-red-600 text-white z-[200] flex items-center justify-between px-4 py-2 text-sm font-bold shadow-lg md:pl-64">
-    <span>⚠️ Impersonando: <strong><?= htmlspecialchars($_SESSION['user_nome']) ?></strong> (ID #<?= $_SESSION['user_id'] ?>)</span>
+    <span>⚠️ Impersonando: <strong><?= htmlspecialchars($_SESSION['user_nome']) ?></strong> (ID #<?= (int)$_SESSION['user_id'] ?>)</span>
     <button onclick="exitImpersonation()" class="bg-white text-red-600 px-3 py-1 rounded-lg font-bold hover:bg-red-100 transition text-xs">
         ↩️ Voltar ao Admin
     </button>
@@ -18,38 +18,41 @@ async function exitImpersonation() {
 </script>
 <style>body { padding-top: 40px; }</style>
 <?php endif; ?>
+<?php
+$currentPage = basename($_SERVER['PHP_SELF']);
+?>
 <!-- Bottom Navbar (Mobile) -->
 <nav class="fixed bottom-0 left-0 w-full bg-white/90 dark:bg-slate-900/90 backdrop-blur border-t border-gray-200 dark:border-slate-800 md:hidden z-50 transition-colors duration-300">
     <div class="flex justify-around items-center h-16">
-        <a href="dashboard.php" class="flex flex-col items-center justify-center w-full h-full text-slate-400 hover:text-green-500 active:text-green-600 transition">
-            <svg class="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
-            <span class="text-[10px] uppercase font-bold tracking-wide">Dash</span>
+        <a href="dashboard.php" class="flex flex-col items-center justify-center w-full h-full transition <?= $currentPage == 'dashboard.php' ? 'text-[var(--theme-color)]' : 'text-slate-400 hover:text-green-500' ?>">
+            <svg class="w-6 h-6 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+            <span class="text-[9px] uppercase font-bold tracking-wider">Dash</span>
         </a>
-        <a href="clientes.php" class="flex flex-col items-center justify-center w-full h-full text-slate-400 hover:text-green-500 active:text-green-600 transition">
-            <svg class="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-            <span class="text-[10px] uppercase font-bold tracking-wide">Clientes</span>
+        <a href="clientes.php" class="flex flex-col items-center justify-center w-full h-full transition <?= $currentPage == 'clientes.php' ? 'text-[var(--theme-color)]' : 'text-slate-400 hover:text-green-500' ?>">
+            <svg class="w-6 h-6 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+            <span class="text-[9px] uppercase font-bold tracking-wider">Clientes</span>
         </a>
-        <div class="relative -top-5">
-            <button onclick="openModal('new')" class="bg-[var(--theme-color)] hover:bg-green-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg shadow-green-500/30 hover:scale-105 transition duration-300">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+        <div class="relative -top-4">
+            <button onclick="typeof openModal === 'function' ? openModal('new') : window.location.href='clientes.php?action=new'" class="bg-[var(--theme-color)] hover:bg-green-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg shadow-green-500/30 hover:scale-105 transition duration-300">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
             </button>
         </div>
 
-        <a href="crm_kanban.php" class="flex flex-col items-center justify-center w-full h-full text-slate-400 hover:text-green-500 active:text-green-600 transition">
-             <svg class="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-            <span class="text-[10px] uppercase font-bold tracking-wide">CRM</span>
+        <a href="crm_kanban.php" class="flex flex-col items-center justify-center w-full h-full transition <?= $currentPage == 'crm_kanban.php' ? 'text-[var(--theme-color)]' : 'text-slate-400 hover:text-green-500' ?>">
+             <svg class="w-6 h-6 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+            <span class="text-[9px] uppercase font-bold tracking-wider">CRM</span>
         </a>
 
-        <a href="financeiro.php" class="flex flex-col items-center justify-center w-full h-full text-slate-400 hover:text-green-500 active:text-green-600 transition">
-            <svg class="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-            <span class="text-[10px] uppercase font-bold tracking-wide">Finan</span>
+        <a href="financeiro.php" class="flex flex-col items-center justify-center w-full h-full transition <?= $currentPage == 'financeiro.php' ? 'text-[var(--theme-color)]' : 'text-slate-400 hover:text-green-500' ?>">
+            <svg class="w-6 h-6 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <span class="text-[9px] uppercase font-bold tracking-wider">Finan</span>
         </a>
     </div>
 </nav>
 
 <!-- Sidebar (Desktop) -->
 <aside class="hidden md:flex flex-col w-64 h-screen bg-white dark:bg-[#0f172a] text-slate-800 dark:text-white fixed top-0 left-0 border-r border-gray-200 dark:border-slate-800 shadow-2xl z-40 transition-colors duration-300">
-    <div class="h-24 flex items-center justify-center border-b border-gray-200 dark:border-slate-800 bg-white dark:bg-[#0f172a] overflow-hidden transition-colors duration-300">
+    <div class="h-24 flex items-center justify-between px-6 border-b border-gray-200 dark:border-slate-800 bg-white dark:bg-[#0f172a] overflow-hidden transition-colors duration-300">
         <?php
         // Fetch Logo
         // Ensure DB connection if not already present
@@ -65,11 +68,17 @@ async function exitImpersonation() {
         }
         ?>
 
-        <?php if (!empty($logo)): ?>
-            <img src="<?= $logo ?>" alt="Logo" class="max-h-24 max-w-full object-contain">
-        <?php else: ?>
-            <span class="text-2xl font-black italic tracking-tighter text-slate-900 dark:text-white">PMD<span class="text-[var(--theme-color)]">CRM</span></span>
-        <?php endif; ?>
+        <div class="flex items-center overflow-hidden">
+            <?php if (!empty($logo)): ?>
+                <img src="<?= e($logo) ?>" alt="Logo" class="max-h-24 max-w-full object-contain">
+            <?php else: ?>
+                <span class="text-2xl font-black italic tracking-tighter text-slate-900 dark:text-white">PMD<span class="text-[var(--theme-color)]">CRM</span></span>
+            <?php endif; ?>
+        </div>
+
+        <button id="sidebarCollapseBtn" onclick="toggleSidebarLayout(true)" class="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 focus:outline-none transition-colors duration-200 flex items-center justify-center" title="Recolher barra lateral">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 19l-7-7 7-7M19 19l-7-7 7-7"></path></svg>
+        </button>
     </div>
     
     <nav class="flex-1 px-4 py-8 space-y-2 overflow-y-auto custom-scrollbar">

@@ -1,5 +1,6 @@
 <?php
 // PMDCRM/src/utils.php
+require_once __DIR__ . '/helpers.php';
 
 // Ensure errors don't leak into JSON
 ini_set('display_errors', 0);
