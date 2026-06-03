@@ -109,6 +109,12 @@
                      </div>
                  </div>
 
+                 <!-- Company Name -->
+                 <div>
+                     <label class="block text-xs font-medium text-slate-500 mb-1">Nome da Empresa</label>
+                     <input type="text" id="companyNameInput" class="w-full bg-gray-50 dark:bg-slate-900 border border-gray-200 dark:border-slate-600 rounded p-2 text-sm text-slate-800 dark:text-white outline-none focus:border-[var(--theme-color)]" placeholder="Ex: PMDCRM">
+                 </div>
+
                  <!-- Theme Color -->
                  <div>
                     <label class="block text-xs font-medium text-slate-500 mb-1">Cor do Tema</label>

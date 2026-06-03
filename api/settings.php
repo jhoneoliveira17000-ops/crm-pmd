@@ -54,7 +54,8 @@ try {
             'whatsapp_default_msg',
             'whatsapp_templates_json',
             'company_logo',
-            'theme_color'
+            'theme_color',
+            'company_name'
         ];
 
         $tenantId = get_tenant_id();

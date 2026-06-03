@@ -61,6 +61,10 @@ async function loadSettings() {
                 applyThemeColor(s.theme_color);
                 localStorage.setItem('theme_color', s.theme_color);
             }
+            if (s.company_name) {
+                document.getElementById('companyNameInput').value = s.company_name;
+                localStorage.setItem('company_name', s.company_name);
+            }
             if (s.whatsapp_default_msg) document.getElementById('whatsappMsgInput').value = s.whatsapp_default_msg;
             if (s.webhook_token && document.getElementById('metaWebhookUrl')) {
                 const basePath = window.location.href.substring(0, window.location.href.lastIndexOf('/'));
@@ -108,6 +112,7 @@ async function saveSettings() {
         const settings = {
             whatsapp_default_msg: document.getElementById('whatsappMsgInput').value,
             theme_color: document.getElementById('themeColorInput').value,
+            company_name: document.getElementById('companyNameInput').value,
             meta_page_id: document.getElementById('metaPageId').value,
             meta_verify_token: document.getElementById('metaVerifyToken').value,
             meta_page_access_token: document.getElementById('metaAccessToken').value
@@ -126,12 +131,13 @@ async function saveSettings() {
 
             // Update Cache
             if (settings.theme_color) localStorage.setItem('theme_color', settings.theme_color);
+            if (settings.company_name) localStorage.setItem('company_name', settings.company_name);
 
             btn.innerHTML = 'Salvo!';
             setTimeout(() => {
                 btn.innerHTML = originalText;
                 btn.disabled = false;
-                if (fileInput.files[0] || settings.theme_color) location.reload();
+                if (fileInput.files[0] || settings.theme_color || settings.company_name) location.reload();
             }, 1000);
         } else {
             alert("Erro: " + (data.error || "Desconhecido"));

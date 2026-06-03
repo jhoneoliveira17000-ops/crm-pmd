@@ -3,7 +3,7 @@
 require_once 'src/auth.php';
 require_login();
 require_admin();
-?>
+
 $page_title = "Painel Administrativo - PMDCRM";
 $body_class = "md:pl-64";
 include 'includes/header.php';

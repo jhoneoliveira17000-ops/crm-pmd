@@ -53,26 +53,13 @@ $currentPage = basename($_SERVER['PHP_SELF']);
 <!-- Sidebar (Desktop) -->
 <aside class="hidden md:flex flex-col w-64 h-screen bg-white dark:bg-[#0f172a] text-slate-800 dark:text-white fixed top-0 left-0 border-r border-gray-200 dark:border-slate-800 shadow-2xl z-40 transition-colors duration-300">
     <div class="h-24 flex items-center justify-between px-6 border-b border-gray-200 dark:border-slate-800 bg-white dark:bg-[#0f172a] overflow-hidden transition-colors duration-300">
-        <?php
-        // Fetch Logo
-        // Ensure DB connection if not already present
-        if (!isset($pdo) && file_exists(__DIR__ . '/src/db.php')) {
-            require_once __DIR__ . '/src/db.php';
-        }
-
-        $logo = '';
-        if (isset($pdo) && isset($_SESSION['user_id'])) {
-            $stmt = $pdo->prepare("SELECT value FROM config WHERE key_name = 'company_logo' AND user_id = ?");
-            $stmt->execute([$_SESSION['user_id']]);
-            $logo = $stmt->fetchColumn();
-        }
+        // Branding variables ($companyLogo and $companyName) are already loaded in includes/header.php
         ?>
-
         <div class="flex items-center overflow-hidden">
-            <?php if (!empty($logo)): ?>
-                <img src="<?= e($logo) ?>" alt="Logo" class="max-h-24 max-w-full object-contain">
+            <?php if (!empty($companyLogo)): ?>
+                <img src="<?= e($companyLogo) ?>" alt="Logo" class="max-h-12 max-w-full object-contain">
             <?php else: ?>
-                <span class="text-2xl font-black italic tracking-tighter text-slate-900 dark:text-white">PMD<span class="text-[var(--theme-color)]">CRM</span></span>
+                <span class="text-2xl font-black tracking-tight text-slate-900 dark:text-white"><?= e($companyName) ?></span>
             <?php endif; ?>
         </div>
 

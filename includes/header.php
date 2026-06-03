@@ -7,8 +7,42 @@ require_once __DIR__ . '/../src/helpers.php';
 // Verify CSRF token on modifying request methods
 verify_csrf_or_exit();
 
-// Default variables
-$title = $page_title ?? 'PMDCRM';
+// Load White-Label Branding settings
+$themeColor = '#00BF24';
+$companyName = 'PMDCRM';
+$companyLogo = '';
+
+if (isset($pdo)) {
+    $targetUserId = null;
+    if (isset($_SESSION['user_id'])) {
+        $targetUserId = $_SESSION['user_id'];
+    } else {
+        try {
+            $stmtAdmin = $pdo->query("SELECT id FROM usuarios WHERE role = 'admin' ORDER BY id ASC LIMIT 1");
+            $targetUserId = $stmtAdmin->fetchColumn() ?: null;
+        } catch (Exception $e) {}
+    }
+
+    if ($targetUserId) {
+        try {
+            $stmtConfig = $pdo->prepare("SELECT key_name, value FROM config WHERE user_id = ?");
+            $stmtConfig->execute([$targetUserId]);
+            $configs = $stmtConfig->fetchAll(PDO::FETCH_KEY_PAIR);
+            
+            if (!empty($configs['theme_color'])) {
+                $themeColor = $configs['theme_color'];
+            }
+            if (!empty($configs['company_name'])) {
+                $companyName = $configs['company_name'];
+            }
+            if (!empty($configs['company_logo'])) {
+                $companyLogo = $configs['company_logo'];
+            }
+        } catch (Exception $e) {}
+    }
+}
+
+$title = isset($page_title) ? str_replace('PMDCRM', $companyName, $page_title) : $companyName;
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
@@ -18,8 +52,8 @@ $title = $page_title ?? 'PMDCRM';
     <title><?= e($title) ?></title>
     
     <!-- SEO & Metadata -->
-    <meta name="description" content="PMDCRM - Sistema de CRM para Agências de Marketing e Vendas.">
-    <meta name="theme-color" content="#3b82f6">
+    <meta name="description" content="<?= e($companyName) ?> - Sistema de CRM e Gestão de Clientes.">
+    <meta name="theme-color" content="<?= $themeColor ?>">
     
     <!-- Google Fonts Preconnect & Load -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,6 +61,10 @@ $title = $page_title ?? 'PMDCRM';
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Scripts & Styles -->
+    <script>
+        localStorage.setItem('theme_color', '<?= $themeColor ?>');
+        localStorage.setItem('company_name', '<?= e($companyName) ?>');
+    </script>
     <script src="js/theme-loader.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -35,7 +73,11 @@ $title = $page_title ?? 'PMDCRM';
             theme: {
                 extend: {
                     colors: {
-                        brand: 'var(--theme-color)',
+                        brand: {
+                            DEFAULT: 'var(--theme-color)',
+                            50: 'var(--theme-color)10',
+                            100: 'var(--theme-color)20',
+                        }
                     }
                 }
             }
@@ -43,6 +85,9 @@ $title = $page_title ?? 'PMDCRM';
     </script>
     
     <style>
+        :root {
+            --theme-color: <?= $themeColor ?>;
+        }
         body { font-family: 'Inter', sans-serif; }
         .font-mono { font-family: 'JetBrains Mono', monospace; }
         .card-bi { border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }

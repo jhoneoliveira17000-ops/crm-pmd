@@ -3,7 +3,7 @@
 require_once 'src/auth.php';
 require_login();
 require_admin();
-?>
+
 $page_title = "Planos - PMDCRM Admin";
 $body_class = "md:pl-64";
 include 'includes/header.php';
