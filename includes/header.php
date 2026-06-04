@@ -150,7 +150,7 @@ $title = isset($page_title) ? str_replace('PMDCRM', $companyName, $page_title) :
                 transition: padding-left 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
             }
             html.sidebar-collapsed body {
-                padding-left: 0 !important;
+                padding-left: 5rem !important;
             }
             html.sidebar-collapsed aside {
                 transform: translateX(-100%) !important;

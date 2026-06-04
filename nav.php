@@ -1,6 +1,14 @@
 <?php
 // PMDCRM/nav.php — Editorial Sidebar Navigation
 ?>
+<!-- Theme Toggle Script -->
+<script>
+function toggleTheme() {
+    const html = document.documentElement;
+    const isNowDark = html.classList.toggle('dark');
+    localStorage.setItem('theme', isNowDark ? 'dark' : 'light');
+}
+</script>
 <?php if (isset($_SESSION['is_impersonating']) && $_SESSION['is_impersonating']): ?>
 <div class="fixed top-0 left-0 right-0 z-[200] flex items-center justify-between px-4 py-2 text-sm font-bold shadow-lg md:pl-64" style="background:var(--danger);color:#fff">
     <span>⚠️ Impersonando: <strong><?= htmlspecialchars($_SESSION['user_nome']) ?></strong> (ID #<?= (int)$_SESSION['user_id'] ?>)</span>
@@ -63,6 +71,11 @@ function navActiveIndicator($page, $currentPage) {
             <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
             <span class="text-[10px] font-semibold tracking-wide">Financeiro</span>
         </a>
+        <button type="button" onclick="toggleTheme()" class="flex flex-col items-center justify-center gap-0.5 flex-1 py-1 transition-colors text-[var(--text-4)] hover:text-[var(--text-1)]">
+            <svg id="mThemeIconMoon" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+            <svg id="mThemeIconSun" class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+            <span class="text-[10px] font-semibold tracking-wide">Tema</span>
+        </button>
     </div>
 </nav>
 
@@ -142,11 +155,15 @@ function navActiveIndicator($page, $currentPage) {
         <?php endif; ?>
     </nav>
     
-    <!-- Logout -->
-    <div class="flex-shrink-0 p-3" style="border-top:1px solid var(--border-1)">
-        <button onclick="window.location.href='/logout'" class="group flex items-center gap-3 w-full px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 hover:bg-[var(--danger-subtle)]" style="color:var(--text-3)" onmouseenter="this.style.color='var(--danger)'" onmouseleave="this.style.color='var(--text-3)'">
+    <!-- Logout & Theme Toggle -->
+    <div class="flex-shrink-0 p-3 flex items-center gap-2" style="border-top:1px solid var(--border-1)">
+        <button onclick="window.location.href='/logout'" class="group flex items-center gap-3 flex-1 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 hover:bg-[var(--danger-subtle)]" style="color:var(--text-3)" onmouseenter="this.style.color='var(--danger)'" onmouseleave="this.style.color='var(--text-3)'">
             <svg class="w-[18px] h-[18px] flex-shrink-0 transition-transform duration-200 group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
             Sair
+        </button>
+        <button onclick="toggleTheme()" class="p-2.5 rounded-xl bg-[var(--surface-2)] hover:bg-[var(--surface-3)] text-[var(--text-3)] hover:text-[var(--text-1)] transition flex items-center justify-center" title="Alternar tema">
+            <svg id="themeIconMoon" class="w-[18px] h-[18px] hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+            <svg id="themeIconSun" class="w-[18px] h-[18px] block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
         </button>
     </div>
 </aside>
