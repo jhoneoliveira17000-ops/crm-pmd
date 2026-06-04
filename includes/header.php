@@ -88,6 +88,30 @@ $title = isset($page_title) ? str_replace('PMDCRM', $companyName, $page_title) :
         :root {
             --theme-color: <?= $themeColor ?>;
         }
+
+        /* Dynamic Spring Effect class (Suave e Elegante) */
+        .btn-spring, .card-spring {
+            transition: transform 0.5s cubic-bezier(0.34, 1.3, 0.64, 1), box-shadow 0.5s cubic-bezier(0.34, 1.3, 0.64, 1), border-color 0.5s ease, background-color 0.5s ease !important;
+            will-change: transform;
+        }
+        .btn-spring:hover {
+            transform: scale(1.035) translateY(-1px) !important;
+        }
+        .btn-spring:active {
+            transform: scale(0.97) translateY(0) !important;
+        }
+        .card-spring:hover {
+            transform: scale(1.012) translateY(-2px) !important;
+            box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.1) !important;
+        }
+        .dark .card-spring:hover {
+            box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.5) !important;
+            border-color: rgba(34, 197, 94, 0.25) !important; /* Soft glow border outline */
+        }
+        .card-spring:active {
+            transform: scale(0.99) translateY(0) !important;
+        }
+
         body { font-family: 'Inter', sans-serif; }
         .font-mono { font-family: 'JetBrains Mono', monospace; }
         .card-bi { border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }

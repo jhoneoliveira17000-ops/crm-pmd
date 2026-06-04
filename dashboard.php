@@ -40,7 +40,7 @@ include 'includes/header.php';
 
                 <!-- Notification Bell -->
                 <div class="relative">
-                    <button id="notifBtn" class="bg-white dark:bg-gray-800 p-2 rounded-full text-gray-400 hover:text-gray-600 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition relative border border-gray-200 dark:border-gray-700 shadow-sm">
+                    <button id="notifBtn" class="btn-spring bg-white dark:bg-gray-800 p-2 rounded-full text-gray-400 hover:text-gray-600 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition relative border border-gray-200 dark:border-gray-700 shadow-sm">
                         <span class="absolute top-0 right-0 w-2.5 h-2.5 bg-rose-500 rounded-full border-2 border-white dark:border-gray-900 hidden animate-pulse" id="notifBadge"></span>
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
                     </button>
@@ -62,7 +62,7 @@ include 'includes/header.php';
         <!-- KPI Grid (High Density) -->
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
             <!-- 1. MRR -->
-            <div class="card-bi p-4 bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-[#222] relative overflow-hidden group">
+            <div class="card-bi card-spring p-4 bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-[#222] relative overflow-hidden group">
                 <div class="absolute right-2 top-2 opacity-10 text-green-500"><svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
                 <div class="text-xs text-gray-500 dark:text-gray-400 font-mono mb-1">RECEITA (MRR)</div>
                 <div class="text-2xl font-bold text-slate-800 dark:text-white tracking-tight" id="kpi-mrr">R$ 0,00</div>
@@ -75,7 +75,7 @@ include 'includes/header.php';
             </div>
 
             <!-- 2. Pipeline Value (CRM) -->
-            <div class="card-bi p-4 bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-[#222] relative overflow-hidden group">
+            <div class="card-bi card-spring p-4 bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-[#222] relative overflow-hidden group">
                 <div class="absolute right-2 top-2 opacity-10 text-amber-500"><svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg></div>
                 <div class="text-xs text-gray-500 dark:text-gray-400 font-mono mb-1">PIPELINE ABERTO</div>
                 <div class="text-2xl font-bold text-slate-800 dark:text-white tracking-tight" id="kpi-pipeline">R$ 0,00</div>
@@ -88,7 +88,7 @@ include 'includes/header.php';
             </div>
 
             <!-- 3. Conversion Rate -->
-            <div class="card-bi p-4 bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-[#222] relative overflow-hidden group">
+            <div class="card-bi card-spring p-4 bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-[#222] relative overflow-hidden group">
                 <div class="absolute right-2 top-2 opacity-10 text-indigo-500"><svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
                  <div class="text-xs text-gray-500 dark:text-gray-400 font-mono mb-1">TAXA CONVERSÃO</div>
                 <div class="text-2xl font-bold text-slate-800 dark:text-white tracking-tight" id="kpi-conversion">0%</div>
@@ -101,7 +101,7 @@ include 'includes/header.php';
             </div>
 
             <!-- 4. Active Clients -->
-            <div class="card-bi p-4 bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-[#222] relative overflow-hidden group">
+            <div class="card-bi card-spring p-4 bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-[#222] relative overflow-hidden group">
                <div class="absolute right-2 top-2 opacity-10 text-[var(--theme-color)]"><svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg></div>
                  <div class="text-xs text-gray-500 dark:text-gray-400 font-mono mb-1">BASE ATIVA</div>
                 <div class="text-2xl font-bold text-slate-800 dark:text-white tracking-tight" id="kpi-clients">0</div>
@@ -117,28 +117,28 @@ include 'includes/header.php';
         <!-- Row 2: Analytics (CAC, LTV, ROI, Time) -->
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
             <!-- CAC -->
-            <div class="card-bi p-4 bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-[#222]">
+            <div class="card-bi card-spring p-4 bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-[#222]">
                 <div class="text-xs text-slate-500 uppercase font-mono mb-1">CAC (AQUISIÇÃO)</div>
                 <div class="text-2xl font-bold text-[var(--theme-color)] tracking-tight" id="kpi-cac">R$ 0,00</div>
                 <div class="h-1 w-10 bg-[var(--theme-color)] mt-2 rounded-full"></div>
             </div>
 
             <!-- LTV -->
-             <div class="card-bi p-4 bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-[#222]">
+             <div class="card-bi card-spring p-4 bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-[#222]">
                 <div class="text-xs text-slate-500 uppercase font-mono mb-1">LTV (VALOR VITALÍCIO)</div>
                 <div class="text-2xl font-bold text-blue-500 dark:text-blue-400 tracking-tight" id="kpi-ltv">R$ 0,00</div>
                  <div class="text-[10px] text-slate-500 mt-1">RATIO: <span id="kpi-ltv-ratio">0</span>x CAC</div>
             </div>
 
             <!-- ROI -->
-             <div class="card-bi p-4 bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-[#222]">
+             <div class="card-bi card-spring p-4 bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-[#222]">
                 <div class="text-xs text-slate-500 uppercase font-mono mb-1">ROI MÉDIO</div>
                 <div class="text-2xl font-bold text-purple-500 dark:text-purple-400 tracking-tight" id="kpi-roi">0.0x</div>
                  <div class="text-[10px] text-slate-500 mt-1">MÉDIA GLOBAL</div>
             </div>
 
             <!-- Time -->
-             <div class="card-bi p-4 bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-[#222]">
+             <div class="card-bi card-spring p-4 bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-[#222]">
                 <div class="text-xs text-slate-500 uppercase font-mono mb-1">TEMPO FECHAMENTO</div>
                 <div class="text-2xl font-bold text-orange-500 dark:text-orange-400 tracking-tight" id="kpi-time">0 Dias</div>
                  <div class="text-[10px] text-slate-500 mt-1">MÉDIA DO PERÍODO</div>
@@ -148,7 +148,7 @@ include 'includes/header.php';
         <!-- CRM & Growth Section -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
              <!-- Sales Funnel Chart -->
-            <div class="card-bi p-6 bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-[#222]">
+            <div class="card-bi card-spring p-6 bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-[#222]">
                 <div class="flex justify-between items-center mb-6">
                     <h3 class="text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider flex items-center gap-2">
                          <span class="w-2 h-2 rounded-full bg-[var(--theme-color)]"></span>
@@ -161,7 +161,7 @@ include 'includes/header.php';
             </div>
 
             <!-- Lead Sources Chart -->
-            <div class="card-bi p-6 bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-[#222]">
+            <div class="card-bi card-spring p-6 bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-[#222]">
                  <div class="flex justify-between items-center mb-6">
                     <h3 class="text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider flex items-center gap-2">
                         <span class="w-2 h-2 rounded-full bg-blue-500"></span>
@@ -176,7 +176,7 @@ include 'includes/header.php';
 
         <!-- Finance Chart Section -->
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-            <div class="card-bi p-6 lg:col-span-2 bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-[#222]">
+            <div class="card-bi card-spring p-6 lg:col-span-2 bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-[#222]">
                 <div class="flex justify-between items-center mb-6">
                     <h3 class="text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider flex items-center gap-2">
                         <svg class="w-4 h-4 text-[var(--theme-color)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"></path></svg>
@@ -189,7 +189,7 @@ include 'includes/header.php';
             </div>
             
              <!-- Top Clients -->
-            <div class="card-bi p-6 bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-[#222]">
+            <div class="card-bi card-spring p-6 bg-white dark:bg-[#0a0a0a] border border-gray-200 dark:border-[#222]">
                  <h3 class="text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-4 flex items-center gap-2">
                     <span class="text-yellow-500">★</span> Top Clientes
                 </h3>

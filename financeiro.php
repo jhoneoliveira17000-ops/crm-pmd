@@ -32,7 +32,7 @@ include 'nav.php';
                     <input type="month" id="customMonthPicker" class="text-sm border-l pl-2 border-gray-300 dark:border-slate-600 text-slate-600 dark:text-slate-300 outline-none hidden bg-transparent" onchange="handleCustomDateChange()">
                 </div>
                 
-                <button onclick="openTransactionModal()" class="bg-[var(--theme-color)] hover:brightness-90 text-white px-5 py-2.5 rounded-lg shadow-lg font-medium flex items-center gap-2 transform hover:-translate-y-0.5 transition-all">
+                <button onclick="openTransactionModal()" class="btn-spring bg-[var(--theme-color)] hover:brightness-90 text-white px-5 py-2.5 rounded-lg shadow-lg font-medium flex items-center gap-2">
                     <span>+</span> Nova Transação
                 </button>
             </div>
@@ -41,7 +41,7 @@ include 'nav.php';
         <!-- KPI Cards -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             <!-- Receita -->
-            <div class="p-6 border-l-4 border-[var(--theme-color)] relative overflow-hidden group bg-white dark:bg-slate-800/40 backdrop-blur-sm border-y border-r border-gray-200 dark:border-slate-700/50 rounded-r-xl shadow-sm">
+            <div class="card-spring p-6 border-l-4 border-[var(--theme-color)] relative overflow-hidden group bg-white dark:bg-slate-800/40 backdrop-blur-sm border-y border-r border-gray-200 dark:border-slate-700/50 rounded-r-xl shadow-sm">
                 <div class="flex justify-between items-start mb-4">
                     <div>
                         <p class="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400 font-semibold">Receita Total</p>
@@ -57,7 +57,7 @@ include 'nav.php';
             </div>
 
             <!-- Despesas -->
-            <div class="p-6 border-l-4 border-rose-500 relative overflow-hidden group bg-white dark:bg-slate-800/40 backdrop-blur-sm border-y border-r border-gray-200 dark:border-slate-700/50 rounded-r-xl shadow-sm">
+            <div class="card-spring p-6 border-l-4 border-rose-500 relative overflow-hidden group bg-white dark:bg-slate-800/40 backdrop-blur-sm border-y border-r border-gray-200 dark:border-slate-700/50 rounded-r-xl shadow-sm">
                  <div class="flex justify-between items-start mb-4">
                     <div>
                         <p class="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400 font-semibold">Despesas</p>
@@ -73,7 +73,7 @@ include 'nav.php';
             </div>
 
             <!-- Lucro Líquido -->
-            <div class="p-6 border-l-4 border-blue-500 relative overflow-hidden group bg-white dark:bg-slate-800/40 backdrop-blur-sm border-y border-r border-gray-200 dark:border-slate-700/50 rounded-r-xl shadow-sm">
+            <div class="card-spring p-6 border-l-4 border-blue-500 relative overflow-hidden group bg-white dark:bg-slate-800/40 backdrop-blur-sm border-y border-r border-gray-200 dark:border-slate-700/50 rounded-r-xl shadow-sm">
                  <div class="flex justify-between items-start mb-4">
                     <div>
                         <p class="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400 font-semibold">Lucro Líquido</p>
@@ -89,7 +89,7 @@ include 'nav.php';
             </div>
 
             <!-- Margem -->
-            <div class="p-6 border-l-4 border-amber-500 relative overflow-hidden group bg-white dark:bg-slate-800/40 backdrop-blur-sm border-y border-r border-gray-200 dark:border-slate-700/50 rounded-r-xl shadow-sm">
+            <div class="card-spring p-6 border-l-4 border-amber-500 relative overflow-hidden group bg-white dark:bg-slate-800/40 backdrop-blur-sm border-y border-r border-gray-200 dark:border-slate-700/50 rounded-r-xl shadow-sm">
                  <div class="flex justify-between items-start mb-4">
                     <div>
                         <p class="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400 font-semibold">Margem de Lucro</p>
@@ -107,14 +107,14 @@ include 'nav.php';
 
         <!-- Charts Section -->
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-            <div class="lg:col-span-2 bg-white dark:bg-slate-800/40 backdrop-blur-sm border border-gray-200 dark:border-slate-700/50 rounded-xl p-6 shadow-sm">
+            <div class="card-spring lg:col-span-2 bg-white dark:bg-slate-800/40 backdrop-blur-sm border border-gray-200 dark:border-slate-700/50 rounded-xl p-6 shadow-sm">
                 <h3 class="text-lg font-bold text-slate-800 dark:text-white mb-6">Fluxo de Caixa (6 Meses)</h3>
                 <div class="relative h-72 w-full">
                     <canvas id="cashFlowChart"></canvas>
                 </div>
             </div>
             
-            <div class="bg-white dark:bg-slate-800/40 backdrop-blur-sm border border-gray-200 dark:border-slate-700/50 rounded-xl p-6 shadow-sm">
+            <div class="card-spring bg-white dark:bg-slate-800/40 backdrop-blur-sm border border-gray-200 dark:border-slate-700/50 rounded-xl p-6 shadow-sm">
                 <h3 class="text-lg font-bold text-slate-800 dark:text-white mb-6">Composição de Despesas</h3>
                 <div class="relative h-64 w-full flex justify-center">
                     <canvas id="expensesChart"></canvas>
@@ -124,7 +124,7 @@ include 'nav.php';
 
         <!-- Transactions Table -->
         <!-- Transactions List -->
-        <div class="bg-white dark:bg-slate-800/40 backdrop-blur-sm border border-gray-200 dark:border-slate-700/50 rounded-xl shadow-sm overflow-hidden flex flex-col">
+        <div class="card-spring bg-white dark:bg-slate-800/40 backdrop-blur-sm border border-gray-200 dark:border-slate-700/50 rounded-xl shadow-sm overflow-hidden flex flex-col">
              <div class="p-6 border-b border-gray-200 dark:border-slate-700 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                 <h3 class="text-lg font-bold text-slate-800 dark:text-white">Todas as Transações</h3>
                 
@@ -163,7 +163,7 @@ include 'nav.php';
         <div class="bg-white dark:bg-[#1e293b] rounded-2xl shadow-2xl w-full max-w-2xl transform scale-95 transition-transform duration-300 border border-gray-200 dark:border-slate-700">
              <div class="p-6 border-b border-gray-200 dark:border-slate-700 flex justify-between items-center">
                 <h3 class="text-xl font-bold text-slate-800 dark:text-white">Nova Transação</h3>
-                <button onclick="closeTransactionModal()" class="text-slate-400 hover:text-rose-500 transition">
+                <button onclick="closeTransactionModal()" class="btn-spring text-slate-400 hover:text-rose-500 transition">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                 </button>
             </div>
@@ -231,8 +231,8 @@ include 'nav.php';
                 </div>
 
                 <div class="pt-4 flex justify-end gap-3">
-                     <button type="button" onclick="closeTransactionModal()" class="px-5 py-2.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-slate-700 font-medium transition">Cancelar</button>
-                    <button type="submit" class="bg-[var(--theme-color)] hover:brightness-90 text-white px-6 py-2.5 rounded-lg font-bold shadow-lg transition transform hover:-translate-y-0.5">Salvar</button>
+                     <button type="button" onclick="closeTransactionModal()" class="btn-spring px-5 py-2.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-slate-700 font-medium transition">Cancelar</button>
+                    <button type="submit" class="btn-spring bg-[var(--theme-color)] hover:brightness-90 text-white px-6 py-2.5 rounded-lg font-bold shadow-lg transition">Salvar</button>
                 </div>
             </form>
         </div>

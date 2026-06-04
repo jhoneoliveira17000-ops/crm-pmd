@@ -53,6 +53,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
 <!-- Sidebar (Desktop) -->
 <aside class="hidden md:flex flex-col w-64 h-screen bg-white dark:bg-[#0f172a] text-slate-800 dark:text-white fixed top-0 left-0 border-r border-gray-200 dark:border-slate-800 shadow-2xl z-40 transition-colors duration-300">
     <div class="h-24 flex items-center justify-between px-6 border-b border-gray-200 dark:border-slate-800 bg-white dark:bg-[#0f172a] overflow-hidden transition-colors duration-300">
+        <?php
         // Branding variables ($companyLogo and $companyName) are already loaded in includes/header.php
         ?>
         <div class="flex items-center overflow-hidden">

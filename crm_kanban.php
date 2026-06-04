@@ -29,11 +29,11 @@ include 'includes/header.php';
 
             <div class="flex items-center gap-3">
                  <?php include 'header_icons.php'; ?>
-                 <button onclick="openSettingsModal()" class="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-200 px-4 py-2 rounded-lg font-medium text-sm transition flex items-center gap-2">
+                 <button onclick="openSettingsModal()" class="btn-spring bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-200 px-4 py-2 rounded-lg font-medium text-sm transition flex items-center gap-2">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
                     Personalizar Funil
                 </button>
-                 <button onclick="openLeadModal()" class="bg-[var(--theme-color)] hover:bg-green-600 text-white px-5 py-2 rounded-lg font-bold text-sm transition shadow-lg shadow-green-900/40 flex items-center gap-2">
+                 <button onclick="openLeadModal()" class="btn-spring bg-[var(--theme-color)] hover:bg-green-600 text-white px-5 py-2 rounded-lg font-bold text-sm transition shadow-lg shadow-green-900/40 flex items-center gap-2">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
                     Novo Lead
                 </button>
@@ -97,11 +97,11 @@ include 'includes/header.php';
                         </div>
                         
                         <div class="grid grid-cols-2 gap-3">
-                            <button type="button" onclick="openWhatsApp()" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2.5 rounded-lg shadow-lg shadow-green-900/20 transition flex items-center justify-center gap-2">
+                            <button type="button" onclick="openWhatsApp()" class="btn-spring w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2.5 rounded-lg shadow-lg shadow-green-900/20 transition flex items-center justify-center gap-2">
                                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
                                 WhatsApp
                             </button>
-                            <button type="button" onclick="convertLeadCurrent()" id="btnConvertLead" class="w-full bg-slate-900 hover:bg-slate-800 dark:bg-slate-700 dark:hover:bg-slate-600 text-white font-bold py-2.5 rounded-lg shadow-lg transition flex items-center justify-center gap-2">
+                            <button type="button" onclick="convertLeadCurrent()" id="btnConvertLead" class="btn-spring w-full bg-slate-900 hover:bg-slate-800 dark:bg-slate-700 dark:hover:bg-slate-600 text-white font-bold py-2.5 rounded-lg shadow-lg transition flex items-center justify-center gap-2">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                                 Tornar Cliente
                             </button>
@@ -160,13 +160,13 @@ include 'includes/header.php';
 
                 <!-- Footer Actions -->
                 <div class="pt-6 border-t border-gray-200 dark:border-slate-700 flex justify-between items-center sticky bottom-0 bg-white dark:bg-[#1e293b] py-4">
-                    <button type="button" id="btnDeleteLead" onclick="deleteLeadCurrent()" class="text-red-500 hover:text-red-700 font-medium px-4 py-2 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition flex items-center gap-2 whitespace-nowrap" style="display: none;">
+                    <button type="button" id="btnDeleteLead" onclick="deleteLeadCurrent()" class="btn-spring text-red-500 hover:text-red-700 font-medium px-4 py-2 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition flex items-center gap-2 whitespace-nowrap" style="display: none;">
                         <svg class="w-4 h-4" flex-shrink-0 fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
                         Excluir Lead
                     </button>
                     <div class="flex items-center gap-3">
-                        <button type="button" onclick="closeLeadModal()" class="px-5 py-2.5 rounded-lg border border-gray-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-700 transition font-medium whitespace-nowrap">Cancelar</button>
-                        <button type="submit" class="bg-slate-900 dark:bg-white hover:bg-slate-800 dark:hover:bg-gray-200 text-white dark:text-slate-900 px-6 py-2.5 rounded-lg font-bold shadow-lg transition whitespace-nowrap">Salvar Alterações</button>
+                        <button type="button" onclick="closeLeadModal()" class="btn-spring px-5 py-2.5 rounded-lg border border-gray-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-700 transition font-medium whitespace-nowrap">Cancelar</button>
+                        <button type="submit" class="btn-spring bg-slate-900 dark:bg-white hover:bg-slate-800 dark:hover:bg-gray-200 text-white dark:text-slate-900 px-6 py-2.5 rounded-lg font-bold shadow-lg transition whitespace-nowrap">Salvar Alterações</button>
                     </div>
                 </div>
             </form>
@@ -179,7 +179,7 @@ include 'includes/header.php';
                     <label class="block text-xs font-bold text-slate-500 dark:text-slate-400 mb-2 uppercase">Nova Anotação</label>
                     <textarea id="newNoteInput" rows="3" class="w-full bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-600 rounded-lg p-3 text-sm text-slate-800 dark:text-slate-200 focus:border-[var(--theme-color)] focus:ring-1 focus:ring-[var(--theme-color)] outline-none transition resize-none placeholder:text-slate-400" placeholder="Digite uma observação importante..."></textarea>
                     <div class="flex justify-end mt-2">
-                        <button type="button" onclick="saveNote()" id="btnSaveNote" class="bg-slate-800 hover:bg-slate-900 dark:bg-slate-700 dark:hover:bg-slate-600 text-white text-xs font-bold px-4 py-2 rounded-lg transition flex items-center gap-2">
+                        <button type="button" onclick="saveNote()" id="btnSaveNote" class="btn-spring bg-slate-800 hover:bg-slate-900 dark:bg-slate-700 dark:hover:bg-slate-600 text-white text-xs font-bold px-4 py-2 rounded-lg transition flex items-center gap-2">
                             Salvar Nota
                         </button>
                     </div>
@@ -221,14 +221,14 @@ include 'includes/header.php';
                     <!-- Populated by JS -->
                 </div>
                 
-                <button onclick="addNewStage()" class="mt-4 w-full py-3 border-2 border-dashed border-gray-300 dark:border-slate-700 rounded-lg text-slate-500 dark:text-slate-400 hover:border-[var(--theme-color)] hover:text-[var(--theme-color)] transition flex items-center justify-center gap-2 font-medium">
+                <button onclick="addNewStage()" class="btn-spring mt-4 w-full py-3 border-2 border-dashed border-gray-300 dark:border-slate-700 rounded-lg text-slate-500 dark:text-slate-400 hover:border-[var(--theme-color)] hover:text-[var(--theme-color)] transition flex items-center justify-center gap-2 font-medium">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
                     Adicionar Nova Etapa
                 </button>
             </div>
             
             <div class="p-6 border-t border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-800/50 rounded-b-xl flex justify-end">
-                <button onclick="closeSettingsModal()" class="bg-white dark:bg-slate-700 border border-gray-300 dark:border-slate-600 text-slate-700 dark:text-white px-6 py-2.5 rounded-lg font-medium hover:bg-gray-50 dark:hover:bg-slate-600 transition">Concluído</button>
+                <button onclick="closeSettingsModal()" class="btn-spring bg-white dark:bg-slate-700 border border-gray-300 dark:border-slate-600 text-slate-700 dark:text-white px-6 py-2.5 rounded-lg font-medium hover:bg-gray-50 dark:hover:bg-slate-600 transition">Concluído</button>
             </div>
         </div>
     </div>
@@ -309,7 +309,7 @@ include 'includes/header.php';
 
         function renderCard(lead) {
             return `
-                <div class="lead-card bg-white dark:bg-[#1e293b] p-4 rounded-lg shadow-sm border border-gray-200 dark:border-slate-700 hover:border-[var(--theme-color)] dark:hover:border-[var(--theme-color)] group relative" data-id="${lead.id}" onclick="editLead(${lead.id})">
+                <div class="lead-card card-spring bg-white dark:bg-[#1e293b] p-4 rounded-lg shadow-sm border border-gray-200 dark:border-slate-700 hover:border-[var(--theme-color)] dark:hover:border-[var(--theme-color)] group relative cursor-pointer" data-id="${lead.id}" onclick="editLead(${lead.id})">
                     <div class="flex justify-between items-start mb-2">
                          <span class="text-xs font-bold text-[var(--theme-color)] bg-green-500/10 px-2 py-0.5 rounded uppercase tracking-wider">${lead.origem || 'N/A'}</span>
                          <button class="opacity-0 group-hover:opacity-100 text-slate-400 hover:text-white transition" onclick="event.stopPropagation(); editLead(${lead.id})">
